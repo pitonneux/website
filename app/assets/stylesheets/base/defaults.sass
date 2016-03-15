@@ -1,0 +1,30 @@
+*
+  box-sizing: border-box
+  margin: 0
+  padding: 0
+
+body
+  background-color: $lightest-gray
+  color: $base-font-color
+  line-height: $base-line-height
+  font-family: $text
+  height: 100%
+  display: flex
+  min-height: 100vh
+  flex-direction: column
+
+main
+  width: 70%
+  margin: 0 auto
+
+a
+  color: rgba($action-color, 1)
+  text-decoration: none
+  transition: all $base-timing ease-in-out
+
+  &:hover
+    opacity: 0.7
+
+a:focus, a:active
+  color: rgba($action-color, 0.6)
+

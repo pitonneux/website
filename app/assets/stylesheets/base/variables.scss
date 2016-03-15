@@ -1,0 +1,44 @@
+$base-spacing: 1.5em;
+$base-border-radius: 2px;
+$base-line-height: 1.5em;
+
+//COLORS
+$gray: #333333;
+$lightest-gray: lighten($gray, 90%);
+$lighter-gray: lighten($gray, 70%);
+$light-gray: lighten($gray, 50%);
+$dark-gray: darken($gray, 10%);
+$buttons: #FD5F3C;
+$background-color: #fdfdfd;
+
+$base-font-color: $gray;
+
+// $main-color: #05BBBB;
+$action-color: #9ADE2C;
+
+// FLASHES
+$flashes: (
+  'alert': #FFE8C5,
+  'error': #fbe3e4,
+  'notice': #84F0E3,
+  'success': #e6efc2,
+);
+
+// // BUTTONS
+// $buttons: (
+//   'bright': green,
+// );
+
+// FONTS
+$headers: 'Dosis', Helvetica Neue, Helvetica, sans-serif;
+$text: 'Karla', Helvetica Neue, Helvetica, sans-serif;
+$base-font-size: 1.1em;
+
+// MEDIA QUERIES
+$small-screen: 42em;
+$medium-screen: 68em;
+
+// TRANSITIONS
+$base-duration: 75ms;
+$long-duration: 3 * $base-duration;
+$base-timing: ease;

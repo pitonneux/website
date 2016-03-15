@@ -23,7 +23,7 @@ default: &default
 
 development:
   <<: *default
-  database: timer_development
+  database: pitonneux_development
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -55,9 +55,9 @@ development:
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
-test:
+test: &test
   <<: *default
-  database: timer_test
+  database: pitonneux_test
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -80,6 +80,7 @@ test:
 #
 production:
   <<: *default
-  database: timer_production
-  username: timer
-  password: <%= ENV['TIMER_DATABASE_PASSWORD'] %>
+  database: pitonneux_production
+
+cucumber:
+  <<: *test

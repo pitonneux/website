@@ -6,33 +6,40 @@ gem 'rails', '4.2.5.2'
 gem 'pg'
 
 # Views
+gem 'font-awesome-rails'
 gem 'sass-rails'
 gem 'slim-rails'
-gem 'font-awesome-rails'
 
 # JS
-gem 'uglifier'
 gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'turbolinks'
+gem 'uglifier'
 
 # Server
 gem 'puma'
 
+# Authentication
+gem 'devise'
+
 group :development, :test do
+  gem 'factory_girl_rails'
   gem 'pry-byebug'
   gem 'pry-rails'
   gem 'rspec-rails'
-  gem 'cucumber-rails', require: false
   gem 'spring'
 end
 
 group :development do
-  gem 'web-console', '~> 2.0'
   gem 'quiet_assets'
+  gem 'web-console', '~> 2.0'
 end
 
 group :test do
+  gem 'capybara'
+  gem 'capybara-webkit'
+  gem 'cucumber-rails', require: false
+  gem 'database_cleaner'
   gem 'fuubar'
 end
 

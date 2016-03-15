@@ -1,13 +1,22 @@
 doctype html
 html
   head
-    meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
-    title Timer
+    title = full_title(yield(:title))
+    meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'
+
+    = stylesheet_link_tag '//fonts.googleapis.com/css?family=Karla:400,700,400italic'
+    = stylesheet_link_tag '//fonts.googleapis.com/css?family=Dosis'
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
-    = render 'shim'
-  body
+
+  body data-controller=controller_name data-action=action_name
+    = render 'layouts/header'
+
     main
+
+      - flash.each do |type, message|
+        = content_tag :div, message, class: "flash-#{type}"
+
       = yield
 
