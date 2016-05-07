@@ -9,6 +9,7 @@ gem 'pg'
 gem 'font-awesome-rails'
 gem 'sass-rails'
 gem 'slim-rails'
+gem 'redcarpet'
 
 # JS
 gem 'coffee-rails'

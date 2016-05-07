@@ -14,6 +14,18 @@ RSpec.describe ApplicationHelper, type: :helper do
       end
     end
   end
+
+  describe 'render_markdown' do
+    it 'turns markdown into html' do
+      text = "## Header\r\nSome text"
+      html = <<-HTML.strip_heredoc
+              <h2>Header</h2>
+
+              <p>Some text</p>
+            HTML
+      expect(render_markdown(text)).to eq html
+    end
+  end
 end
 
 

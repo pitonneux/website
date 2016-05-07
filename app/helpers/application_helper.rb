@@ -7,4 +7,14 @@ module ApplicationHelper
       page_title + ' | ' + base_title
     end
   end
+
+  def render_markdown(text)
+    extensions = { autolink: true }
+
+    renderer = Redcarpet::Render::HTML.new
+    @markdown ||= Redcarpet::Markdown.new(renderer, extensions)
+
+    @markdown.render(text).html_safe
+  end
 end
+
