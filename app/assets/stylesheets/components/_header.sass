@@ -1,9 +1,14 @@
 header
-  padding: 2em
+  padding: $padding
   color: $gray
-  background-color: $background-color
+  font-family: $headers
+  font-size: 1em
   @include above($small-screen)
     text-align: center
+
+  nav
+    @include above($small-screen)
+      padding-top: $padding/3
 
   // MOBILE FIRST
   .toggle
@@ -22,21 +27,9 @@ header
     text-align: right
     list-style: none
     text-transform: uppercase
+    padding: $padding/4 0
+    @include above($small-screen)
+      display: inline
+      padding: 0 $padding/2
     a
       color: $gray
-    @include above($small-screen)
-      display: inline
-      padding: 0 1em
-
-  // LOGO
-  .mobile-logo
-    @include above($small-screen)
-      display: none
-
-  .logo
-    display: none
-    .fa-clock-o
-      color: $action-color
-    @include above($small-screen)
-      display: inline
-

@@ -1,0 +1,12 @@
+p#notice = notice
+
+p
+  strong Name:
+  = @organization.name
+p
+  strong Description:
+  = render_markdown(@organization.description)
+
+= link_to 'Edit', edit_organization_path(@organization)
+'|
+= link_to 'Back', organizations_path

@@ -1,1 +1,24 @@
-h1 = t('home.header')
+section#home
+  h2.tagline = t('.tagline')
+  h1.brand = t('.pitonneux')
+
+section#events
+  h1 = t('events.header')
+
+  .card
+    = image_tag('clock.png')
+    h3 = t('.meetup.header')
+    p = t('.meetup.description')
+  .card
+  // = render upcoming events (next 3?)
+
+section#contact
+  // = render contact form, collect email addresses/names/messages
+
+section#connect
+  // = les pitonneux.facebook, .twitter, .meetup
+
+
+
+
+

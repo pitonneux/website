@@ -4,18 +4,52 @@
   padding: 0
 
 body
+  align-items: center
   background-color: $lightest-gray
   color: $base-font-color
-  line-height: $base-line-height
-  font-family: $text
-  height: 100%
   display: flex
-  min-height: 100vh
   flex-direction: column
+  font-family: $text
+  font-size: $base-font-size
+  height: 100%
+  line-height: $base-line-height
+  min-height: 100vh
 
-main
-  width: 70%
-  margin: 0 auto
+h1, h2, h3, h4, h5, h6
+  font-family: $headers
+  padding: $padding/2 0
+
+h2
+  font-family: $serif
+  font-size: $base-font-size
+  font-style: italic
+  text-align: center
+  color: lighten($gray, 40%)
+
+h1
+  overflow: hidden
+  text-align: center
+  letter-spacing: 1px
+  font-size: 2em
+
+h1:before,
+h1:after
+  background-color: $base-font-color
+  content: ""
+  display: inline-block
+  height: 2px
+  position: relative
+  vertical-align: middle
+  width: 15%
+
+h1:before
+  right: 0.5em
+  margin-left: -50%
+
+h1:after
+  left: 0.5em
+  margin-right: -50%
+
 
 a
   color: rgba($action-color, 1)

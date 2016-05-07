@@ -1,9 +1,26 @@
 en:
+  layouts:
+    header:
+      what_we_do: What we do
+      schedule: Schedule
+      partners: Our partners
+      contact: Contact us
+      connect: Connect
+
   pages:
     home:
-      navigation:
-        what_we_do: What we do
-        schedule: Schedule
-        partners: Our partners
-        contact: Contact us
-        connect: Connect
+      pitonneux: Les Pitonneux
+      tagline: A skills incubator in Montréal for people learning to code online
+    about:
+      what_we_do:
+        header: What We Do
+        tagline: We help online learners on their coding journey towards a first job as a professional developer
+      learning:
+        header: Learning programming online?
+        description: Have you wondered what it would take to develop your own mobile app or website? Have you been learning how to code using online courses but are looking to meet other learners? Are you working on your first game but you need help to get unstuck? Join one of our workshop series or Coffee & Code sessions and we will help you on your way to a first job as a professional developer.
+      journey:
+        header: We will help you on your journey
+        description: We have introductory workshops for beginners as well as professional tracks for people who are a bit further ahead. These are a peer-to-peer workshops with access to mentors and instructors to help you advance every single day of your journey. Show your work by sharing what you've learned. We also have talks and interviews with developers, entrepreneurs, recruiting companies and startups.
+
+
+

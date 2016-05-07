@@ -1,13 +1,14 @@
 $base-spacing: 1.5em;
 $base-border-radius: 2px;
 $base-line-height: 1.5em;
+$base-font-size: 1.1em;
+$padding: 1.5em;
 
 //COLORS
 $gray: #333333;
 $lightest-gray: lighten($gray, 90%);
 $lighter-gray: lighten($gray, 70%);
 $light-gray: lighten($gray, 50%);
-$dark-gray: darken($gray, 10%);
 $buttons: #FD5F3C;
 $background-color: #fdfdfd;
 
@@ -30,7 +31,8 @@ $flashes: (
 // );
 
 // FONTS
-$headers: 'Dosis', Helvetica Neue, Helvetica, sans-serif;
+$headers: 'Muli', Helvetica Neue, Helvetica, sans-serif;
+$serif: 'Merriweather', cursive;
 $text: 'Karla', Helvetica Neue, Helvetica, sans-serif;
 $base-font-size: 1.1em;
 

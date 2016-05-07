@@ -1,27 +1,21 @@
 header
-  a.mobile-logo href='javascript:void(0)'
+  = link_to root_path, class: 'logo' do
     = fa_icon 'coffee', class: 'fa-2x'
   a.toggle href='javascript:void(0)' = fa_icon 'bars', class: 'fa-2x'
 
-  a.logo href="javascript:void(0)"
-    = fa_icon 'coffee', class: 'fa-2x'
   nav
     ul
       li
-        a href='javascript:void(0)'
-        = t('.navigation.what_we_do')
+        a href='#what_we_do'
+        = t('.what_we_do')
+      li
+        = link_to t('.schedule'), events_path
+      li
+        = link_to t('.partners'), organizations_path
       li
         a href='javascript:void(0)'
-        = t('.navigation.schedule')
+        = t('.contact')
       li
         a href='javascript:void(0)'
-        = t('.navigation.partner')
-      li
-        a href='javascript:void(0)'
-        = t('.navigation.contact')
-      li
-        a href='javascript:void(0)'
-        = t('.navigation.connect')
-
-
+        = t('.connect')
 

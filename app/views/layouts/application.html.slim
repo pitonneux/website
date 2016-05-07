@@ -4,13 +4,13 @@ html
     title = full_title(yield(:title))
     meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'
 
-    = stylesheet_link_tag '//fonts.googleapis.com/css?family=Karla:400,700,400italic'
-    = stylesheet_link_tag '//fonts.googleapis.com/css?family=Dosis'
+    = stylesheet_link_tag '//fonts.googleapis.com/css?family=Muli:400,700'
+    = stylesheet_link_tag '//fonts.googleapis.com/css?family=Merriweather:400,300italic'
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
 
-  body data-controller=controller_name data-action=action_name
+  body
     = render 'layouts/header'
 
     main
