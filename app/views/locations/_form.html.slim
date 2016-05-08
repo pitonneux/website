@@ -1,10 +1,5 @@
 = form_for @location do |f|
-  - if @location.errors.any?
-    #error_explanation
-      h2 = "#{pluralize(@location.errors.count, "error")} prohibited this location from being saved:"
-      ul
-        - @location.errors.full_messages.each do |message|
-          li = message
+  = render 'shared/error_messages', object: f.object
 
   .field
     = f.label :name
@@ -16,6 +11,7 @@
     = f.label :directions
     = f.text_area :directions
   .field
+  .field
     = f.label :organization
-    = f.text_field :organization
+    = f.collection_select :organization_id, Organization.all, :id, :name
   .actions = f.submit
