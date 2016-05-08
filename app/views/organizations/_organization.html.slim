@@ -1,0 +1,6 @@
+= image_tag organization.logo.url if organization.logo?
+= render_markdown(organization.description)
+br
+p = link_to 'Edit', edit_organization_path(organization)
+p = link_to 'Delete', organization, data: {confirm: 'Are you sure?'}, method: :delete
+hr

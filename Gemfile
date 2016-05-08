@@ -17,6 +17,10 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'uglifier'
 
+# Image uploading
+gem 'carrierwave'
+gem 'cloudinary'
+
 # Server
 gem 'puma'
 
@@ -32,6 +36,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'awesome_print'
   gem 'quiet_assets'
   gem 'web-console', '~> 2.0'
 end

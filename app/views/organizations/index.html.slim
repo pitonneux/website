@@ -1,24 +1,7 @@
-h1 Listing organizations
+section#sponsors
+  h1 = t('.partners.header')
 
-table
-  thead
-    tr
-      th Name
-      th Description
-      th
-      th
-      th
+  = render @organizations
 
-  tbody
-    - @organizations.each do |organization|
-      tr
-        td = organization.name
-        td = organization.description
-        td = link_to 'Show', organization
-        td = link_to 'Edit', edit_organization_path(organization)
-        td = link_to 'Destroy', organization, data: {:confirm => 'Are you sure?'}, :method => :delete
-
-br
-
-= link_to 'New Organization', new_organization_path
+  = link_to 'New Organization', new_organization_path
 

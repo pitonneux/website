@@ -1,4 +1,5 @@
 = form_for @organization do |f|
+
   - if @organization.errors.any?
     #error_explanation
       h2 = "#{pluralize(@organization.errors.count, "error")} prohibited this organization from being saved:"
@@ -12,5 +13,8 @@
   .field
     = f.label :description
     = f.text_area :description
+  .field
+    = f.hidden_field :logo_cache
+    = f.file_field :logo, accept: 'image/jpeg, image/gif, image/jpg, image/png'
   .actions = f.submit
 
