@@ -1,11 +1,13 @@
 p#notice = notice
 
+= image_tag @event.cover_image.url if @event.cover_image?
+
 p
   strong Name:
   = @event.name
 p
   strong Description:
-  = @event.description
+  = render_markdown(@event.description)
 p
   strong Starts at:
   = @event.starts_at
@@ -15,6 +17,10 @@ p
 p
   strong Location:
   = @event.location
+
+p
+  strong Sign up:
+  = @event.signup_link
 
 = link_to 'Edit', edit_event_path(@event)
 '|

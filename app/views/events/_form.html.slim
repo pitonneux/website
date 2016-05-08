@@ -17,6 +17,9 @@
     = f.label :location
     = f.collection_select :location_id, Location.all, :id, :name
   .field
+    = f.label :signup_link
+    = f.text_field :signup_link
+  .field
     = f.hidden_field :cover_image_cache
     = f.file_field :cover_image, accept: 'image/jpeg, image/gif, image/jpg, image/png'
   .actions = f.submit

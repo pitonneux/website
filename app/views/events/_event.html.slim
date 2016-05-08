@@ -1,0 +1,16 @@
+= image_tag event.cover_image.url if event.cover_image?
+h2 = event.name
+time = event.starts_at
+time = event.ends_at
+h3 = event.location.name
+= render_markdown(event.description)
+
+br
+
+= link_to 'Show', event
+= link_to 'Edit', edit_event_path(event)
+= link_to 'Destroy', event, data: {confirm: 'Are you sure?'}, method: :delete
+
+br
+= link_to 'Back', events_path
+
