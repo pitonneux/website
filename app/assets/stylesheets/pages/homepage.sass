@@ -1,5 +1,4 @@
 #what_we_do
-  h1
 /*       text-transform: uppercase */
 /*       font-size: 300% */
 /*       letter-spacing: 1px */
@@ -10,11 +9,55 @@
 
 
 
-/* [data-controller=pages] */
-/*   &[data-action=home] */
-/*     background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('//uploads.strikinglycdn.com/static/backgrounds/business-2/144.jpg') */
-/*     background-size: cover */
-/*     justify-content: center */
+[data-controller=pages]
+  &[data-action=home]
+    background-color: $background-color
+
+    header
+      position: fixed
+      width: 100%
+      background-color: $background-color
+      z-index: 1
+
+    main
+      width: 100%
+      padding-top: 5em
+
+    section
+      width: 95%
+      margin: 0 auto
+      padding-top: 5em
+      @include above($small-screen)
+        padding-top: 7em
+
+    #home
+      background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('//uploads.strikinglycdn.com/static/backgrounds/business-2/144.jpg')
+      background-size: cover
+      align-items: center
+      display: flex
+      flex-direction: column
+      justify-content: center
+      height: 100vh
+      h1, h2
+        color: $background-color
+        z-index: 10
+      h1
+        text-transform: uppercase
+        letter-spacing: 3px
+        font-family: $logo
+        @include above($small-screen)
+          font-size: 3em
+      h1:before, h1:after
+        background-color: transparent
+      h2
+        @include above($small-screen)
+          @include surrounding-lines($background-color)
+
+
+
+
+
+
 /*  */
 /*     header */
 /*       background-color: $background-color */

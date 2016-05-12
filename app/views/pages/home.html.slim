@@ -1,9 +1,26 @@
-section#home
+#home
   h2.tagline = t('.tagline')
   h1.brand = t('.pitonneux')
 
+section#what_we_do
+  h1 = t('.what_we_do.header')
+  h2 = t('.what_we_do.tagline')
+
+  .row
+    .card
+      = image_tag('computer.png')
+      h3 = t('.learning.header')
+      p = t('.learning.description')
+    .card
+      = image_tag('world.png')
+      h3 = t('.journey.header')
+      p = t('.journey.description')
+
 section#events
   h1 = t('events.header')
+
+  = @featured_events.each do |event|
+
 
   .card
     = image_tag('clock.png')
@@ -12,13 +29,34 @@ section#events
   .card
   // = render upcoming events (next 3?)
 
+section#partners
+  - @partners.each do |partner|
+    .partner
+      = image_tag partner.logo.url
+      p = render_markdown(partner.description)
+
 section#contact
+  p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum aliquid necessitatibus, repudiandae veniam labore, consequatur maiores dolore unde non deleniti, aliquam minima ex nulla error eveniet vel tempore, in incidunt?
   // = render contact form, collect email addresses/names/messages
 
 section#connect
+  p lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum aliquid necessitatibus, repudiandae veniam labore, consequatur maiores dolore unde non deleniti, aliquam minima ex nulla error eveniet vel tempore, in incidunt? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum aliquid necessitatibus, repudiandae veniam labore, consequatur maiores dolore unde non deleniti, aliquam minima ex nulla error eveniet vel tempore, in incidunt? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum aliquid necessitatibus, repudiandae veniam labore, consequatur maiores dolore unde non deleniti, aliquam minima ex nulla error eveniet vel tempore, in incidunt?
   // = les pitonneux.facebook, .twitter, .meetup
 
-
-
-
+.scroll-on-page
+  aside#scroll-on-page-top
+    a.scroll-on-page-link href="#scroll-link-1"  First Scroll Link
+    a.scroll-on-page-link href="#scroll-link-2"  Second Link
+    a.scroll-on-page-link href="#scroll-link-3"  Last Link
+  article
+    section
+      h4#scroll-link-1 First Target
+      p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum aliquid necessitatibus, repudiandae veniam labore, consequatur maiores dolore unde non deleniti, aliquam minima ex nulla error eveniet vel tempore, in incidunt?
+    section
+      h4#scroll-link-2 Second Target
+      p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum aliquid necessitatibus, repudiandae veniam labore, consequatur maiores dolore unde non deleniti, aliquam minima ex nulla error eveniet vel tempore, in incidunt?
+    section
+      h4#scroll-link-3 Last Target
+      p lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum aliquid necessitatibus, repudiandae veniam labore, consequatur maiores dolore unde non deleniti, aliquam minima ex nulla error eveniet vel tempore, in incidunt? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum aliquid necessitatibus, repudiandae veniam labore, consequatur maiores dolore unde non deleniti, aliquam minima ex nulla error eveniet vel tempore, in incidunt? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum aliquid necessitatibus, repudiandae veniam labore, consequatur maiores dolore unde non deleniti, aliquam minima ex nulla error eveniet vel tempore, in incidunt?
+      a.scroll-on-page-link href="#scroll-on-page-top"  Back to top
 

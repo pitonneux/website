@@ -31,25 +31,7 @@ h1
   text-align: center
   letter-spacing: 1px
   font-size: 2em
-
-h1:before,
-h1:after
-  background-color: $base-font-color
-  content: ""
-  display: inline-block
-  height: 2px
-  position: relative
-  vertical-align: middle
-  width: 15%
-
-h1:before
-  right: 0.5em
-  margin-left: -50%
-
-h1:after
-  left: 0.5em
-  margin-right: -50%
-
+  @include surrounding-lines($base-font-color)
 
 a
   color: rgba($action-color, 1)

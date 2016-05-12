@@ -6,16 +6,18 @@ header
   nav
     ul
       li
-        a href='#what_we_do'
-        = t('.what_we_do')
+        a.scroll-on-page-link href='#what_we_do'
+          = t('.what_we_do')
       li
-        = link_to t('.schedule'), events_path
+        a.scroll-on-page-link href='#events'
+          = t('.schedule')
       li
-        = link_to t('.partners'), organizations_path
+        a.scroll-on-page-link href='#partners'
+          = t('.partners')
       li
-        a href='javascript:void(0)'
-        = t('.contact')
+        a.scroll-on-page-link href='#contact'
+          = t('.contact')
       li
-        a href='javascript:void(0)'
-        = t('.connect')
+        a.scroll-on-page-link href='#connect'
+          = t('.connect')
 

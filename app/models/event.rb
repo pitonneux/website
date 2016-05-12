@@ -4,6 +4,9 @@ class Event < ActiveRecord::Base
 
   validate :image_size
 
+  scope :featured, -> { where featured: true }
+  scope :upcoming, -> { where 'starts_at >= ?', Time.now }
+
   private
 
     def image_size

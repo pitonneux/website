@@ -1,3 +1,31 @@
 @mixin above($size)
   @media screen and (min-width: $size)
     @content
+
+@mixin surrounding-lines($color)
+  &:before,
+  &:after
+    background-color: $color
+    content: ""
+    display: inline-block
+    height: 2px
+    position: relative
+    vertical-align: middle
+    width: 15%
+
+  &:before
+    right: 0.5em
+    margin-left: -50%
+
+  &:after
+    left: 0.5em
+    margin-right: -50%
+
+@mixin partial-underline($color)
+  content: ''
+  position: absolute
+  border-bottom: 2px solid $color
+  width: 30%
+  bottom: 1px
+  left: 35%
+

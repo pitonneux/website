@@ -9,10 +9,10 @@
     = f.text_area :description
   .field
     = f.label :starts_at
-    = f.datetime_select :starts_at
+    = f.datetime_select :starts_at, include_blank: true
   .field
     = f.label :ends_at
-    = f.datetime_select :ends_at
+    = f.datetime_select :ends_at, include_blank: true
   .field
     = f.label :location
     = f.collection_select :location_id, Location.all, :id, :name
