@@ -22,7 +22,4 @@ en:
         description: We have introductory workshops for beginners as well as professional tracks for people who are a bit further ahead. These are a peer-to-peer workshops with access to mentors and instructors to help you advance every single day of your journey. Show your work by sharing what you've learned. We also have talks and interviews with developers, entrepreneurs, recruiting companies and startups.
       events:
         header: Upcoming Events
-
-
-
-
+        create: Create a New Event

@@ -1,9 +1,8 @@
 FactoryGirl.define do
   factory :event do
-    name "MyString"
-    description "MyText"
-    starts_at "2016-05-07 13:57:03"
-    ends_at "2016-05-07 13:57:03"
+    name 'Learn to code'
+    description "Bring your laptop and we'll show you how to code"
+    starts_at '2016-05-07 13:57:03'
     location nil
   end
 end

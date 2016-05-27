@@ -17,9 +17,9 @@ section#what_we_do
       p = t('.journey.description')
 
 section#events
-  h1 = t('events.header')
+  h1 = t('.events.header')
 
-  = @featured_events.each do |event|
+  // @events.featured = @featured_events.each do |event|
 
 
   .card
@@ -28,6 +28,8 @@ section#events
     p = t('.meetup.description')
   .card
   // = render upcoming events (next 3?)
+
+  button = link_to t('.events.create'), new_event_path
 
 section#partners
   - @partners.each do |partner|

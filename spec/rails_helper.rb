@@ -38,10 +38,6 @@ RSpec.configure do |config|
   # instead of true.
   config.use_transactional_fixtures = false
 
-  config.include Warden::Test::Helpers
-  config.before(:suite) { Warden.test_mode!  }
-  config.after(:each)   { Warden.test_reset! }
-
   # RSpec Rails can automatically mix in different behaviours to your tests
   # based on their file location, for example enabling you to call `get` and
   # `post` in specs under `spec/controllers`.
@@ -61,4 +57,10 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+  #
+  config.include Formulaic::Dsl, type: :feature
+
+  config.include Warden::Test::Helpers
+  config.before(:suite) { Warden.test_mode!  }
+  config.after(:each)   { Warden.test_reset! }
 end

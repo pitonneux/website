@@ -1,5 +1,8 @@
-h1 New event
+= provide :title, 'New Event'
+= provide :button_text, t('events.create')
 
-== render 'form'
+h1 New Event
+
+= render 'form'
 
 = link_to 'Back', events_path

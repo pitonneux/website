@@ -111,6 +111,10 @@ GEM
       railties (>= 3.0.0)
     font-awesome-rails (4.5.0.1)
       railties (>= 3.2, < 5.1)
+    formulaic (0.3.0)
+      activesupport
+      capybara
+      i18n
     fuubar (2.0.0)
       rspec (~> 3.0)
       ruby-progressbar (~> 1.4)
@@ -279,6 +283,7 @@ DEPENDENCIES
   devise
   factory_girl_rails
   font-awesome-rails
+  formulaic
   fuubar
   jquery-rails
   pg
@@ -301,4 +306,4 @@ RUBY VERSION
    ruby 2.3.0p0
 
 BUNDLED WITH
-   1.12.1
+   1.12.5

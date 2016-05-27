@@ -4,7 +4,8 @@ class CreateEvents < ActiveRecord::Migration
       t.string :name, null: false
       t.text :description
       t.datetime :starts_at
-      t.datetime :ends_at
+      t.integer :duration_in_min
+      t.boolean :featured
       t.references :location, index: true, foreign_key: true
 
       t.timestamps null: false

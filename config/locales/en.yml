@@ -20,3 +20,8 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  events:
+    feature_on_homepage: Feature on homepage?
+    create: Create event
+    edit: Update event
+
