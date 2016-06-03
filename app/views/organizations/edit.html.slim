@@ -1,9 +1,10 @@
-h1 Editing organization
+= provide :title, t('.title')
+= provide :button_text, t('.update')
 
-== render 'form'
+h1 = t('.title')
 
-= link_to 'Show', @organization
-'|
-= link_to 'Back', organizations_path
+= render 'form'
+
+= link_to t('back'), organizations_path
 
 

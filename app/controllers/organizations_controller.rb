@@ -24,7 +24,7 @@ class OrganizationsController < ApplicationController
     @organization = Organization.new(organization_params)
 
     if @organization.save
-      redirect_to @organization, notice: 'Organization was successfully created.'
+      redirect_to organizations_path, notice: 'Organization was successfully created.'
     else
       render :new
     end
@@ -33,7 +33,7 @@ class OrganizationsController < ApplicationController
   # PATCH/PUT /organizations/1
   def update
     if @organization.update(organization_params)
-      redirect_to @organization, notice: 'Organization was successfully updated.'
+      redirect_to organizations_path, notice: 'Organization was successfully updated.'
     else
       render :edit
     end

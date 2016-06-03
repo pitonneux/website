@@ -1,4 +1,5 @@
 = image_tag organization.logo.url if organization.logo?
+= organization.name
 = render_markdown(organization.description)
 br
 p = link_to 'Edit', edit_organization_path(organization)

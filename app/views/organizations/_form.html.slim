@@ -10,5 +10,5 @@
   .field
     = f.hidden_field :logo_cache
     = f.file_field :logo, accept: 'image/jpeg, image/gif, image/jpg, image/png'
-  .actions = f.submit
+  .actions = f.submit yield :button_text
 

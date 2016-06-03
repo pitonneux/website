@@ -1,0 +1,10 @@
+en:
+  organizations:
+    form:
+    edit:
+      title: Update Organization
+      update: Update organization
+    new:
+      create: Create organization
+      title: New Organization
+

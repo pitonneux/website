@@ -1,7 +1,4 @@
-section#sponsors
-  h1 = t('.partners.header')
+= render @organizations
 
-  = render @organizations
-
-  = link_to 'New Organization', new_organization_path
+= link_to 'New Organization', new_organization_path
 
