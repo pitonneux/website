@@ -48,6 +48,7 @@ group :test do
   gem 'database_cleaner'
   gem 'formulaic'
   gem 'fuubar'
+  gem 'shoulda-matchers'
 end
 
 group :production do
