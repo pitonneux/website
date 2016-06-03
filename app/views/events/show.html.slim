@@ -1,27 +1,23 @@
-p#notice = notice
-
 = image_tag @event.cover_image.url if @event.cover_image?
 
+p = @event.name
+p = render_markdown(@event.description)
 p
-  strong Name:
-  = @event.name
+  strong = t('.date')
+  = l @event.starts_at, format: :date
 p
-  strong Description:
-  = render_markdown(@event.description)
+  strong = t('.starts_at')
+  = l @event.starts_at, format: :time
 p
-  strong Starts at:
-  = @event.starts_at
+  strong = t('.duration')
+  = "#{@event.duration_in_min} #{t('time.minutes')}"
 p
-  strong Duration:
-  = @event.duration_in_min
-p
-  strong Location:
+  strong = t('.location')
   = @event.location
-
 p
-  strong Sign up:
+  strong = t('.sign_up')
   = @event.signup_link
 
-= link_to 'Edit', edit_event_path(@event)
+= link_to t('edit'), edit_event_path(@event)
 '|
-= link_to 'Back', events_path
+= link_to t('back'), events_path

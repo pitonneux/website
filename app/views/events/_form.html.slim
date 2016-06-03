@@ -8,10 +8,10 @@
     = f.label :description
     = f.text_area :description
   .field
-    = f.label :starts_at
+    = f.label :starts_at, t('.date')
     = f.date_select :starts_at
   .field
-    = f.label :starts_at
+    = f.label :starts_at, t('.starts_at')
     = f.time_select :starts_at, ignore_date: true
   .field
     = f.label :duration_in_min
@@ -23,7 +23,7 @@
     = f.label :signup_link
     = f.text_field :signup_link
   .field
-    = f.label :featured, t('events.feature_on_homepage')
+    = f.label :featured, t('.feature_on_homepage')
     = f.check_box :featured
   .field
     = f.hidden_field :cover_image_cache

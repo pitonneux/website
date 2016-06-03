@@ -1,0 +1,20 @@
+en:
+  events:
+    form:
+      feature_on_homepage: Feature on homepage?
+      date: Date
+      start_time: Start time
+    edit:
+      title: Update Event
+      update: Update event
+    new:
+      create: Create event
+      title: New Event
+    show:
+      date: Date
+      starts_at: Starts at
+      duration: Duration
+      location: Location
+      signup: Sign up here
+
+

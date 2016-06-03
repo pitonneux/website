@@ -1,11 +1,9 @@
-= provide :title, 'Edit Event'
-= provide :button_text, t('events.edit')
+= provide :title, t('.title')
+= provide :button_text, t('.update')
 
 h1 Editing event
 
 = render 'form'
 
-= link_to 'Show', @event
-'|
-= link_to 'Back', events_path
+= link_to t('back'), events_path
 
