@@ -1,13 +1,8 @@
-#what_we_do
-/*       text-transform: uppercase */
-/*       font-size: 300% */
-/*       letter-spacing: 1px */
-/*       padding: $padding/4 */
-/*       overflow: hidden */
-/*       text-align: center */
-/*       font-weight: 400 */
-
-
+=header-reset
+  color: lighten($gray, 20%)
+  font-size: 1.5em
+  &:before, &:after
+    content: none
 
 [data-controller=pages]
   &[data-action=home]
@@ -21,7 +16,7 @@
 
     main
       width: 100%
-      padding-top: 5em
+      padding-top: 3em
 
     section
       width: 95%
@@ -30,6 +25,7 @@
       +above($small-screen)
         padding-top: 7em
       h1
+        font-size: 4vh
         +surrounding-lines($base-font-color)
 
     #home
@@ -46,6 +42,7 @@
       h1
         text-transform: uppercase
         letter-spacing: 3px
+        line-height: 1.5em
         font-family: $logo
         +above($small-screen)
           font-size: 3em
@@ -61,16 +58,14 @@
           flex-direction: row
 
         h1
-          color: lighten($gray, 20%)
-          &:before, &:after
-            content: none
+          +header-reset
 
         .meta, .description
           padding: $padding
 
         .meta
           +flex-row-then-column
-          align-items: center
+          align-items: flex-start
           justify-content: space-around
           +above($small-screen)
             align-items: center
@@ -79,13 +74,15 @@
           time
             display: block
           img
-            padding: $med-space
+            +on($small-screen)
+              padding-right: $med-space
+              max-width: 40%
+            +above($small-screen)
+              padding: $med-space
           i
             padding-right: $little-space
 
         .description
-          h1
-            font-size: 1.5em
           h2
             color: $action-color
           h1, h2
@@ -94,3 +91,33 @@
           a.more
             +button($action-color)
 
+    #partners
+      .partner
+        +flex-column-then-row
+        justify-content: space-between
+
+        +above($small-screen)
+          &:nth-child(odd)
+            img
+              order: 2
+
+        img
+          align-self: center
+          max-width: 90%
+          padding-bottom: $large-space
+          +above($small-screen)
+            align-self: flex-start
+            padding-left: $med-space
+            padding-right: $large-space
+            max-width: 35%
+
+        h1
+          +header-reset
+          padding: 0
+        h2
+          color: $action-color
+
+        .description
+          display: flex
+          flex-direction: column
+          align-items: flex-start

@@ -1,6 +1,6 @@
 #home
-  h2.tagline = t('.tagline')
-  h1.brand = t('.pitonneux')
+  h2 = t('.tagline')
+  h1 = t('.pitonneux')
 
 section#what_we_do
   h1 = t('.what_we_do.header')
@@ -25,10 +25,8 @@ section#events
 
 section#partners
   h1 = t('.partners.header')
-  - @partners.each do |partner|
-    .partner
-      = image_tag partner.logo.url
-      p = render_markdown(partner.description)
+
+  = render partial: 'partner', collection: @partners
 
 section#contact
   p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum aliquid necessitatibus, repudiandae veniam labore, consequatur maiores dolore unde non deleniti, aliquam minima ex nulla error eveniet vel tempore, in incidunt?

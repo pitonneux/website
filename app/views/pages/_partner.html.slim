@@ -1,0 +1,5 @@
+.partner
+  = image_tag partner.logo.url if partner.logo.present?
+  .description
+    h1 = partner.name
+    p = render_markdown(partner.description)

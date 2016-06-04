@@ -23,4 +23,6 @@ en:
       events:
         header: Upcoming Events
         create: Create a new event
+      partners:
+        header: Our Partners
       signup: Sign me up!

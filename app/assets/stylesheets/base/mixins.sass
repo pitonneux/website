@@ -2,6 +2,10 @@
   @media screen and (min-width: $size)
     @content
 
+=on($size)
+  @media screen and (max-width: $size)
+    @content
+
 =flex-column-then-row
   display: flex
   flex-direction: column
