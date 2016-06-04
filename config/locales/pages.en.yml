@@ -25,4 +25,9 @@ en:
         create: Create a new event
       partners:
         header: Our Partners
+      contact:
+        header: Contact Us
+        details: If you're interested in joining us or just want some more info, please drop us a note here!
+      connect:
+        header: Connect With Us
       signup: Sign me up!
