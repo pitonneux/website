@@ -1,6 +1,8 @@
+require 'rails_helper'
+
 include SelectDateHelper
 
-feature 'creating an event' do
+RSpec.feature 'creating an event' do
   scenario 'from the homepage' do
     visit root_path
     click_link 'Create a new event'

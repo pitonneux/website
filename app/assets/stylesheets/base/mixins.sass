@@ -1,8 +1,20 @@
-@mixin above($size)
+=above($size)
   @media screen and (min-width: $size)
     @content
 
-@mixin surrounding-lines($color)
+=flex-column-then-row
+  display: flex
+  flex-direction: column
+  +above($small-screen)
+    flex-direction: row
+
+=flex-row-then-column
+  display: flex
+  flex-direction: row
+  +above($small-screen)
+    flex-direction: column
+
+=surrounding-lines($color)
   &:before,
   &:after
     background-color: $color
@@ -21,7 +33,7 @@
     left: 0.5em
     margin-right: -50%
 
-@mixin partial-underline($color)
+=partial-underline($color)
   content: ''
   position: absolute
   border-bottom: 2px solid $color

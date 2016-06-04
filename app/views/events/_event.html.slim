@@ -1,7 +1,7 @@
 = image_tag event.cover_image.url if event.cover_image?
 h2 = event.name
 time = event.starts_at
-h3 = event.location.name
+h3 = event.location.try(:name)
 = render_markdown(event.description)
 
 br

@@ -1,4 +1,4 @@
-feature 'creating an organization' do
+RSpec.feature 'creating an organization' do
   scenario 'directly from new organization path' do
     visit new_organization_path
     expect(page).to have_content 'New Organization'

@@ -25,4 +25,5 @@ en:
     formats:
       date: "%B %-e, %Y"
       time: "%-l:%M %P"
+      long: "%A, %B %-e"
 

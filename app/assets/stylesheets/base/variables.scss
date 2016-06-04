@@ -3,19 +3,21 @@ $base-border-radius: 2px;
 $base-line-height: 1.5em;
 $base-font-size: 1.1em;
 $padding: 1.5em;
+$med-space: 1em;
+$little-space: 0.5em;
 
 //COLORS
 $gray: #333333;
 $lightest-gray: lighten($gray, 90%);
 $lighter-gray: lighten($gray, 70%);
 $light-gray: lighten($gray, 50%);
-$buttons: #FD5F3C;
+$buttons: #00c1b4;
 $background-color: #fdfdfd;
 
 $base-font-color: $gray;
 
 // $main-color: #05BBBB;
-$action-color: #9ADE2C;
+$action-color: #93d031;
 
 // FLASHES
 $flashes: (

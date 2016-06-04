@@ -5,9 +5,7 @@ abort("DATABASE_URL environment variable is set") if ENV["DATABASE_URL"]
 
 Dir[Rails.root.join('spec/support/**/*.rb')].sort.each { |file| require file }
 
-# Checks for pending migration and applies them before tests are run.
-# If you are not using ActiveRecord, you can remove this line.
-ActiveRecord::Migration.maintain_test_schema!
+require "rspec/rails"
 
 Capybara.javascript_driver = :webkit
 

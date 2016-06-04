@@ -27,8 +27,10 @@
       width: 95%
       margin: 0 auto
       padding-top: 5em
-      @include above($small-screen)
+      +above($small-screen)
         padding-top: 7em
+      h1
+        +surrounding-lines($base-font-color)
 
     #home
       background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('//uploads.strikinglycdn.com/static/backgrounds/business-2/144.jpg')
@@ -45,64 +47,50 @@
         text-transform: uppercase
         letter-spacing: 3px
         font-family: $logo
-        @include above($small-screen)
+        +above($small-screen)
           font-size: 3em
-      h1:before, h1:after
-        background-color: transparent
       h2
-        @include above($small-screen)
-          @include surrounding-lines($background-color)
+        +above($small-screen)
+          +surrounding-lines($background-color)
 
+    #events
+      .event
+        display: flex
+        flex-direction: column
+        +above ($small-screen)
+          flex-direction: row
 
+        h1
+          color: lighten($gray, 20%)
+          &:before, &:after
+            content: none
 
+        .meta, .description
+          padding: $padding
 
+        .meta
+          +flex-row-then-column
+          align-items: center
+          justify-content: space-around
+          +above($small-screen)
+            align-items: center
+            justify-content: flex-start
+          padding: $med-space
+          time
+            display: block
+          img
+            padding: $med-space
+          i
+            padding-right: $little-space
 
+        .description
+          h1
+            font-size: 1.5em
+          h2
+            color: $action-color
+          h1, h2
+            +above($small-screen)
+              text-align: left
+          a.more
+            +button($action-color)
 
-/*  */
-/*     header */
-/*       background-color: $background-color */
-/*       opacity: 0.85 */
-/*  */
-/*     main */
-/*       display: flex */
-/*       flex-direction: column */
-/*       justify-content: center */
-/*       color: $background-color */
-/*  */
-/*     h1 */
-/*       text-transform: uppercase */
-/*       font-size: 300% */
-/*       letter-spacing: 1px */
-/*       padding: $padding/4 */
-/*       overflow: hidden */
-/*       text-align: center */
-/*       font-weight: 400 */
-/*  */
-/*     h2 */
-/*       font-style: italic */
-/*       font-weight: 300 */
-/*       overflow: hidden */
-/*       text-align: center */
-/*       padding: $padding/4 */
-/*       letter-spacing: 1px */
-/*  */
-/*     h2:before, */
-/*     h2:after */
-/*       background-color: $background-color */
-/*       content: "" */
-/*       display: inline-block */
-/*       height: 1px */
-/*       position: relative */
-/*       vertical-align: middle */
-/*       width: 50% */
-/*  */
-/*     h2:before */
-/*       right: 0.5em */
-/*       margin-left: -50% */
-/*  */
-/*     h2:after */
-/*       left: 0.5em */
-/*       margin-right: -50% */
-/*  */
-/*     .tagline */
-/*       font-family: $tagline */

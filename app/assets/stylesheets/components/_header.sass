@@ -1,13 +1,10 @@
 header
-  padding: $padding
+  padding: $padding/2
   color: $gray
   font-family: $headers
   font-size: 1em
   @include above($small-screen)
     text-align: center
-
-  nav
-    padding-top: $padding/3
 
   // MOBILE FIRST
   .toggle
@@ -15,20 +12,23 @@ header
     @include above($small-screen)
       display: none
 
-  // NAV MENU
-  ul
-    display: none
-    @include above($small-screen)
-      display: block
+  nav
+    padding-top: $padding/3
 
-  // NAV ITEMS
-  li
-    text-align: right
-    list-style: none
-    text-transform: uppercase
-    padding: $padding/4 0
-    @include above($small-screen)
-      display: inline
-      padding: 0 $padding/2
-    a
-      color: $gray
+    // NAV MENU
+    ul
+      display: none
+      @include above($small-screen)
+        display: block
+
+    // NAV ITEMS
+    li
+      text-align: right
+      list-style: none
+      text-transform: uppercase
+      padding: $padding/4 0
+      @include above($small-screen)
+        display: inline
+        padding: 0 $padding/2
+      a
+        color: $gray

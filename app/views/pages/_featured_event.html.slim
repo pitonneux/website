@@ -1,0 +1,23 @@
+article.event
+  .meta
+    = image_tag event.cover_image.url
+    .details
+      - if event.starts_at.present?
+        time
+          = fa_icon 'clock-o', class: 'fa-fw'
+          = l event.starts_at, format: :long
+        time
+          = fa_icon 'calendar', class: 'fa-fw'
+          = l event.starts_at, format: :time
+      - if event.location.present?
+        p
+          = fa_icon 'map-marker', class: 'fa-fw'
+          = event.location.name
+      button
+        a target='blank' href=event.signup_link
+        = t('.signup')
+  .description
+    h1 = event.name
+    p = render_markdown truncate(event.description, length: 1000, separator: ' ', omission: ' . . . ') { link_to t('more'), event, class: 'more' }
+
+

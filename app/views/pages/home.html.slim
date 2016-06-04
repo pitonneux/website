@@ -19,19 +19,12 @@ section#what_we_do
 section#events
   h1 = t('.events.header')
 
-  // @events.featured = @featured_events.each do |event|
-
-
-  .card
-    = image_tag('clock.png')
-    h3 = t('.meetup.header')
-    p = t('.meetup.description')
-  .card
-  // = render upcoming events (next 3?)
+  = render partial: 'featured_event', collection: @featured_events, as: :event
 
   button = link_to t('.events.create'), new_event_path
 
 section#partners
+  h1 = t('.partners.header')
   - @partners.each do |partner|
     .partner
       = image_tag partner.logo.url

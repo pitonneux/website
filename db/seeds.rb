@@ -1,6 +1,6 @@
-Organization.delete_all
-Location.delete_all
 Event.delete_all
+Location.delete_all
+Organization.delete_all
 
 Organization.create! [
   { name: 'We Work',
@@ -26,13 +26,13 @@ Event.create! [
     starts_at: 'Mon, 06 Jun 2016 15:30:00 UTC +00:00',
     featured: true,
     duration_in_min: 120,
-    location_id: 1,
-    remote_logo_url: 'http://res.cloudinary.com/pitonneux-com/image/upload/v1462722206/drxxybcn6cmserhzouzs.png'
+    location_id: Location.last.id,
+    remote_cover_image_url: 'http://res.cloudinary.com/pitonneux-com/image/upload/v1462722206/drxxybcn6cmserhzouzs.png'
   },
   { name: "Coffee & Code study sessions",
     description: "## Grab a coffee, put on your earbuds, set a timer and FOCUS!\r\n\r\nFor those of us who need to get out of the house to stay sane, we have several study sessions a week that you are welcome to join. We have Coffee & Code sessions during the day-time but also in the evening and on Saturdays. These sessions are welcome to anyone, regardless of what you're learning or what kind of project you're working on.\r\n \r\nFor more details of our weekly meetups, please [join our group](http://www.meetup.com/pitonneux/) on Meetup.com",
     featured: true,
-    remote_logo_url: 'http://res.cloudinary.com/pitonneux-com/image/upload/v1462727870/hkd1u23owrzdwpgnwfjo.png'
+    remote_cover_image_url: 'http://res.cloudinary.com/pitonneux-com/image/upload/v1462727870/hkd1u23owrzdwpgnwfjo.png'
   }
 ]
 

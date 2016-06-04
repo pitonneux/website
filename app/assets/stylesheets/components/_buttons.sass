@@ -1,23 +1,23 @@
-button,
-input[type="submit"]
-  $color: $buttons
-
+=button($color)
   background: $color
-  border: 1px solid darken($color, 8%)
-  color: $lightest-gray
+  border: 1px solid darken($color, 5%)
+  color: $background-color
   cursor: pointer
-  display: block
+  display: inline-block
   text-transform: uppercase
+  font-family: $headers
   font-size: 1.1em
-  padding: 0.5em 1em
-  margin: 0.5em 0
+  padding: $little-space $med-space
+  margin: $little-space 0
+  a
+    color: $background-color
 
   &:hover
-    background: darken($color, 10%)
+    background: darken($color, 5%)
     transition: all $long-duration $base-timing
 
   &:active
-    background: darken($color, 25%)
+    background: darken($color, 15%)
 
   &:disabled
     cursor: not-allowed
@@ -25,3 +25,9 @@ input[type="submit"]
 
   &:focus
     outline: none
+
+button,
+input[type="submit"]
+  $color: $buttons
+
+  +button($color)

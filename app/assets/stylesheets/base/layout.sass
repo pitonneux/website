@@ -3,17 +3,12 @@ main
   flex: 1
 
 .row
-  display: flex
-  flex-direction: column
-  @include above($small-screen)
-    flex-direction: row
+  +flex-column-then-row
   .card
     padding: $padding
     text-align: center
 
-
 .card
-  @include above($small-screen)
+  +above($small-screen)
     width: 50%
-    margin: 0 auto
 
