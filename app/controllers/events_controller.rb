@@ -1,26 +1,26 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:show, :index]
+  before_action :authorize_event, only: [:show, :edit, :update, :destroy]
 
-  # GET /events
   def index
     @events = Event.all
   end
 
-  # GET /events/1
   def show
+    @event = find_event
   end
 
-  # GET /events/new
   def new
+    authorize Event
     @event = Event.new
   end
 
-  # GET /events/1/edit
   def edit
+    @event = find_event
   end
 
-  # POST /events
   def create
+    authorize Event
     @event = Event.new(event_params)
 
     if @event.save
@@ -30,8 +30,9 @@ class EventsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /events/1
   def update
+    @event = find_event
+
     if @event.update(event_params)
       redirect_to @event, notice: 'Event was successfully updated.'
     else
@@ -39,19 +40,22 @@ class EventsController < ApplicationController
     end
   end
 
-  # DELETE /events/1
   def destroy
+    @event = find_event
     @event.destroy
     redirect_to events_url, notice: 'Event was successfully destroyed.'
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+
     def set_event
-      @event = Event.find(params[:id])
+      Event.find(params[:id])
     end
 
-    # Only allow a trusted parameter "white list" through.
+    def authorize_event
+      authorize @event
+    end
+
     def event_params
       params.require(:event).permit(:name, :description, :starts_at, :duration_in_min, :signup_link, :featured, :cover_image_cache, :cover_image, :location_id)
     end

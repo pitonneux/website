@@ -1,0 +1,9 @@
+header
+  = link_to root_path, class: 'logo' do
+    = fa_icon 'coffee', class: 'fa-2x'
+  a.toggle href='javascript:void(0)' = fa_icon 'bars', class: 'fa-2x'
+
+  - if current_page?(root_path)
+    = render 'layouts/home_nav'
+  - else
+    = render 'layouts/nav'

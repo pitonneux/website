@@ -5,7 +5,8 @@ abort("DATABASE_URL environment variable is set") if ENV["DATABASE_URL"]
 
 Dir[Rails.root.join('spec/support/**/*.rb')].sort.each { |file| require file }
 
-require "rspec/rails"
+require 'rspec/rails'
+require 'pundit/rspec'
 
 Capybara.javascript_driver = :webkit
 

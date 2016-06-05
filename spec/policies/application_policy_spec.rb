@@ -1,0 +1,11 @@
+RSpec.describe ApplicationPolicy do
+  let(:user)  { build_stubbed :user         }
+  let(:admin) { build_stubbed :user, :admin }
+
+  subject { described_class }
+
+  permissions :index?, :create?, :new?, :update?, :edit?, :destroy? do
+    it { is_expected.to permit admin    }
+    it { is_expected.not_to permit user }
+  end
+end

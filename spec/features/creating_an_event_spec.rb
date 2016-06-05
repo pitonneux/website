@@ -3,7 +3,11 @@ require 'rails_helper'
 include SelectDateHelper
 
 RSpec.feature 'creating an event' do
-  scenario 'from the homepage' do
+  let(:admin) { create :user, :admin }
+
+  scenario 'from the homepage as an admin' do
+    login_as admin
+
     visit root_path
     click_link 'Create a new event'
     expect(page).to have_content 'New Event'

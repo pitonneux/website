@@ -26,6 +26,7 @@ gem 'puma'
 
 # Authentication
 gem 'devise'
+gem 'pundit'
 
 group :development, :test do
   gem 'factory_girl_rails'
