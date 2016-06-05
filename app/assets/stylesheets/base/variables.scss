@@ -12,12 +12,12 @@ $gray: #333333;
 $lightest-gray: lighten($gray, 90%);
 $lighter-gray: lighten($gray, 70%);
 $light-gray: lighten($gray, 50%);
-$buttons: #00c1b4;
 $background-color: #fdfdfd;
 
 $base-font-color: $gray;
 
-// $main-color: #05BBBB;
+$main-color: #00c1b4;
+$buttons: $main-color;
 $action-color: #93d031;
 
 // FLASHES

@@ -7,7 +7,15 @@ en:
       contact: Contact us
       connect: Connect
 
+    footer:
+      made_in_mtl_html: Made with %{heart} in Montreal
+      github: View source on Github
+
   pages:
+    connect:
+      facebook: Les Pitonneux on Facebook
+      twitter: Roberta (@toyb0_x) on Twitter
+      meetup: Les Pitonneux on Meetup.com
     home:
       pitonneux: Les Pitonneux
       tagline: A skills incubator in Montréal for people learning to code online
@@ -30,4 +38,5 @@ en:
         details: If you're interested in joining us or just want some more info, please drop us a note here!
       connect:
         header: Connect With Us
+
       signup: Sign me up!

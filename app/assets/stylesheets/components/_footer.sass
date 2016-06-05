@@ -1,0 +1,16 @@
+footer
+  background-color: $light-gray
+  color: $background-color
+  display: flex
+  justify-content: space-around
+  padding: $little-space
+
+  a
+    color: $background-color
+    border-bottom: 3px solid $main-color
+    .fa-lg
+      padding-right: $little-space
+
+  +on($small-screen)
+    flex-direction: column
+    align-items: center
