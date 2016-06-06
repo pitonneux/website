@@ -1,6 +1,5 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!, except: [:show, :index]
-  before_action :authorize_event, only: [:show, :edit, :update, :destroy]
 
   def index
     @events = Event.all
@@ -11,8 +10,8 @@ class EventsController < ApplicationController
   end
 
   def new
-    authorize Event
     @event = Event.new
+    authorize @event
   end
 
   def edit
@@ -20,11 +19,11 @@ class EventsController < ApplicationController
   end
 
   def create
-    authorize Event
     @event = Event.new(event_params)
+    authorize @event
 
     if @event.save
-      redirect_to @event, notice: 'Event was successfully created.'
+      redirect_to @event, notice: t('.success')
     else
       render :new
     end
@@ -48,12 +47,8 @@ class EventsController < ApplicationController
 
   private
 
-    def set_event
+    def find_event
       Event.find(params[:id])
-    end
-
-    def authorize_event
-      authorize @event
     end
 
     def event_params

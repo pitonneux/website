@@ -1,4 +1,9 @@
 RSpec.feature 'Signing in', :devise do
+  scenario 'user tries to sign up to use the app' do
+    visit new_user_registration_path
+    expect(page).to have_content 'You must be invited to access behind the scenes'
+  end
+
   scenario 'user cannot sign in if not registered' do
     sign_in('person@exmaple.com', 'password')
     expect(page).to have_content 'Invalid email or password'
@@ -16,7 +21,7 @@ RSpec.feature 'Signing in', :devise do
     expect(page).to have_content 'Invalid email or password'
   end
 
-  scenario 'user cannot sign in with the wrong email' do
+  scenario 'user cannot sign in with the wrong password' do
     user = create :user
     sign_in(user.email, 'wrongpassword')
     expect(page).to have_content 'Invalid email or password'

@@ -4,10 +4,9 @@ FactoryGirl.define do
       "user_#{n}@example.com"
     end
     password 'password'
-    admin false
 
     trait :admin do
-      admin true
+      role :admin
     end
   end
 end

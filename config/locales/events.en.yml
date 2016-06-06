@@ -16,5 +16,9 @@ en:
       duration: Duration
       location: Location
       signup: Sign up here
+    index:
+      create: Create a new event
+    create:
+      success: Event was created successfully
 
 

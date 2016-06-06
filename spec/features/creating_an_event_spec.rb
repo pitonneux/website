@@ -1,14 +1,9 @@
-require 'rails_helper'
-
-include SelectDateHelper
-
 RSpec.feature 'creating an event' do
-  let(:admin) { create :user, :admin }
-
-  scenario 'from the homepage as an admin' do
+  scenario 'from event index' do
+    admin = create :user, :admin
     login_as admin
 
-    visit root_path
+    visit events_path
     click_link 'Create a new event'
     expect(page).to have_content 'New Event'
 
@@ -21,6 +16,7 @@ RSpec.feature 'creating an event' do
     select_time '18', '00', from: 'Starts At'
     check 'Feature on homepage'
     click_button 'Create event'
+    expect(page).to have_content 'Event was created successfully'
     expect(page).to have_content 'Learn iOS'
     expect(page).to have_content 'Come and learn how to make an app'
     expect(page).to have_content 'signuphere.com'
@@ -28,5 +24,11 @@ RSpec.feature 'creating an event' do
     expect(page).to have_content '6:00 pm'
     expect(page).to have_content '90 minutes'
     expect(current_path).to eq event_path(Event.last)
+  end
+
+  scenario 'getting to events index' do
+    #log in as admin
+    #should be on events index
+    #should see link to new event
   end
 end

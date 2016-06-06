@@ -4,7 +4,7 @@ RSpec.describe ApplicationPolicy do
 
   subject { described_class }
 
-  permissions :index?, :create?, :new?, :update?, :edit?, :destroy? do
+  permissions :create?, :new? do
     it { is_expected.to permit admin    }
     it { is_expected.not_to permit user }
   end

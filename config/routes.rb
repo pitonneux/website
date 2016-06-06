@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, path: 'admin', path_names: { sign_in: 'login',
+                                                  sign_out: 'logout',
+                                                  sign_up: 'register' }
 
   root 'pages#home'
 
@@ -8,12 +10,4 @@ Rails.application.routes.draw do
   resources :organizations
 
   get '/home' => 'pages#home'
-
-    namespace :admin do
-      # Directs /admin/products/* to Admin::ProductsController
-      # (app/controllers/admin/products_controller.rb)
-      resources :events
-      resources :organizations
-
-    end
 end
