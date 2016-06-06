@@ -10,3 +10,6 @@ tags
 
 # Environment variables
 .rbenv-vars
+
+# sessions
+Session.vim

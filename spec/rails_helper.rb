@@ -14,14 +14,18 @@ Capybara::Webkit.configure do |config|
   config.block_unknown_urls
 end
 
+module Features
+  include Formulaic::Dsl
+  include SelectDateHelpers
+  include SessionHelpers
+end
+
 RSpec.configure do |config|
   config.infer_base_class_for_anonymous_controllers = false
   config.infer_spec_type_from_file_location!
   config.use_transactional_fixtures = false
 
-  # Features
-  config.include SelectDateHelper, type: :request
-  config.include Formulaic::Dsl, type: :feature
+  config.include Features, type: :feature
 
   config.include Warden::Test::Helpers
   config.before(:suite) { Warden.test_mode!  }
