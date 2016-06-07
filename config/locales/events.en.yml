@@ -17,7 +17,9 @@ en:
       location: Location
       signup: Sign up here
     index:
-      create: Create a new event
+      new: Create a new event
+      create: Create event
+      title: Events
     create:
       success: Event was created successfully
 

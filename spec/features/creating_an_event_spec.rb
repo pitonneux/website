@@ -27,8 +27,11 @@ RSpec.feature 'creating an event' do
   end
 
   scenario 'getting to events index' do
-    #log in as admin
-    #should be on events index
-    #should see link to new event
+    admin = create :user, :admin
+    sign_in admin.email, admin.password
+
+    expect(page).to have_content 'Signed in successfully'
+    expect(page).to have_current_path events_path
+    expect(page).to have_link 'Create a new event'
   end
 end

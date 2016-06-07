@@ -49,6 +49,7 @@ group :test do
   gem 'database_cleaner'
   gem 'formulaic'
   gem 'fuubar'
+  gem 'launchy'
   gem 'shoulda-matchers'
 end
 

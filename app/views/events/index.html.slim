@@ -1,6 +1,11 @@
-h1 Listing events
+= provide :title, t('.title')
+= provide :button_text, t('.create')
+
+h1 = t('.events')
+
+details
+  summary = t('.new')
+  = render 'form'
+
 = render @events
 
-br
-
-button = link_to t('.create'), new_event_path

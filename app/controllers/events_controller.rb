@@ -3,15 +3,12 @@ class EventsController < ApplicationController
 
   def index
     @events = Event.all
+    @event = Event.new
+    authorize @event
   end
 
   def show
     @event = find_event
-  end
-
-  def new
-    @event = Event.new
-    authorize @event
   end
 
   def edit
@@ -25,7 +22,7 @@ class EventsController < ApplicationController
     if @event.save
       redirect_to @event, notice: t('.success')
     else
-      render :new
+      redirect_to events_path
     end
   end
 

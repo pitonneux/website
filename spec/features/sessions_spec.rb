@@ -2,6 +2,7 @@ RSpec.feature 'Signing in', :devise do
   scenario 'user tries to sign up to use the app' do
     visit new_user_registration_path
     expect(page).to have_content 'You must be invited to access behind the scenes'
+    expect(page.current_path).to eq root_path
   end
 
   scenario 'user cannot sign in if not registered' do

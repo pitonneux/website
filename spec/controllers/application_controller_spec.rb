@@ -17,4 +17,11 @@ RSpec.describe ApplicationController do
       expect(flash[:alert]).to eq t 'unauthorized'
     end
   end
+
+  describe 'after_sign_in_path' do
+    it 'redirects to events after login' do
+      user = build_stubbed :user
+      expect(controller.after_sign_in_path_for(user)).to eq events_path
+    end
+  end
 end
