@@ -38,5 +38,7 @@ en:
         details: If you're interested in joining us or just want some more info, please drop us a note here!
       connect:
         header: Connect With Us
+    featured_event:
+      description: Read the full description
 
       signup: Sign me up!

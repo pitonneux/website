@@ -1,0 +1,54 @@
+=map
+  content: '\f041'
+  font-family: 'FontAwesome'
+
+=clock
+  content: '\f017'
+  font-family: 'FontAwesome'
+
+=fixed-width-icon
+  width: 1.3em
+  text-align: center
+  padding-right: $little-space
+
+[data-controller=events]
+  summary
+    +button($action-color)
+
+  .event
+    padding: $med-space
+    margin: $large-space 0
+    border-radius: $base-border-radius
+    background-color: $lightest-gray
+    display: flex
+    +shadow
+    +on($small-screen)
+      flex-direction: column
+
+    details
+      h1, h2, h3
+        font-size: inherit
+
+    img
+      margin-right: $large-space
+      max-height: 15vh
+      max-width: 15vh
+
+    summary
+      +button($main-color)
+
+    button:not(last-child)
+      +button($action-color)
+      font-size: 0.8em
+      padding: $little-space
+      margin-right: $little-space
+
+    .location:before
+      +map
+      +fixed-width-icon
+
+    time:before
+      +clock
+      +fixed-width-icon
+
+      // calendar: "\f073"

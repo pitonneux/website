@@ -1,15 +1,15 @@
-= image_tag event.cover_image.url if event.cover_image?
-h2 = event.name
-time = event.starts_at
-h3 = event.location.try(:name)
-= render_markdown(event.description)
+.event
+  = image_tag event.cover_image.url if event.cover_image?
 
-br
+  .info
+    h2 = event.name
+    button = link_to t('.edit'), edit_event_path(event)
+    button = link_to t('.destroy'), event, data: {confirm: t('delete') }, method: :delete
+    br
+    time = date_and_time_for(event)
+    p.location = event.location.try(:name)
 
-= link_to 'Show', event
-= link_to 'Edit', edit_event_path(event)
-= link_to 'Destroy', event, data: {confirm: 'Are you sure?'}, method: :delete
-
-br
-= link_to 'Back', events_path
+    details
+      summary = t('.description')
+      = render_markdown(event.description)
 

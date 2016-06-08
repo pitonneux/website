@@ -10,12 +10,13 @@ form
       padding: 0 $base-spacing/2
       background-color: $lighter-gray
 
-    input
+    input, textarea
       flex: 1
       border: none
       line-height: $base-line-height
       font-size: $base-font-size
-      padding: 0 $base-spacing/2
+      padding: 0 $little-space
+      background-color: $background-color
 
       &:focus
         outline: none
@@ -26,6 +27,8 @@ form
   input[type=checkbox]
     margin-right: $base-spacing/2
 
+  input[type=submit]
+    display: block
 
 .links a
   color: $light-gray

@@ -1,6 +1,7 @@
 $base-spacing: 1.5em;
 $base-border-radius: 2px;
 $base-line-height: 1.5em;
+$base-border-radius: 5px;
 $base-font-size: 1.1em;
 $padding: 1.5em;
 $large-space: 1.5em;
@@ -9,8 +10,8 @@ $little-space: 0.5em;
 
 //COLORS
 $gray: #333333;
-$lightest-gray: lighten($gray, 90%);
-$lighter-gray: lighten($gray, 70%);
+$lightest-gray: lighten($gray, 73%);
+$lighter-gray: lighten($gray, 60%);
 $light-gray: lighten($gray, 50%);
 $background-color: #fdfdfd;
 

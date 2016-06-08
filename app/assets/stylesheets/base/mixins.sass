@@ -1,3 +1,5 @@
+// Display
+
 =above($size)
   @media screen and (min-width: $size)
     @content
@@ -18,7 +20,10 @@
   +above($small-screen)
     flex-direction: column
 
+// Style
+
 =surrounding-lines($color)
+  text-align: center
   &:before,
   &:after
     background-color: $color
@@ -45,3 +50,5 @@
   bottom: 1px
   left: 35%
 
+=shadow($color: $lighter-gray)
+  box-shadow: 1px 1px 1px $color

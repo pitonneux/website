@@ -5,7 +5,7 @@
 
 body
   align-items: center
-  background-color: $lightest-gray
+  background-color: $background-color
   color: $base-font-color
   display: flex
   flex-direction: column
@@ -19,16 +19,8 @@ h1, h2, h3, h4, h5, h6
   font-family: $headers
   padding: $padding/2 0
 
-h2
-  font-family: $serif
-  font-size: $base-font-size
-  font-style: italic
-  text-align: center
-  color: lighten($gray, 40%)
-
 h1
   overflow: hidden
-  text-align: center
   letter-spacing: 1px
   font-size: 2em
 
@@ -42,4 +34,7 @@ a
 
 a:focus, a:active
   color: rgba($action-color, 0.6)
+
+p + ul
+  margin-left: $large-space
 

@@ -1,15 +1,13 @@
-require 'rails_helper'
-
-# Specs in this file have access to a helper object that includes
-# the EventsHelper. For example:
-#
-# describe EventsHelper do
-#   describe "string concat" do
-#     it "concats two strings with spaces" do
-#       expect(helper.concat_strings("this","that")).to eq("this that")
-#     end
-#   end
-# end
 RSpec.describe EventsHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe 'time date_and_time_for' do
+    it 'returns the date helper when event has a start date' do
+      event = build_stubbed :event, starts_at: 'Mon, 06 Jun 2016 15:30:00 UTC +00:00'
+      expect(helper.date_and_time_for(event)).to eq l(event.starts_at, format: :full)
+    end
+
+    it 'returns a friendly message when event has no start date' do
+      event = build_stubbed :event, starts_at: nil
+      expect(helper.date_and_time_for(event)).to eq t('events.no_start_date')
+    end
+  end
 end

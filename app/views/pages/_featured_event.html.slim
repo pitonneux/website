@@ -18,6 +18,7 @@ article.event
         = t('.signup')
   .description
     h1 = event.name
-    p = render_markdown truncate(event.description, length: 1000, separator: ' ', omission: ' . . . ') { link_to t('more'), event, class: 'more' }
+    .expander.closed = render_markdown event.description
+    a.expander-toggle href='javascript:void(0)' = t('.description')
 
 

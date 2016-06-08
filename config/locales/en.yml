@@ -26,4 +26,5 @@ en:
       date: "%B %-e, %Y"
       time: "%-l:%M %P"
       long: "%A, %B %-e"
+      full: "%A, %B %-e at %-l:%M %P"
 

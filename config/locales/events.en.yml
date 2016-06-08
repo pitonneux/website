@@ -1,5 +1,6 @@
 en:
   events:
+    no_start_date: No start date
     form:
       feature_on_homepage: Feature on homepage?
       date: Date
@@ -20,6 +21,8 @@ en:
       new: Create a new event
       create: Create event
       title: Events
+    event:
+      description: Description
     create:
       success: Event was created successfully
 

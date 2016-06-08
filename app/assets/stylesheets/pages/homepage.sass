@@ -1,6 +1,7 @@
 =header-reset
   color: lighten($gray, 20%)
   font-size: 1.5em
+  text-align: left
   &:before, &:after
     content: none
 
@@ -28,6 +29,13 @@
         font-size: 4vh
         +surrounding-lines($base-font-color)
 
+      h2
+        font-family: $serif
+        font-size: $base-font-size
+        font-style: italic
+        color: lighten($gray, 40%)
+        text-align: center
+
     #home
       background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('//uploads.strikinglycdn.com/static/backgrounds/business-2/144.jpg')
       background-size: cover
@@ -47,18 +55,22 @@
         +above($small-screen)
           font-size: 3em
       h2
+        font-family: $serif
+        font-style: italic
+        font-size: 1.1em
         +above($small-screen)
           +surrounding-lines($background-color)
+          font-size: 1.3em
 
     #events
       .event
-        display: flex
-        flex-direction: column
-        +above ($small-screen)
-          flex-direction: row
+        +flex-column-then-row
 
         h1
           +header-reset
+
+        h2
+          text-align: left
 
         .meta, .description
           padding: $padding
@@ -82,14 +94,20 @@
           i
             padding-right: $little-space
 
-        .description
+        .expander
+          height: auto
+          overflow: auto
           h2
             color: $action-color
           h1, h2
             +above($small-screen)
-              text-align: left
-          a.more
-            +button($action-color)
+
+        .closed
+          max-height: 30em
+          overflow: hidden
+
+        a.expander-toggle
+          +button($action-color)
 
     #partners
       .partner
