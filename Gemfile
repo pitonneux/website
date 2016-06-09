@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 
-ruby '2.3.0'
+ruby '2.3.1'
 
-gem 'rails', '4.2.5.2'
+gem 'rails', '~>5.0.0.rc1'
 gem 'pg'
 
 # Views
@@ -45,7 +45,6 @@ end
 group :test do
   gem 'capybara'
   gem 'capybara-webkit'
-  gem 'cucumber-rails', require: false
   gem 'database_cleaner'
   gem 'formulaic'
   gem 'fuubar'
