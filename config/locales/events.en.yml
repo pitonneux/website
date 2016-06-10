@@ -8,9 +8,6 @@ en:
     edit:
       title: Update Event
       update: Update event
-    new:
-      create: Create event
-      title: New Event
     show:
       date: Date
       starts_at: Starts at

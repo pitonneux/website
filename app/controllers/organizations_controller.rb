@@ -1,25 +1,17 @@
 class OrganizationsController < ApplicationController
   before_action :set_organization, only: [:show, :edit, :update, :destroy]
 
-  # GET /organizations
   def index
     @organizations = Organization.all
-  end
-
-  # GET /organizations/1
-  def show
-  end
-
-  # GET /organizations/new
-  def new
     @organization = Organization.new
   end
 
-  # GET /organizations/1/edit
+  def show
+  end
+
   def edit
   end
 
-  # POST /organizations
   def create
     @organization = Organization.new(organization_params)
 

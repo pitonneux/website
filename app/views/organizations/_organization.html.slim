@@ -1,7 +1,10 @@
-= image_tag organization.logo.url if organization.logo?
-= organization.name
-= render_markdown(organization.description)
-br
-p = link_to 'Edit', edit_organization_path(organization)
-p = link_to 'Delete', organization, data: {confirm: 'Are you sure?'}, method: :delete
-hr
+.organization
+  .info
+    = image_tag organization.logo.url if organization.logo?
+    p.address = organization.location.try(:name)
+    = render_markdown(organization.description)
+
+  .control
+    button = link_to t('.edit'), edit_organization_path(organization)
+    button = link_to t('.destroy'), organization, data: {confirm: t('delete') }, method: :delete
+

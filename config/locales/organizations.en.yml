@@ -4,7 +4,10 @@ en:
     edit:
       title: Update Organization
       update: Update organization
-    new:
+    index:
+      new: Add a new organization
       create: Create organization
-      title: New Organization
+      title: Organizations
+
+
 

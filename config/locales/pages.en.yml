@@ -6,6 +6,12 @@ en:
       partners: Our partners
       contact: Contact us
       connect: Connect
+    nav:
+      events: Events
+      locations: Locations
+      organizations: Organizations
+      logout: Logout
+      login: Login
 
     footer:
       made_in_mtl_html: Made with %{heart} in Montreal

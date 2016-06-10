@@ -1,0 +1,27 @@
+[data-controller=locations],
+[data-controller=events],
+[data-controller=organizations]
+  summary
+    +button($action-color)
+
+  .location,
+  .event,
+  .organization
+    +card
+
+  .location,
+  .organization
+    .info
+      flex: 2
+
+  .event
+    img
+      max-width: 15vh
+
+  .organization
+    img
+      max-width: 25vh
+
+
+
+

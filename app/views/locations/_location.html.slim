@@ -1,0 +1,11 @@
+.location
+  .info
+    h2 = location.name
+    span.address = location.address
+    h3 = t('.directions')
+    = render_markdown(location.directions)
+
+  .control
+    button = link_to t('.edit'), edit_location_path(location)
+    button = link_to t('.destroy'), location, data: { confirm: t('delete') }, method: :delete
+

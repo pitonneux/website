@@ -1,32 +1,30 @@
 class LocationsController < ApplicationController
+  before_action :authenticate_user!
+
   before_action :set_location, only: [:show, :edit, :update, :destroy]
 
   # GET /locations
   def index
     @locations = Location.all
+    @location = Location.new
+
   end
 
   # GET /locations/1
   def show
   end
 
-  # GET /locations/new
-  def new
-    @location = Location.new
-  end
-
   # GET /locations/1/edit
   def edit
   end
 
-  # POST /locations
   def create
     @location = Location.new(location_params)
 
     if @location.save
       redirect_to @location, notice: 'Location was successfully created.'
     else
-      render :new
+      redirect_to locations_path
     end
   end
 

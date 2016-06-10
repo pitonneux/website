@@ -1,0 +1,6 @@
+en:
+  locations:
+    index:
+      title: Locations
+      new: Add a new location
+      create: Create location

@@ -1,4 +1,12 @@
+= provide :title, t('.title')
+= provide :button_text, t('.create')
+
+h1 = t('.organizations')
+
+details
+  summary = t('.new')
+  = render 'form'
+
 = render @organizations
 
-= link_to 'New Organization', new_organization_path
 

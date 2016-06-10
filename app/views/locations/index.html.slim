@@ -1,27 +1,10 @@
-h1 Listing locations
+= provide :title, t('.title')
+= provide :button_text, t('.create')
 
-table
-  thead
-    tr
-      th Name
-      th Address
-      th Directions
-      th Organization
-      th
-      th
-      th
+h1 = t('.locations')
 
-  tbody
-    - @locations.each do |location|
-      tr
-        td = location.name
-        td = location.address
-        td = location.directions
-        td = location.organization
-        td = link_to 'Show', location
-        td = link_to 'Edit', edit_location_path(location)
-        td = link_to 'Destroy', location, data: {:confirm => 'Are you sure?'}, :method => :delete
+details
+  summary = t('.new')
+  = render 'form'
 
-br
-
-= link_to 'New Location', new_location_path
+= render @locations

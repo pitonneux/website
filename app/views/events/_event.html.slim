@@ -7,7 +7,7 @@
     button = link_to t('.destroy'), event, data: {confirm: t('delete') }, method: :delete
     br
     time = date_and_time_for(event)
-    p.location = event.location.try(:name)
+    p.address = event.location.try(:name)
 
     details
       summary = t('.description')
