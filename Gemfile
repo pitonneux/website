@@ -32,7 +32,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'pry-byebug'
   gem 'pry-rails'
-  gem 'rspec-rails'
+  gem 'rspec-rails', '~>3.5.0.beta4'
   gem 'spring'
 end
 
@@ -47,7 +47,7 @@ group :test do
   gem 'capybara-webkit'
   gem 'database_cleaner'
   gem 'formulaic'
-  gem 'fuubar'
+  # gem 'fuubar'
   gem 'launchy'
   gem 'shoulda-matchers'
 end
