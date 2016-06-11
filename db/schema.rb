@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 20160611134932) do
   end
 
   create_table "messages", force: :cascade do |t|
-    t.string   "name",       null: false
+    t.string   "sender",     null: false
     t.string   "email",      null: false
     t.text     "message",    null: false
     t.datetime "created_at", null: false
