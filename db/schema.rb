@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160605033904) do
+ActiveRecord::Schema.define(version: 20160611134932) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,9 +27,8 @@ ActiveRecord::Schema.define(version: 20160605033904) do
     t.datetime "updated_at",      null: false
     t.string   "cover_image"
     t.string   "signup_link"
+    t.index ["location_id"], name: "index_events_on_location_id", using: :btree
   end
-
-  add_index "events", ["location_id"], name: "index_events_on_location_id", using: :btree
 
   create_table "locations", force: :cascade do |t|
     t.string   "name"
@@ -38,9 +37,16 @@ ActiveRecord::Schema.define(version: 20160605033904) do
     t.integer  "organization_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.index ["organization_id"], name: "index_locations_on_organization_id", using: :btree
   end
 
-  add_index "locations", ["organization_id"], name: "index_locations_on_organization_id", using: :btree
+  create_table "messages", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.string   "email",      null: false
+    t.text     "message",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "organizations", force: :cascade do |t|
     t.string   "name",        null: false
@@ -64,10 +70,9 @@ ActiveRecord::Schema.define(version: 20160605033904) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.integer  "role",                                null: false
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
-
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "events", "locations"
   add_foreign_key "locations", "organizations"
