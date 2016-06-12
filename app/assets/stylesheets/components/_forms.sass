@@ -1,10 +1,12 @@
 form
-  padding: $base-spacing 0
+  padding: $little-space
+  +above($small-screen)
+    padding: $large-space
 
   .field
     display: flex
     border-bottom: 1px solid $lighter-gray
-    margin: $base-spacing/2 0
+    margin: $med-space 0
 
     label
       padding: 0 $base-spacing/2
@@ -14,7 +16,7 @@ form
       flex: 1
       border: none
       line-height: $base-line-height
-      font-size: $base-font-size
+      font-size: inherit
       padding: 0 $little-space
       background-color: $background-color
 
@@ -22,7 +24,7 @@ form
         outline: none
 
     .error
-      border-bottom: 1px solid $action-color
+      border-bottom: 1px solid $error-color
 
   input[type=checkbox]
     margin-right: $base-spacing/2

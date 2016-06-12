@@ -3,5 +3,6 @@ class PagesController < ApplicationController
     authorize :page, :home?
     @featured_events = Event.featured
     @partners = Organization.all
+    @message = Message.new
   end
 end

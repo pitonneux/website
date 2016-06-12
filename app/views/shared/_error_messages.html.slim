@@ -1,6 +1,6 @@
 - if object.errors.any?
   #error_explanation
-    h2 = "#{pluralize(@location.errors.count, "error")} prohibited this location from being saved:"
+    h2 = "#{pluralize(object.errors.count, "problem")} kept this form from being submitted:"
     ul
       - object.errors.full_messages.each do |message|
         li = message

@@ -1,0 +1,12 @@
+.card
+  = form_for @message, url: messages_path, method: :post, remote: true do |f|
+    .field = f.text_field :sender, placeholder: t('.name')
+    = show_error(@message, :sender)
+
+    .field = f.email_field :email, placeholder: t('.email')
+    = show_error(@message, :email)
+
+    .field = f.text_area :content, placeholder: t('.message')
+    = show_error(@message, :content)
+
+    = f.submit t('.send')

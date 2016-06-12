@@ -6,6 +6,7 @@ gem 'rails', '~>5.0.0.rc1'
 gem 'pg'
 
 # Views
+gem 'autoprefixer-rails'
 gem 'font-awesome-rails'
 gem 'sass-rails'
 gem 'slim-rails'

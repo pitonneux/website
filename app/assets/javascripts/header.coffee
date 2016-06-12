@@ -1,8 +1,8 @@
 $(document).on 'ready page:load', ->
 
-  menuToggle = $('.toggle').unbind()
+  menuToggle = $('.menu-toggle').unbind()
   menuToggle.on 'click', (e) ->
     e.preventDefault()
-    $('ul').slideToggle ->
-      if $('ul').is(':hidden')
-        $('ul').removeAttr 'style'
+    $('nav ul').slideToggle ->
+      if $('nav ul').is(':hidden')
+        $('nav ul').removeAttr 'style'

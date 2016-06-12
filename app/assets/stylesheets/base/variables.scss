@@ -3,6 +3,7 @@ $base-border-radius: 2px;
 $base-line-height: 1.5em;
 $base-border-radius: 5px;
 $base-font-size: 1.1em;
+$small: 0.85em;
 $padding: 1.5em;
 $large-space: 1.5em;
 $med-space: 1em;
@@ -20,6 +21,7 @@ $base-font-color: $gray;
 $main-color: #00c1b4;
 $buttons: $main-color;
 $action-color: #93d031;
+$error-color: #ff6912;
 
 // FLASHES
 $flashes: (
