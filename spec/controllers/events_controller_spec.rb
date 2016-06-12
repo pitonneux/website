@@ -27,7 +27,6 @@ RSpec.describe EventsController do
       include_context 'user is authorized' do
         it_behaves_like 'successful request'
       end
-
     end
   end
 

@@ -49,7 +49,21 @@ RSpec.describe ApplicationHelper, type: :helper do
       expect(show_error(object, :name)).to eq nil
     end
   end
+
+  describe '#show_error' do
+    it 'returns the content tag for an object that has errors' do
+      errors = double 'errors', messages: { name: ["can't be blank"] }
+      object = double 'object', errors: errors
+
+      expect(show_error(object, :name)).to eq "<p class=\"field-error\">Name can&#39;t be blank</p>"
+    end
+
+    it 'returns nothing for an object that has no errors' do
+      errors = double 'errors', messages: {}
+      object = double 'object', errors: errors
+
+      expect(show_error(object, :name)).to eq nil
+    end
+  end
 end
-
-
 
