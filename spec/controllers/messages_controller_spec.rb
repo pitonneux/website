@@ -7,6 +7,7 @@ RSpec.describe MessagesController, type: :controller, js: true do
                      email: 'valid@email.com',
                      content: 'A nice message' } }
       end
+
       let(:mailer) { double 'mailer', deliver: true }
 
       before do
