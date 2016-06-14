@@ -7,14 +7,20 @@ RSpec.describe ApplicationController do
 
   describe 'user_not_authorized' do
     before do
-      @routes.draw do
-        get :access_denied, controller: :anonymous
-      end
+      @routes.draw { get :access_denied, controller: :anonymous }
     end
 
     it 'sets the flash when user is unauthorized' do
+      request.env["HTTP_REFERER"] = nil
       get :access_denied
-      expect(flash[:alert]).to eq t 'unauthorized'
+      expect(controller).to set_flash[:alert].to t('unauthorized')
+      expect(controller).to redirect_to root_path
+    end
+
+    it 'redirects back when there is a request referrer' do
+      request.env["HTTP_REFERER"] = 'back path'
+      get :access_denied
+      expect(controller).to redirect_to 'back path'
     end
   end
 

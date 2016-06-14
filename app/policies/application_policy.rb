@@ -17,10 +17,10 @@ class ApplicationPolicy
     @record = record
   end
 
-  # def show?
-  #   # scope.where(id: record.id).exists?
-  # end
-  #
+  def show?
+    admin?
+  end
+
   def create?
     admin?
   end
@@ -28,19 +28,19 @@ class ApplicationPolicy
   def new?
     create?
   end
-  #
-  # def update?
-  #   admin?
-  # end
-  #
-  # def edit?
-  #   update?
-  # end
-  #
-  # def destroy?
-  #   admin?
-  # end
-  #
+
+  def update?
+    admin?
+  end
+
+  def edit?
+    update?
+  end
+
+  def destroy?
+    admin?
+  end
+
   # def scope
   #   Pundit.policy_scope!(user, record.class)
   # end

@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   include Pundit
 
-  protect_from_forgery with: :exception
+  protect_from_forgery with: :exception, prepend: true
 
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
@@ -13,6 +13,6 @@ class ApplicationController < ActionController::Base
 
   def user_not_authorized
     flash[:alert] = t 'unauthorized'
-    redirect_to(request.referrer || root_path)
+    redirect_back(fallback_location: root_path)
   end
 end

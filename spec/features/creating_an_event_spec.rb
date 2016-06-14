@@ -4,8 +4,7 @@ RSpec.feature 'creating an event' do
     login_as admin
 
     visit events_path
-    click_link 'Create a new event'
-    expect(page).to have_content 'New Event'
+    find('summary', text: 'Create a new event').click
 
     fill_form :event, { name: 'Learn iOS',
                         description: 'Come and learn how to make an app',
@@ -32,6 +31,6 @@ RSpec.feature 'creating an event' do
 
     expect(page).to have_content 'Signed in successfully'
     expect(page).to have_current_path events_path
-    expect(page).to have_link 'Create a new event'
+    expect(page).to have_content 'Create a new event'
   end
 end

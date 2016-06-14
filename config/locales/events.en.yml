@@ -22,5 +22,12 @@ en:
       description: Description
     create:
       success: Event was created successfully
+      failure: Event could not be created
+    update:
+      success: Event was successfully updated
+      failure: Event could not be updated
+    destroy:
+      success: Event was successfully destroyed
+
 
 

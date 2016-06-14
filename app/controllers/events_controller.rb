@@ -4,15 +4,17 @@ class EventsController < ApplicationController
   def index
     @events = Event.all
     @event = Event.new
-    authorize @event
+    authorize Event
   end
 
   def show
     @event = find_event
+    authorize @event
   end
 
   def edit
     @event = find_event
+    authorize @event
   end
 
   def create
@@ -20,26 +22,30 @@ class EventsController < ApplicationController
     authorize @event
 
     if @event.save
-      redirect_to @event, notice: t('.success')
+      redirect_to events_path, notice: t('.success')
     else
-      redirect_to events_path
+      redirect_to events_path, alert: t('.failure')
     end
   end
 
   def update
     @event = find_event
+    authorize @event
 
     if @event.update(event_params)
-      redirect_to @event, notice: 'Event was successfully updated.'
+      redirect_to events_path, notice: t('.success')
     else
+      flash.now[:alert] = t('.failure')
       render :edit
     end
   end
 
   def destroy
     @event = find_event
+    authorize @event
+
     @event.destroy
-    redirect_to events_url, notice: 'Event was successfully destroyed.'
+    redirect_to events_path, notice: t('.success')
   end
 
   private

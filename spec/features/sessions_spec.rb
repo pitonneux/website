@@ -1,3 +1,5 @@
+require 'rails_helper'
+
 RSpec.feature 'Signing in', :devise do
   scenario 'user tries to sign up to use the app' do
     visit new_user_registration_path
