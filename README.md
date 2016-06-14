@@ -1,29 +1,35 @@
-#README
+# Read Me
 
-This is my very opinionated default rails app for ideas with users. As though rails doesn't already save me enough time, this skeleton is where I start to save myself time.
+This is the website for Les Pitonneux. The public-facing part shows our upcoming events and behind the scenes it allows for organizers to manage and plan events. Everybody is welcome and encouraged to contribute. This can be a great way to get your feet wet with contributing to a live open-source project!
 
-##Includes
+## Database
 
-- Ruby version 2.3.0
-- PostgresQL for the database
-- Puma for the webserver
-- Configuration for deployment to heroku (/config/puma.rb)
-- Slim templating language for views
-- Font-awesome for icons throughout the app
-- Devise for authentication
-- Devise views for all things related to user registrations and passwords
-  - Development environment configuration for mailers
-- RSpec for testing
-- Cucumber for integration tests
-- A couple other gems just for fun
-  - Fuubar for formatting rspec output
-  - quiet_assets to unclutter my development log
-- A static_pages controller and a static home page
-- A flash setup in `application.html.slim`
-- A `full_title` helper, a la Michael Hartl rails tutorial
-  - If you want to provide a custom title to your pages just specify at the top of your view with `provide(:title, 'My awesome page title')`
+This project uses PostgresQL, a free and open-source database. You'll need to install it, google the instructions for your operating system. If you're on a mac you can run
+```bash
+brew install postgres
+```
 
-##To get up and running
+## Ruby version
+
+The project currently uses Ruby 2.3.1. You can install many versions of Ruby on your machine with a ruby environment manager. Two common ones are [rbenv](https://github.com/rbenv/rbenv) and [rvm](https://rvm.io/).
+
+## Libraries
+
+External depenencies are managed with [bundler](http://bundler.io/). Install it by running
+```ruby
+gem install bundler
+```
+
+## Setting up your development environment
+1. Make a fork of this repo for yourself and clone it to your machine
+2. Run `bundle install` to install all the gems
+3. Run `bin/setup` to run the setup script to get the project running on your machine. This script sets up everything you need to run the app locally:
+  - runs a bundle install to install all gem dependencies
+  - prepares your local and test databases
+    - loads the schema to create all the tables
+    - loads some seed files so you can see the app in a sort-of set up state
+
+
 
 - Clone this repo and call it some project name you like
 - Then run `bundle install`
