@@ -1,2 +1,4 @@
-h1 Message#send_to_admin
-p = @greeting + ", find me in app/views/message_mailer/send_to_admin.html.slim"
+h1 = t('.hi')
+= t('.contact_form', name: @sender)
+
+p = @content

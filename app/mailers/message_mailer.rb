@@ -1,13 +1,17 @@
 class MessageMailer < ApplicationMailer
+  def send_to_admin(message)
+    @content = message.content
+    @sender = message.sender
 
-  # Subject can be set in your I18n file at config/locales/en.yml
-  # with the following lookup:
-  #
-  #   en.message_mailer.send_to_admin.subject
-  #
-  def send_to_admin
-    @greeting = "Hi"
+    mail send_to_admin_attributes
+  end
 
-    mail to: "to@example.org"
+  private
+
+  def send_to_admin_attributes
+    {
+      to: ENV['ADMIN_EMAIL'],
+      subject: t('.subject', name: @sender)
+    }
   end
 end

@@ -7,7 +7,7 @@ class MessagesController < ApplicationController
 
     if @message.save
       render 'success'
-      # MessageMailer.send_to_admin(message_params)
+      MessageMailer.send_to_admin(@message).deliver
     else
       render 'fail'
     end

@@ -1,3 +1,5 @@
-' Message#send_to_admin
+= t('.hi')
+= "\r\n"
+= t('.contact_form', name: @sender)
 = "\r\n" * 2
-' #{@greeting + ", find me in app/views/message_mailer/send_to_admin.text.slim"}
+= @content

@@ -7,6 +7,11 @@ RSpec.describe MessagesController, type: :controller, js: true do
                      email: 'valid@email.com',
                      content: 'A nice message' } }
       end
+      let(:mailer) { double 'mailer', deliver: true }
+
+      before do
+        allow(MessageMailer).to receive(:send_to_admin).and_return mailer
+      end
 
       it 'works' do
         post :create, params: message_params, format: :js
@@ -14,11 +19,8 @@ RSpec.describe MessagesController, type: :controller, js: true do
       end
 
       it 'tells the mailer to deliver' do
-        mailer = double 'mailer', deliver: true
-        allow(MessageMailer).to receive(:send_to_admin).and_return mailer
-
         post :create, params: message_params, format: :js
-        expect(mailer).to receive :deliver
+        expect(mailer).to have_received :deliver
       end
     end
 
