@@ -10,8 +10,9 @@ module ApplicationHelper
 
   def render_markdown(text)
     extensions = { autolink: true }
+    renderer_options = { link_attributes: { target: '_blank' } }
 
-    renderer = Redcarpet::Render::HTML.new
+    renderer = Redcarpet::Render::HTML.new(renderer_options)
     @markdown ||= Redcarpet::Markdown.new(renderer, extensions)
 
     @markdown.render(text).html_safe

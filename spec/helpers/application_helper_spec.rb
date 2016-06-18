@@ -25,6 +25,13 @@ RSpec.describe ApplicationHelper, type: :helper do
             HTML
       expect(render_markdown(text)).to eq html
     end
+
+    it 'adds target blank to links' do
+      text = '[Sign up!](http://signuplink.com)'
+      html = "<p><a href=\"http://signuplink.com\" target=\"_blank\">Sign up!</a></p>\n"
+
+      expect(render_markdown(text)).to eq html
+    end
   end
 
   describe '#show_error' do
