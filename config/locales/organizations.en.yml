@@ -8,6 +8,15 @@ en:
       new: Add a new organization
       create: Create organization
       title: Organizations
+    create:
+      success: Organization was successfully created
+      failure: Organization could not be created
+    update:
+      success: Organization was successfully updated
+      failure: Organization could not be updated
+    destroy:
+      success: Organization was successfully deleted
+
 
 
 

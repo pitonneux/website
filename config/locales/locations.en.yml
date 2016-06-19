@@ -4,3 +4,11 @@ en:
       title: Locations
       new: Add a new location
       create: Create location
+    create:
+      success: Location was successfully created
+      failure: Location could not be created
+    update:
+      success: Location was successfully updated
+      failure: Location could not be updated
+    destroy:
+      success: Location was successfully deleted

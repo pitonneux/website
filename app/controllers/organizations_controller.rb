@@ -1,12 +1,11 @@
 class OrganizationsController < ApplicationController
-  before_action :set_organization, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
+  before_action :find_and_authorize_organization, only: [:show, :edit, :update, :destroy]
 
   def index
     @organizations = Organization.all
     @organization = Organization.new
-  end
-
-  def show
+    authorize Organization
   end
 
   def edit
@@ -14,36 +13,35 @@ class OrganizationsController < ApplicationController
 
   def create
     @organization = Organization.new(organization_params)
+    authorize @organization
 
     if @organization.save
-      redirect_to organizations_path, notice: 'Organization was successfully created.'
+      redirect_to organizations_path, notice: t('.success')
     else
-      render :new
+      redirect_to organizations_path, alert: t('.failure')
     end
   end
 
-  # PATCH/PUT /organizations/1
   def update
     if @organization.update(organization_params)
-      redirect_to organizations_path, notice: 'Organization was successfully updated.'
+      redirect_to organizations_path, notice: t('.success')
     else
+      flash.now[:alert] = t('.failure')
       render :edit
     end
   end
 
-  # DELETE /organizations/1
   def destroy
     @organization.destroy
-    redirect_to organization_url, notice: 'Organization was successfully destroyed.'
+    redirect_to organizations_url, notice: t('.success')
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_organization
+    def find_and_authorize_organization
       @organization = Organization.find(params[:id])
+      authorize @organization
     end
 
-    # Only allow a trusted parameter "white list" through.
     def organization_params
       params.require(:organization).permit(:name, :description, :logo)
     end

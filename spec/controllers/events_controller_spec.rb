@@ -1,164 +1,69 @@
+require_relative '../support/controllers/shared_examples.rb'
+require_relative '../support/controllers/shared_contexts.rb'
+
 RSpec.describe EventsController do
   describe 'GET #index' do
-    context 'guest tries to access' do
-      before do
-        allow(request.env['warden'])
-          .to receive(:authenticate!)
-          .and_throw(:warden, {scope: :user})
-      end
+    subject { get :index }
 
-      it 'redirects' do
-        get :index
-        expect(response).to redirect_to new_user_session_path
-        expect(controller).to set_flash[:alert].to 'You need to sign in or sign up before continuing.'
-      end
-    end
-
-    context 'user is signed in' do
-      before do
-        user = double('user')
-        allow(request.env['warden']).to receive(:authenticate!).and_return(user)
-        # allow(controller).to receive(:current_user).and_return(user)
-      end
-
-      it 'calls authorize' do
-        expect(controller).to receive(:authorize).with(Event)
-        get :index
-      end
-    end
+    it_behaves_like 'action not allowed for guests'
+    include_examples 'calls authorize with logged in user', Event
   end
 
   describe 'GET #show' do
     let(:event) { create :event }
 
-    context 'guest tries to access' do
-      before do
-        allow(request.env['warden'])
-          .to receive(:authenticate!)
-          .and_throw(:warden, {scope: :user})
-      end
+    subject { get :show, params: { id: event.id } }
 
-      it 'redirects' do
-        get :show, params: { id: event.id }
-        expect(response).to redirect_to new_user_session_path
-        expect(controller).to set_flash[:alert].to 'You need to sign in or sign up before continuing.'
-      end
-    end
+    it_behaves_like 'action not allowed for guests'
 
-    context 'user is logged in' do
-      before do
-        user = double 'user'
-        allow(request.env['warden']).to receive(:authenticate!).and_return(user)
-      end
-
+    include_context 'user is logged in' do
       it 'calls authorize' do
         expect(controller).to receive(:authorize).with(event)
-        get :show, params: { id: event.id }
+        subject
       end
 
-      context 'user is authorized' do
-        it 'works' do
-          allow(controller).to receive(:authorize).and_return true
-          get :show, params: { id: event.id }
-          expect(response).to have_http_status :success
-        end
+      include_examples 'redirects unauthorized user'
+
+      include_context 'user is authorized' do
+        it_behaves_like 'successful request'
       end
 
-      context 'user is unauthorized' do
-        it 'redirects' do
-          get :show, params: { id: event.id }
-          expect(response).to have_http_status :redirect
-          expect(controller).to set_flash[:alert].to 'You are not authorized to perform this action'
-        end
-      end
     end
   end
 
   describe 'GET #edit' do
     let(:event) { create :event }
 
-    context 'guest tries to access' do
-      before do
-        allow(request.env['warden'])
-        .to receive(:authenticate!)
-        .and_throw(:warden, {scope: :user})
-      end
+    subject { get :edit, params: { id: event.id } }
 
-      it 'redirects' do
-        get :edit, params: { id: event.id }
-        expect(response).to redirect_to new_user_session_path
-        expect(controller).to set_flash[:alert].to 'You need to sign in or sign up before continuing.'
-      end
-    end
+    it_behaves_like 'action not allowed for guests'
 
-    context 'user is logged in' do
-      before do
-        user = double 'user'
-        allow(request.env['warden']).to receive(:authenticate!).and_return(user)
-      end
-
+    include_context 'user is logged in' do
       it 'calls authorize' do
         expect(controller).to receive(:authorize).with(event)
         get :edit, params: { id: event.id }
       end
 
-      context 'user is authorized' do
-        it 'works' do
-          allow(controller).to receive(:authorize).and_return true
-          get :edit, params: { id: event.id }
-          expect(response).to have_http_status :success
-        end
+      include_context 'user is authorized' do
+        it_behaves_like 'successful request'
       end
 
-      context 'user is unauthorized' do
-        it 'redirects' do
-          get :edit, params: { id: event.id }
-          expect(response).to have_http_status :redirect
-          expect(controller).to set_flash[:alert].to 'You are not authorized to perform this action'
-        end
-      end
+      include_examples 'redirects unauthorized user'
     end
   end
 
   describe 'POST #create' do
     let(:event_params) { attributes_for :event }
 
-    context 'guest tries to access' do
-      before do
-        allow(request.env['warden'])
-        .to receive(:authenticate!)
-        .and_throw(:warden, {scope: :user})
-      end
+    subject { post :create, params: { event: event_params } }
 
-      it 'redirects' do
-        post :create, params: { event: event_params }
-        expect(response).to redirect_to new_user_session_path
-        expect(controller).to set_flash[:alert].to 'You need to sign in or sign up before continuing.'
-      end
-    end
+    it_behaves_like 'action not allowed for guests'
 
-    context 'user is logged in' do
-      before do
-        user = double 'user'
-        allow(request.env['warden']).to receive(:authenticate!).and_return(user)
-      end
+    include_context 'user is logged in' do
+      include_examples 'calls authorize with', Event
+      include_examples 'redirects unauthorized user'
 
-      it 'calls authorize' do
-        expect(controller).to receive(:authorize).with(Event)
-        post :create, params: { event: event_params }
-      end
-
-      context 'user is unauthorized' do
-        it 'redirects and says why' do
-          post :create, params: { event: event_params }
-          expect(response).to have_http_status :redirect
-          expect(controller).to set_flash[:alert].to 'You are not authorized to perform this action'
-        end
-      end
-
-      context 'user is authorized' do
-        before { allow(controller).to receive(:authorize).and_return true }
-
+      include_context 'user is authorized' do
         context 'with valid params' do
           it 'creates a new Event' do
             expect {
@@ -196,42 +101,15 @@ RSpec.describe EventsController do
     let(:event) { create :event }
     let(:event_params) { { name: 'New Event Name' } }
 
-    context 'guest tries to access' do
-      before do
-        allow(request.env['warden'])
-        .to receive(:authenticate!)
-        .and_throw(:warden, {scope: :user})
-      end
+    subject { put :update, params: { id: event.id, event: event_params } }
 
-      it 'redirects' do
-        put :update, params: { id: event.id, event: event_params }
-        expect(response).to redirect_to new_user_session_path
-        expect(controller).to set_flash[:alert].to 'You need to sign in or sign up before continuing.'
-      end
-    end
+    it_behaves_like 'action not allowed for guests'
 
-    context 'user is logged in' do
-      before do
-        user = double 'user'
-        allow(request.env['warden']).to receive(:authenticate!).and_return(user)
-      end
+    include_context 'user is logged in' do
+      include_examples 'calls authorize with', Event
+      include_examples 'redirects unauthorized user'
 
-      it 'calls authorize' do
-        expect(controller).to receive(:authorize).with(Event)
-        put :update, params: { id: event.id, event: event_params }
-      end
-
-      context 'user is unauthorized' do
-        it 'redirects and says why' do
-          put :update, params: { id: event.id, event: event_params }
-          expect(response).to have_http_status :redirect
-          expect(controller).to set_flash[:alert].to 'You are not authorized to perform this action'
-        end
-      end
-
-      context 'user is authorized' do
-        before { allow(controller).to receive(:authorize).and_return true }
-
+      include_context 'user is authorized' do
         context 'with valid params' do
           it 'updates the event' do
             expect do
@@ -270,45 +148,23 @@ RSpec.describe EventsController do
   describe "DELETE #destroy" do
     let(:event) { create :event }
 
-    context 'guest tries to access' do
-      before do
-        allow(request.env['warden'])
-          .to receive(:authenticate!)
-          .and_throw(:warden, {scope: :user})
-      end
+    subject { delete :destroy, params: { id: event.id } }
 
-      it 'redirects' do
-        delete :destroy, params: { id: event.id }
-        expect(response).to redirect_to new_user_session_path
-        expect(controller).to set_flash[:alert].to 'You need to sign in or sign up before continuing.'
-      end
-    end
+    it_behaves_like 'action not allowed for guests'
 
-    context 'user is logged in' do
-      before do
-        user = double 'user'
-        allow(request.env['warden']).to receive(:authenticate!).and_return(user)
-      end
+    include_context 'user is logged in' do
+      include_examples 'redirects unauthorized user'
 
       it 'calls authorize' do
         expect(controller).to receive(:authorize).with(event)
-        delete :destroy, params: { id: event.id }
+        subject
       end
 
-      context 'user is authorized' do
+      include_context 'user is authorized' do
         it 'works' do
-          allow(controller).to receive(:authorize).and_return true
-          delete :destroy, params: { id: event.id }
+          subject
           expect(response).to redirect_to events_path
-          expect(controller).to set_flash[:notice].to 'Event was successfully destroyed'
-        end
-      end
-
-      context 'user is unauthorized' do
-        it 'redirects' do
-          delete :destroy, params: { id: event.id }
-          expect(response).to have_http_status :redirect
-          expect(controller).to set_flash[:alert].to 'You are not authorized to perform this action'
+          expect(controller).to set_flash[:notice].to t('events.destroy.success')
         end
       end
     end

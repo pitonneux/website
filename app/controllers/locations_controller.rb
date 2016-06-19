@@ -1,55 +1,50 @@
 class LocationsController < ApplicationController
   before_action :authenticate_user!
+  before_action :find_and_authorize_location, only: [:show, :edit, :update, :destroy]
 
-  before_action :set_location, only: [:show, :edit, :update, :destroy]
-
-  # GET /locations
   def index
     @locations = Location.all
     @location = Location.new
-
+    authorize Location
   end
 
-  # GET /locations/1
   def show
   end
 
-  # GET /locations/1/edit
   def edit
   end
 
   def create
     @location = Location.new(location_params)
+    authorize @location
 
     if @location.save
-      redirect_to @location, notice: 'Location was successfully created.'
+      redirect_to locations_path, notice: t('.success')
     else
-      redirect_to locations_path
+      redirect_to locations_path, alert: t('.failure')
     end
   end
 
-  # PATCH/PUT /locations/1
   def update
     if @location.update(location_params)
-      redirect_to @location, notice: 'Location was successfully updated.'
+      redirect_to locations_path, notice: t('.success')
     else
+      flash.now[:alert] = t('.failure')
       render :edit
     end
   end
 
-  # DELETE /locations/1
   def destroy
     @location.destroy
-    redirect_to locations_url, notice: 'Location was successfully destroyed.'
+    redirect_to locations_url, notice: t('.success')
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_location
+    def find_and_authorize_location
       @location = Location.find(params[:id])
+      authorize @location
     end
 
-    # Only allow a trusted parameter "white list" through.
     def location_params
       params.require(:location).permit(:name, :address, :directions, :organization_id)
     end

@@ -4,6 +4,8 @@ class Organization < ActiveRecord::Base
 
   validate :logo_size
 
+  validates_presence_of :name
+
   private
 
     def logo_size

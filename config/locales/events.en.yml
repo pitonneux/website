@@ -27,7 +27,7 @@ en:
       success: Event was successfully updated
       failure: Event could not be updated
     destroy:
-      success: Event was successfully destroyed
+      success: Event was successfully deleted
 
 
 
