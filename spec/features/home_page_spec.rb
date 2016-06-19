@@ -1,3 +1,6 @@
+require 'rails_helper'
+
+# frozen_string_literal: true
 RSpec.feature 'visiting the home page' do
   scenario 'as a guest' do
     visit root_path

@@ -5,19 +5,16 @@ Organization.delete_all
 Organization.create! [
   { name: 'We Work',
     description: "## Create Your Life's Work\r\nWe're proud to be sponsored by WeWork, who are generously providing our office location and venue for our workshops at WeWork Place Ville Marie.",
-    remote_logo_url: "http://res.cloudinary.com/pitonneux-com/image/upload/v1462717320/yedxz9ombf6g8poyzsj4.png"
-  },
+    remote_logo_url: 'http://res.cloudinary.com/pitonneux-com/image/upload/v1462717320/yedxz9ombf6g8poyzsj4.png' },
   { name: 'Topolino',
     description: "## Delicious Food for Thoughts\r\nCatering during the workshops is provided by our wonderful friends at topolino! Enjoy fresh, seasonal meals prepared by budding chefs eager to make you discover specialties from all around the world.",
-    remote_logo_url: "http://res.cloudinary.com/pitonneux-com/image/upload/v1462714773/eyk1uu51wrdaizh5by8m.png"
-  }
+    remote_logo_url: 'http://res.cloudinary.com/pitonneux-com/image/upload/v1462714773/eyk1uu51wrdaizh5by8m.png' }
 ]
 
 Location.create! [
   { name: 'We Work',
     address: '3 Place Ville Marie',
-    directions: "If you're arriving by metro through the underground shopping centre, look for signs pointing to 3 Place Ville Marie or 3 PVM, to the elevators. We are on the 4th floor. From the outside, look for the entrance to 3 PVM, same building as EA.",
-  }
+    directions: "If you're arriving by metro through the underground shopping centre, look for signs pointing to 3 Place Ville Marie or 3 PVM, to the elevators. We are on the 4th floor. From the outside, look for the entrance to 3 PVM, same building as EA." }
 ]
 
 Event.create! [
@@ -27,12 +24,9 @@ Event.create! [
     featured: true,
     duration_in_min: 120,
     location_id: Location.last.id,
-    remote_cover_image_url: 'http://res.cloudinary.com/pitonneux-com/image/upload/v1462722206/drxxybcn6cmserhzouzs.png'
-  },
-  { name: "Coffee & Code study sessions",
+    remote_cover_image_url: 'http://res.cloudinary.com/pitonneux-com/image/upload/v1462722206/drxxybcn6cmserhzouzs.png' },
+  { name: 'Coffee & Code study sessions',
     description: "## Grab a coffee, put on your earbuds, set a timer and FOCUS!\r\n\r\nFor those of us who need to get out of the house to stay sane, we have several study sessions a week that you are welcome to join. We have Coffee & Code sessions during the day-time but also in the evening and on Saturdays. These sessions are welcome to anyone, regardless of what you're learning or what kind of project you're working on.\r\n \r\nFor more details of our weekly meetups, please [join our group](http://www.meetup.com/pitonneux/) on Meetup.com",
     featured: true,
-    remote_cover_image_url: 'http://res.cloudinary.com/pitonneux-com/image/upload/v1462727870/hkd1u23owrzdwpgnwfjo.png'
-  }
+    remote_cover_image_url: 'http://res.cloudinary.com/pitonneux-com/image/upload/v1462727870/hkd1u23owrzdwpgnwfjo.png' }
 ]
-

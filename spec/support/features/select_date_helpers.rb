@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module SelectDateHelpers
   def select_date(date, options = {})
     field = options[:from]
@@ -17,4 +18,3 @@ module SelectDateHelpers
     select minute, from: "#{base_id}_5i"
   end
 end
-

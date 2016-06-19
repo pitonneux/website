@@ -1,7 +1,23 @@
+require 'rails_helper'
+
+# frozen_string_literal: true
 RSpec.describe User, type: :model do
-  let(:user) { create :user }
+  it { is_expected.to validate_presence_of :email    }
+  it { is_expected.to validate_presence_of :password }
 
-  subject { user }
+  describe 'setting default role' do
+    context 'no role is set' do
+      it 'assigns default of :user' do
+        user = create :user
+        expect(user.role).to eq 'user'
+      end
+    end
 
-  it { should respond_to :email }
+    context 'admin role is set' do
+      it 'assigns admin role' do
+        user = create :user, role: :admin
+        expect(user.role).to eq 'admin'
+      end
+    end
+  end
 end

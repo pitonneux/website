@@ -1,9 +1,12 @@
+require 'rails_helper'
+
+# frozen_string_literal: true
 RSpec.feature 'sending a message', js: true do
   scenario 'from the home page contact us form' do
     visit root_path
-    fill_form :message, { 'Name': 'New User',
-                          'Email': 'test@email.com',
-                          "Tell us what you're learning!": 'Hi there!' }
+    fill_form :message, 'Name': 'New User',
+                        'Email': 'test@email.com',
+                        "Tell us what you're learning!": 'Hi there!'
 
     click_button 'Send message'
 
@@ -13,9 +16,9 @@ RSpec.feature 'sending a message', js: true do
 
   scenario 'someone submits an invalid form' do
     visit root_path
-    fill_form :message, { 'Name': '',
-                          'Email': '',
-                          "Tell us what you're learning!": '' }
+    fill_form :message, 'Name': '',
+                        'Email': '',
+                        "Tell us what you're learning!": ''
 
     click_button 'Send message'
 

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class EventsController < ApplicationController
   before_action :authenticate_user!
 
@@ -50,11 +51,12 @@ class EventsController < ApplicationController
 
   private
 
-    def find_event
-      Event.find(params[:id])
-    end
+  def find_event
+    Event.find(params[:id])
+  end
 
-    def event_params
-      params.require(:event).permit(:name, :description, :starts_at, :duration_in_min, :signup_link, :featured, :cover_image_cache, :cover_image, :location_id)
-    end
+  def event_params
+    params.require(:event).permit(:name, :description, :starts_at, :duration_in_min, :signup_link,
+                                  :featured, :cover_image_cache, :cover_image, :location_id)
+  end
 end

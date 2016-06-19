@@ -1,3 +1,6 @@
+require 'rails_helper'
+
+# frozen_string_literal: true
 # RSpec.feature 'visitor signs up' do
 #   scenario 'someone tries to sign up' do
 #     visit new_user_registration_path

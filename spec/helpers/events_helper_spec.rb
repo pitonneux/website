@@ -1,3 +1,6 @@
+require 'rails_helper'
+
+# frozen_string_literal: true
 RSpec.describe EventsHelper, type: :helper do
   describe 'time date_and_time_for' do
     it 'returns the date helper when event has a start date' do

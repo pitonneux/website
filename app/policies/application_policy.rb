@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class ApplicationPolicy
   # class Scope
   #   attr_reader :user, :scope
@@ -47,7 +48,7 @@ class ApplicationPolicy
   #
   private
 
-    def admin?
-      @user.present? && @user.admin?
-    end
+  def admin?
+    @user.present? && @user.admin?
+  end
 end

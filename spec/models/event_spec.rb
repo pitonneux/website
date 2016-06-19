@@ -1,5 +1,6 @@
 require 'rails_helper'
 
+# frozen_string_literal: true
 RSpec.describe Event, type: :model do
   it { is_expected.to belong_to :location }
   it { is_expected.to validate_presence_of :name }
@@ -10,7 +11,7 @@ RSpec.describe Event, type: :model do
 
     subject { Event.featured }
 
-    it { is_expected.to include featured }
+    it { is_expected.to include featured         }
     it { is_expected.not_to include not_featured }
   end
 
@@ -20,8 +21,7 @@ RSpec.describe Event, type: :model do
 
     subject { Event.upcoming }
 
-    it { is_expected.to include upcoming }
+    it { is_expected.to include upcoming         }
     it { is_expected.not_to include not_upcoming }
-
   end
 end

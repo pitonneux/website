@@ -1,3 +1,6 @@
+require 'rails_helper'
+
+# frozen_string_literal: true
 RSpec.describe ApplicationPolicy do
   let(:user)  { build_stubbed :user         }
   let(:admin) { build_stubbed :user, :admin }

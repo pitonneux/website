@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class Event < ActiveRecord::Base
   belongs_to :location
   mount_uploader :cover_image, CoverImageUploader
@@ -11,9 +12,9 @@ class Event < ActiveRecord::Base
 
   private
 
-    def image_size
-      if cover_image.size > 5.megabytes
-        errors.add(:cover_image, 'cannot be more than 5MB')
-      end
+  def image_size
+    if cover_image.size > 5.megabytes
+      errors.add(:cover_image, 'cannot be more than 5MB')
     end
+  end
 end

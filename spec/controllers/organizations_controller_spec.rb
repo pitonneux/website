@@ -1,3 +1,6 @@
+require 'rails_helper'
+
+# frozen_string_literal: true
 require_relative '../support/controllers/shared_examples.rb'
 require_relative '../support/controllers/shared_contexts.rb'
 
@@ -44,9 +47,9 @@ RSpec.describe OrganizationsController do
       include_context 'user is authorized' do
         context 'with valid params' do
           it 'creates a new Organization' do
-            expect {
+            expect do
               subject
-            }.to change(Organization, :count).by(1)
+            end.to change(Organization, :count).by(1)
           end
 
           it 'sets the right flash' do
@@ -60,9 +63,9 @@ RSpec.describe OrganizationsController do
           let(:invalid_params) { { name: nil } }
 
           it 'creates a new Organization' do
-            expect {
+            expect do
               post :create, params: { organization: invalid_params }
-            }.not_to change(Organization, :count)
+            end.not_to change(Organization, :count)
           end
 
           it 'sets the right flash' do
@@ -123,7 +126,7 @@ RSpec.describe OrganizationsController do
     end
   end
 
-  describe "DELETE #destroy" do
+  describe 'DELETE #destroy' do
     let(:organization) { create :organization }
 
     subject { delete :destroy, params: { id: organization.id } }

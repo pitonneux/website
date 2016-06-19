@@ -1,12 +1,13 @@
 require 'rails_helper'
 
+# frozen_string_literal: true
 RSpec.describe MessageMailer, type: :mailer do
   describe 'send_to_admin' do
     let(:message) { create :message }
     let(:mail) { MessageMailer.send_to_admin(message) }
 
     before do
-      ENV['ADMIN_EMAIL']='test@pitonneux.com'
+      ENV['ADMIN_EMAIL'] = 'test@pitonneux.com'
     end
 
     it 'renders the headers' do
@@ -18,7 +19,8 @@ RSpec.describe MessageMailer, type: :mailer do
     it 'renders the body' do
       expect(mail.body.encoded).to match message.content
       expect(mail.body.encoded).to match 'Hi!'
-      expect(mail.body.encoded).to match "#{message.sender} just sent a message via the website&#39;s contact form:"
+      expect(mail.body.encoded).
+        to match "#{message.sender} just sent a message via the website&#39;s contact form:"
     end
   end
 end

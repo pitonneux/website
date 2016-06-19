@@ -20,6 +20,7 @@ en:
       title: Events
     event:
       description: Description
+      signup: Sign up
     create:
       success: Event was created successfully
       failure: Event could not be created

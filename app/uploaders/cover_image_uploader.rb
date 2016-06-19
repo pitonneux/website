@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class CoverImageUploader < CarrierWave::Uploader::Base
   include Cloudinary::CarrierWave
 

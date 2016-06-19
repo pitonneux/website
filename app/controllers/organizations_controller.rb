@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class OrganizationsController < ApplicationController
   before_action :authenticate_user!
   before_action :find_and_authorize_organization, only: [:show, :edit, :update, :destroy]
@@ -37,13 +38,13 @@ class OrganizationsController < ApplicationController
   end
 
   private
-    def find_and_authorize_organization
-      @organization = Organization.find(params[:id])
-      authorize @organization
-    end
 
-    def organization_params
-      params.require(:organization).permit(:name, :description, :logo)
-    end
+  def find_and_authorize_organization
+    @organization = Organization.find(params[:id])
+    authorize @organization
+  end
+
+  def organization_params
+    params.require(:organization).permit(:name, :description, :logo, :logo_cache)
+  end
 end
-

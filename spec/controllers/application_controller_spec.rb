@@ -1,3 +1,5 @@
+require 'rails_helper'
+# frozen_string_literal: true
 RSpec.describe ApplicationController do
   controller do
     def access_denied
@@ -11,14 +13,14 @@ RSpec.describe ApplicationController do
     end
 
     it 'sets the flash when user is unauthorized' do
-      request.env["HTTP_REFERER"] = nil
+      request.env['HTTP_REFERER'] = nil
       get :access_denied
       expect(controller).to set_flash[:alert].to t('unauthorized')
       expect(controller).to redirect_to root_path
     end
 
     it 'redirects back when there is a request referrer' do
-      request.env["HTTP_REFERER"] = 'back path'
+      request.env['HTTP_REFERER'] = 'back path'
       get :access_denied
       expect(controller).to redirect_to 'back path'
     end

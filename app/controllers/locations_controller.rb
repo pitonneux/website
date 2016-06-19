@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class LocationsController < ApplicationController
   before_action :authenticate_user!
   before_action :find_and_authorize_location, only: [:show, :edit, :update, :destroy]
@@ -40,12 +41,13 @@ class LocationsController < ApplicationController
   end
 
   private
-    def find_and_authorize_location
-      @location = Location.find(params[:id])
-      authorize @location
-    end
 
-    def location_params
-      params.require(:location).permit(:name, :address, :directions, :organization_id)
-    end
+  def find_and_authorize_location
+    @location = Location.find(params[:id])
+    authorize @location
+  end
+
+  def location_params
+    params.require(:location).permit(:name, :address, :directions, :organization_id)
+  end
 end

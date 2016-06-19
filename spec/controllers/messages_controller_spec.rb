@@ -1,5 +1,7 @@
-RSpec.describe MessagesController, type: :controller, js: true do
+require 'rails_helper'
 
+# frozen_string_literal: true
+RSpec.describe MessagesController, type: :controller, js: true do
   describe 'POST #create' do
     context 'with valid params' do
       let(:message_params) do
@@ -14,10 +16,9 @@ RSpec.describe MessagesController, type: :controller, js: true do
         allow(MessageMailer).to receive(:send_to_admin).and_return mailer
       end
 
-      it 'works' do
-        post :create, params: message_params, format: :js
-        expect(response).to have_http_status(:success)
-      end
+      subject { post :create, params: message_params, format: :js }
+
+      it_behaves_like 'successful request'
 
       it 'tells the mailer to deliver' do
         post :create, params: message_params, format: :js
@@ -31,10 +32,7 @@ RSpec.describe MessagesController, type: :controller, js: true do
                      email: 'valid@com' } }
       end
 
-      it 'works' do
-        post :create, params: message_params, format: :js
-        expect(response).to have_http_status :ok
-      end
+      it_behaves_like 'successful request'
     end
   end
 end

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class Organization < ActiveRecord::Base
   has_one :location
   mount_uploader :logo, LogoUploader
@@ -8,9 +9,7 @@ class Organization < ActiveRecord::Base
 
   private
 
-    def logo_size
-      if logo.size > 5.megabytes
-        errors.add(:logo, 'cannot be more than 5MB')
-      end
-    end
+  def logo_size
+    errors.add(:logo, 'cannot be more than 5MB') if logo.size > 5.megabytes
+  end
 end

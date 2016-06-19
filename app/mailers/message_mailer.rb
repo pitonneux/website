@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class MessageMailer < ApplicationMailer
   def send_to_admin(message)
     @content = message.content

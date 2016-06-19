@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module EventsHelper
   def date_and_time_for(event)
     if event.starts_at.present?

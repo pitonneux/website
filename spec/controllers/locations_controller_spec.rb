@@ -1,3 +1,6 @@
+require 'rails_helper'
+
+# frozen_string_literal: true
 require_relative '../support/controllers/shared_examples.rb'
 require_relative '../support/controllers/shared_contexts.rb'
 
@@ -65,9 +68,9 @@ RSpec.describe LocationsController, type: :controller do
       include_context 'user is authorized' do
         context 'with valid params' do
           it 'creates a new Location' do
-            expect {
+            expect do
               post :create, params: { location: location_params }
-            }.to change(Location, :count).by(1)
+            end.to change(Location, :count).by(1)
           end
 
           it 'sets the right flash' do
@@ -81,9 +84,9 @@ RSpec.describe LocationsController, type: :controller do
           let(:invalid_params) { { name: nil } }
 
           it 'creates a new Location' do
-            expect {
+            expect do
               post :create, params: { location: invalid_params }
-            }.not_to change(Location, :count)
+            end.not_to change(Location, :count)
           end
 
           it 'sets the right flash' do
@@ -144,7 +147,7 @@ RSpec.describe LocationsController, type: :controller do
     end
   end
 
-  describe "DELETE #destroy" do
+  describe 'DELETE #destroy' do
     let(:location) { create :location }
 
     subject { delete :destroy, params: { id: location.id } }

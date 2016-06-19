@@ -1,3 +1,6 @@
+require 'rails_helper'
+
+# frozen_string_literal: true
 require_relative '../support/controllers/shared_examples.rb'
 require_relative '../support/controllers/shared_contexts.rb'
 
@@ -65,9 +68,9 @@ RSpec.describe EventsController do
       include_context 'user is authorized' do
         context 'with valid params' do
           it 'creates a new Event' do
-            expect {
+            expect do
               post :create, params: { event: event_params }
-            }.to change(Event, :count).by(1)
+            end.to change(Event, :count).by(1)
           end
 
           it 'sets the right flash' do
@@ -81,9 +84,9 @@ RSpec.describe EventsController do
           let(:invalid_params) { { name: nil, description: nil } }
 
           it 'creates a new Event' do
-            expect {
+            expect do
               post :create, params: { event: invalid_params }
-            }.not_to change(Event, :count)
+            end.not_to change(Event, :count)
           end
 
           it 'sets the right flash' do
@@ -137,14 +140,14 @@ RSpec.describe EventsController do
           it 'sets the right flash' do
             put :update, params: { id: event.id, event: invalid_params }
             expect(response).to have_http_status :ok
-            expect(flash[:alert]).to eq "Event could not be updated"
+            expect(flash[:alert]).to eq 'Event could not be updated'
           end
         end
       end
     end
   end
 
-  describe "DELETE #destroy" do
+  describe 'DELETE #destroy' do
     let(:event) { create :event }
 
     subject { delete :destroy, params: { id: event.id } }

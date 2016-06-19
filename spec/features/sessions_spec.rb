@@ -1,5 +1,6 @@
 require 'rails_helper'
 
+# frozen_string_literal: true
 RSpec.feature 'Signing in', :devise do
   scenario 'user tries to sign up to use the app' do
     visit new_user_registration_path
@@ -30,4 +31,3 @@ RSpec.feature 'Signing in', :devise do
     expect(page).to have_content 'Invalid Email or password'
   end
 end
-

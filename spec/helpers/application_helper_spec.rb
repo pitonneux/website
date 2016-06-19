@@ -1,5 +1,6 @@
 require 'rails_helper'
 
+# frozen_string_literal: true
 RSpec.describe ApplicationHelper, type: :helper do
   describe 'full_title' do
     context 'page has a title' do
@@ -39,7 +40,7 @@ RSpec.describe ApplicationHelper, type: :helper do
       errors = double 'errors', messages: { name: ["can't be blank"] }
       object = double 'object', errors: errors
 
-      expect(show_error(object, :name)).to eq "<p class=\"field-error\">Name can&#39;t be blank</p>"
+      expect(show_error(object, :name)).to eq '<p class="field-error">Name can&#39;t be blank</p>'
     end
 
     it 'returns nothing for an object that has no errors' do
@@ -55,7 +56,7 @@ RSpec.describe ApplicationHelper, type: :helper do
       errors = double 'errors', messages: { name: ["can't be blank"] }
       object = double 'object', errors: errors
 
-      expect(show_error(object, :name)).to eq "<p class=\"field-error\">Name can&#39;t be blank</p>"
+      expect(show_error(object, :name)).to eq '<p class="field-error">Name can&#39;t be blank</p>'
     end
 
     it 'returns nothing for an object that has no errors' do
@@ -66,4 +67,3 @@ RSpec.describe ApplicationHelper, type: :helper do
     end
   end
 end
-
