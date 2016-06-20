@@ -21,9 +21,9 @@ This codebase is monitored by [hound CI](https://houndci.com/), which automatica
 
 # Development Setup
 
-Fork the repository and clone it to your machine then change directory into `pitonneux`.
+Fork the repository and clone it to your machine then change directory into `website`. Rename it if you want to.
 ```bash
-git clone git@github.com:***your-github-username***/Montreal.rb.git && cd pitonneux
+git clone git@github.com:***your-github-username***/Montreal.rb.git && cd website
 ```
 
 ## Database
@@ -44,11 +44,11 @@ External depenencies are managed with [bundler](http://bundler.io/). It will be 
 gem install bundler
 ```
 
-## Rails
+### Rails
 
 The project is built with Rails, a stable and mature web framework. If you're unfamiliar with it there are tons of great tutorials out there, like [Michael Hartl's Rails tutorial](https://www.railstutorial.org/book), or you can check out the great documentation on [RailsGuides](http://guides.rubyonrails.org/).
 
-### Setup the project
+## Setup the project
 
 Once you have the above dependencies installed, setup the project with
 ```bash
@@ -63,7 +63,7 @@ This script runs the following commands to set up your local development environ
 
 ### Setting environment variables
 
-We use cloudinary for image hosting. You can sign up for a [free cloudinary account](https://cloudinary.com/users/register/free) to get API keys for local development and testing.
+We use cloudinary for image hosting. You can sign up for a [free cloudinary account](https://cloudinary.com/users/register/free) to get API keys for local development and testing. You'll need to set the environment variables `ENV["CLOUDINARY_API_KEY"]` and `ENV["CLOUDINARY_API_SECRET"]` to use image uploading.
 
 ### Starting your server
 
@@ -71,8 +71,13 @@ You can run a local server with
 ```
 rails server
 ```
-
 Unless you configure a different local host the app will be available at [http://localhost:3000](http://localhost:3000).
+
+You'll also need to have a postgres server running. You can use an autolauncher or start the server manually. Run
+```bash
+brew info postgres
+```
+for the isntructions on how to start postgresql.
 
 ## Testing
 
