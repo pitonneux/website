@@ -44,11 +44,11 @@ External depenencies are managed with [bundler](http://bundler.io/). It will be 
 gem install bundler
 ```
 
-## Rails
+### Rails
 
 The project is built with Rails, a stable and mature web framework. If you're unfamiliar with it there are tons of great tutorials out there, like [Michael Hartl's Rails tutorial](https://www.railstutorial.org/book), or you can check out the great documentation on [RailsGuides](http://guides.rubyonrails.org/).
 
-### Setup the project
+## Setup the project
 
 Once you have the above dependencies installed, setup the project with
 ```bash
