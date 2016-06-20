@@ -12,7 +12,6 @@ capybara-*.html
 rerun.txt
 pickle-email-*.html
 
-
 .rbenv-vars
 .env
 
@@ -28,3 +27,10 @@ pickle-email-*.html
 
 # Ignore Byebug command history file.
 .byebug_history
+
+# remembering sessions for vim users
+Session.vim
+.session.vim
+
+# ctags
+tags
