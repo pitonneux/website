@@ -63,7 +63,7 @@ This script runs the following commands to set up your local development environ
 
 ### Setting environment variables
 
-We use cloudinary for image hosting. You can sign up for a [free cloudinary account](https://cloudinary.com/users/register/free) to get API keys for local development and testing. You'll need to set the environment variables `ENV["CLOUDINARY_API_KEY"]` and `ENV["CLOUDINARY_API_SECRET"]` to use image uploading.
+We use cloudinary for image hosting. You can sign up for a [free cloudinary account](https://cloudinary.com/users/register/free) to get API keys for local development and testing. You'll need to set the environment variables `CLOUDINARY_API_KEY` and `CLOUDINARY_API_SECRET` to use image uploading.
 
 ### Starting your server
 
@@ -77,7 +77,7 @@ You'll also need to have a postgres server running. You can use an autolauncher 
 ```bash
 brew info postgres
 ```
-for the isntructions on how to start postgresql.
+for the instructions on how to start postgresql.
 
 ## Testing
 
