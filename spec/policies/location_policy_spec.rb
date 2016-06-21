@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 # frozen_string_literal: true
-RSpec.describe OrganizationPolicy do
+RSpec.describe LocationPolicy do
   let(:user)  { build_stubbed :user         }
   let(:admin) { build_stubbed :user, :admin }
 
