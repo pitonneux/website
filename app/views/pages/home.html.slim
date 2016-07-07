@@ -1,6 +1,6 @@
 #home
-  h2 = t('.tagline')
   h1 = t('.pitonneux')
+  h2 = t('.tagline')
 
 section#what_we_do
   h1 = t('.what_we_do.header')
@@ -19,7 +19,22 @@ section#what_we_do
 section#events
   h1 = t('.events.header')
 
+  .events_banner
+    .meetups
+      = cl_image_tag('computer_xnzeaz.png')
+      h2 = link_to t('.meetups.title'), events_path
+      p = t('.meetups.price')
+    .workshops
+      = cl_image_tag('computer_xnzeaz.png')
+      h2 = link_to t('.workshops.title'), events_path
+      p = t('.workshops.price')
+    .projects
+      = cl_image_tag('computer_xnzeaz.png')
+      h2 = t('.projects.title')
+      p = t('.projects.subheading')
+
   = render partial: 'featured_event', collection: @featured_events, as: :event
+
 
 section#partners
   h1 = t('.partners.header')

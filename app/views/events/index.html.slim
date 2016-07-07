@@ -3,9 +3,10 @@
 
 h1 = t('.events')
 
-details
-  summary = t('.new')
-  = render 'form'
+- if policy(@event).create?
+  details
+    summary = t('.new')
+    = render 'form'
 
 = render @events
 

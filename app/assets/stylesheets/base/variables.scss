@@ -1,5 +1,5 @@
 $base-spacing: 1.5em;
-$base-border-radius: 2px;
+$base-border-radius: 1px;
 $base-line-height: 1.5em;
 $base-border-radius: 5px;
 $base-font-size: 1.1em;
@@ -39,7 +39,7 @@ $flashes: (
 // FONTS
 $headers: 'Muli', Helvetica Neue, Helvetica, sans-serif;
 $serif: 'Merriweather', cursive;
-$logo: 'Quicksand', Helvetica Neue, Helvetica, sans-serif;
+$logo: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
 $text: 'Karla', Helvetica Neue, Helvetica, sans-serif;
 $base-font-size: 1.1em;
 
