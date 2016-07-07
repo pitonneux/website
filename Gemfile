@@ -26,6 +26,9 @@ gem 'cloudinary'
 # Server
 gem 'puma'
 
+# Jobs
+gem 'sidekiq'
+
 # Authentication
 gem 'devise'
 gem 'pundit'
@@ -40,7 +43,6 @@ end
 
 group :development do
   gem 'awesome_print'
-  # gem 'quiet_assets'
   gem 'web-console', '~> 2.0'
 end
 
