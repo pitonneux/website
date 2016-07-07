@@ -8,7 +8,7 @@ RSpec.describe EventsController, type: :routing do
     end
 
     it 'routes to #new' do
-      expect(get: '/events/new').to route_to('events#new')
+      expect(get: '/events/new').to route_to('events#show', id: 'new')
     end
 
     it 'routes to #show' do

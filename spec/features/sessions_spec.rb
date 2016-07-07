@@ -1,7 +1,7 @@
+# frozen_string_literal: true
 require 'rails_helper'
 
-# frozen_string_literal: true
-RSpec.feature 'Signing in', :devise do
+RSpec.feature 'Signing in' do
   scenario 'user tries to sign up to use the app' do
     visit new_user_registration_path
     expect(page).to have_content 'You must be invited to access behind the scenes'

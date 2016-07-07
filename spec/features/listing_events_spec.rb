@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 # frozen_string_literal: true
-# # frozen_string_literal: true
 # RSpec.feature 'listing all events' do
 #   scenario 'not logged in' do
 #     visit new_event_path

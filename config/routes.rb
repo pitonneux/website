@@ -7,9 +7,10 @@ Rails.application.routes.draw do
 
   root 'pages#home'
 
-  resources :locations
-  resources :events
-  resources :organizations
+  resources :locations, only: [:index, :show, :create, :edit, :update, :destroy]
+  resources :events, only: [:index, :show, :create, :edit, :update, :destroy]
+  resources :organizations, only: [:index, :show, :create, :edit, :update, :destroy]
+  resources :projects, only: [:index, :show, :create, :edit, :update, :destroy]
   resource  :messages, only: :create
 
   get '/home' => 'pages#home'

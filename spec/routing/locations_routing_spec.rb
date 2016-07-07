@@ -8,7 +8,7 @@ RSpec.describe LocationsController, type: :routing do
     end
 
     it 'routes to #new' do
-      expect(get: '/locations/new').to route_to('locations#new')
+      expect(get: '/locations/new').to route_to('locations#show', id: 'new')
     end
 
     it 'routes to #show' do

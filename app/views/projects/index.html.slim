@@ -1,0 +1,10 @@
+= provide :title, t('.title')
+= provide :button_text, t('.create')
+
+h1 = t('.projects')
+
+details
+  summary = t('.new')
+  = render 'form'
+
+= render @projects
