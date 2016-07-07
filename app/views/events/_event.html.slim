@@ -10,8 +10,7 @@
     - if policy(event).destroy?
       button = link_to t('.destroy'), event, data: {confirm: t('delete') }, method: :delete
 
-    - unless current_user.admin?
-      button = link_to t('.signup'), event.signup_link
+    button = link_to t('.signup'), event.signup_link
 
     time = date_and_time_for(event)
     p.address = event.location.try(:name)

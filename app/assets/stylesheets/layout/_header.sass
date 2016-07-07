@@ -3,17 +3,19 @@ header
   color: $gray
   font-family: $headers
   font-size: 1em
-  @include above($small-screen)
+  +above($small-screen)
     text-align: center
 
   // MOBILE FIRST
   .menu-toggle
     float: right
-    @include above($small-screen)
+    +above($small-screen)
       display: none
 
   nav
     padding-top: $padding/3
+    +on($small-screen)
+      margin-top: 2em
 
     // NAV MENU
     ul

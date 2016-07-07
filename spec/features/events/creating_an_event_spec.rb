@@ -1,6 +1,6 @@
+# frozen_string_literal: true
 require 'rails_helper'
 
-# frozen_string_literal: true
 RSpec.feature 'creating an event' do
   scenario 'from event index' do
     admin = create :user, :admin

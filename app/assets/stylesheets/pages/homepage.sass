@@ -1,4 +1,4 @@
-=header-reset
+=header_reset
   color: lighten($gray, 20%)
   font-size: 1.5em
   text-align: left
@@ -12,12 +12,14 @@
     header
       position: fixed
       width: 100%
-      background-color: $background-color
+      background-color: rgba($gray, 0.3)
       z-index: 1
+
+      a
+        color: $background-color
 
     main
       width: 100%
-      padding-top: 3em
 
     section
       width: 95%
@@ -36,39 +38,66 @@
         text-align: center
 
     #home
-      background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('//res.cloudinary.com/pitonneux-com/image/upload/v1466437150/homepage_mjs1wf.jpg')
+      +flex_column_centered
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('//res.cloudinary.com/pitonneux-com/image/upload/v1466437150/homepage_mjs1wf.jpg')
       background-size: cover
-      align-items: center
-      display: flex
-      flex-direction: column
-      justify-content: center
       height: 100vh
       h1, h2
-        color: $background-color
         z-index: 2
         text-align: center
-        padding: 0 $large-space $med-space
       h1
-        text-transform: uppercase
+        +round_corners
+        background-color: rgba($background-color, 0.85)
+        color: $main-color
+        font-family: $logo
+        font-weight: 300
         letter-spacing: 3px
         line-height: 1.5em
-        font-family: $logo
+        margin: $med-space
+        padding: $little-space $med-space
         +above($small-screen)
           font-size: 3em
       h2
+        color: $background-color
         font-family: $serif
         font-style: italic
         font-size: 1.1em
+        padding: 0 $large-space $med-space
         +above($small-screen)
           +surrounding-lines($background-color)
           font-size: 1.3em
 
     #events
+      .events_banner
+        height: 40vh
+        +flex_column_then_row
+
+      .meetups, .workshops, .projects
+        +round_corners
+        +flex_column_centered
+        border: 2px solid $main-color
+        margin: $med-space
+        padding: $med-space
+        flex: 1
+
+        h2
+          font-family: $headers
+          font-style: normal
+          font-size: 165%
+
+        p
+          color: $light-gray
+
+        img
+          max-width: 60%
+          max-height: 20vh
+
+
       .event
-        +flex-column-then-row
+        +flex_column_then_row
 
         h1
-          +header-reset
+          +header_reset
 
         h2
           text-align: left
@@ -116,7 +145,7 @@
 
     #partners
       .partner
-        +flex-column-then-row
+        +flex_column_then_row
         justify-content: space-between
         padding: $med-space
 
@@ -136,7 +165,7 @@
             max-width: 35%
 
         h1
-          +header-reset
+          +header_reset
           padding: 0
         h2
           color: $action-color

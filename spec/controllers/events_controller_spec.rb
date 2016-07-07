@@ -1,15 +1,12 @@
-require 'rails_helper'
-
 # frozen_string_literal: true
-require_relative '../support/controllers/shared_examples.rb'
-require_relative '../support/controllers/shared_contexts.rb'
+require 'rails_helper'
 
 RSpec.describe EventsController do
   describe 'GET #index' do
     subject { get :index }
 
-    it_behaves_like 'action not allowed for guests'
-    include_examples 'calls authorize with logged in user', Event
+    it_behaves_like 'action that is allowed for guests'
+    it_behaves_like 'action to be authorized with logged in user', Event
   end
 
   describe 'GET #show' do

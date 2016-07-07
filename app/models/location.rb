@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-class Location < ActiveRecord::Base
+class Location < ApplicationRecord
   belongs_to :organization
   has_many :events
 

@@ -1,6 +1,6 @@
+# frozen_string_literal: true
 require 'rails_helper'
 
-# frozen_string_literal: true
 require_relative '../support/controllers/shared_examples.rb'
 require_relative '../support/controllers/shared_contexts.rb'
 
@@ -9,7 +9,7 @@ RSpec.describe LocationsController, type: :controller do
     subject { get :index }
 
     it_behaves_like 'action not allowed for guests'
-    include_examples 'calls authorize with logged in user', Location
+    it_behaves_like 'action to be authorized with logged in user', Location
   end
 
   describe 'GET #show' do
