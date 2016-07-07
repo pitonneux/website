@@ -15,6 +15,7 @@ en:
       location: Location
       signup: Sign up here
     index:
+      events: Events
       new: Create a new event
       create: Create event
       title: Events

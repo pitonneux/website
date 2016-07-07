@@ -28,6 +28,7 @@ gem 'puma'
 
 # Jobs
 gem 'sidekiq'
+gem 'redis'
 
 # Authentication
 gem 'devise'
