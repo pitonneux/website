@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 
 ruby '2.3.1'
 
-gem 'rails', '~>5.0.0.rc1'
+gem 'rails', '~>5.0.0'
 gem 'pg'
 
 # Views
@@ -34,13 +34,13 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'pry-byebug'
   gem 'pry-rails'
-  gem 'rspec-rails', '~>3.5.0.beta4'
+  gem 'rspec-rails'
   gem 'spring'
 end
 
 group :development do
   gem 'awesome_print'
-  gem 'quiet_assets'
+  # gem 'quiet_assets'
   gem 'web-console', '~> 2.0'
 end
 
