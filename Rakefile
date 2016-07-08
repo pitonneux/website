@@ -14,4 +14,3 @@ end
 
 task default: 'bundler:audit'
 task default: 'brakeman:run' if Date.today.day == 7
-
