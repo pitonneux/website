@@ -1,6 +1,7 @@
 [![CircleCI](https://circleci.com/gh/pitonneux/website/tree/master.svg?style=shield)](https://circleci.com/gh/pitonneux/website/tree/master)
-[![Coverage Status](https://coveralls.io/repos/github/pitonneux/website/badge.svg?branch=master)](https://coveralls.io/github/pitonneux/website?branch=master)
+[![codecov](https://codecov.io/gh/pitonneux/website/branch/master/graph/badge.svg)](https://codecov.io/gh/pitonneux/website)
 [![Code Climate](https://codeclimate.com/github/pitonneux/website/badges/gpa.svg)](https://codeclimate.com/github/pitonneux/website)
+[![Dependency Status](https://gemnasium.com/badges/github.com/pitonneux/website.svg)](https://gemnasium.com/github.com/pitonneux/website)
 
 # Read Me
 
@@ -33,6 +34,11 @@ This project uses Postgresql, a free and open-source database. Google the instru
 brew install postgresql
 ```
 
+Jobs are queued with Sidekiq, which uses redis to keep track of jobs. You'll need to install redis. On a mac you can run
+```bash
+brew install redis
+```
+
 ## Ruby version
 
 The project currently uses ruby `2.3.1`. You can install many versions of Ruby on your machine with a ruby environment manager. Two common ones are [rbenv](https://github.com/rbenv/rbenv) and [rvm](https://rvm.io/).
@@ -50,7 +56,40 @@ The project is built with Rails, a stable and mature web framework. If you're un
 
 ## Setup the project
 
-Once you have the above dependencies installed, setup the project with
+### Setting environment variables
+
+We use cloudinary for image hosting. You can sign up for a [free cloudinary account](https://cloudinary.com/users/register/free) to get API keys for  your local development and testing environments. You will need these keys to seed the database.
+
+We use send grid for sending emails. You don't need to set this up for the tests to work, but if you want to test email delivery locally you can sign up for a [free sendgrid account](https://app.sendgrid.com/signup?id=8b9ae93b-ce8a-11e4-b4e5-5fcde71ee009). Messages from the homepage contact form are delivered to the website admin, so you need to set the `ADMIN_EMAIL` environment variable as well for the tests to pass. Set it to your own if you want to receive test emails from the contact form.
+
+Your environment variables should be the following:
+
+```bash
+ADMIN_EMAIL=any_email_address@email.com
+
+CLOUDINARY_API_KEY=
+CLOUDINARY_API_SECRET=
+
+# optional
+
+SENDGRID_USERNAME=
+SENDGRID_PASSWORD=
+```
+
+### Launch your database server
+
+You need to start your postgres server, redis server, and Sidekiq worker. You can do this all in one go by using `foreman` with the `Procfile.dev`. Make sure you have `foreman` installed (`gem install foreman`) and run
+
+```bash
+foreman start -f Procfile.dev
+```
+
+You need to specify the right procfile with the `-f` flag because there is a different Procfile for production. You can also launch these things separately if you want to.
+
+### Setting up the project
+
+Once you have the above dependencies installed and your database server is running, setup the project with
+
 ```bash
 bin/setup
 ```
@@ -61,23 +100,15 @@ This script runs the following commands to set up your local development environ
 - create and setup your databse
 - cleanup logs and temporary files
 
-### Setting environment variables
-
-We use cloudinary for image hosting. You can sign up for a [free cloudinary account](https://cloudinary.com/users/register/free) to get API keys for local development and testing. You'll need to set the environment variables `CLOUDINARY_API_KEY` and `CLOUDINARY_API_SECRET` to use image uploading.
+You can also run those steps manually.
 
 ### Starting your server
 
-You can run a local server with
+Start your local server. You can run a local server with
 ```
 rails server
 ```
 Unless you configure a different local host the app will be available at [http://localhost:3000](http://localhost:3000).
-
-You'll also need to have a postgres server running. You can use an autolauncher or start the server manually. Run
-```bash
-brew info postgres
-```
-for the instructions on how to start postgresql.
 
 ## Testing
 
