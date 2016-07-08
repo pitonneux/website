@@ -10,11 +10,6 @@ if ENV['CIRCLE_ARTIFACTS']
   SimpleCov.coverage_dir(dir)
 end
 
-# SimpleCov.formatter = Coveralls::SimpleCov::Formatter
-SimpleCov.start
-#   add_filter 'app/secrets'
-# end
-
 #
 # SimpleCov.formatter = Coveralls::SimpleCov::Formatter
 # SimpleCov.start do
