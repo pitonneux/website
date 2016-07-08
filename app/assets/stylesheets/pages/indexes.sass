@@ -1,13 +1,19 @@
 [data-controller=locations],
 [data-controller=events],
-[data-controller=organizations]
+[data-controller=organizations],
+[data-controller=messages]
   summary
     +button($action-color)
 
   .location,
   .event,
-  .organization
+  .organization,
     +card
+    +flex_column_then_row
+
+  .message
+    +card
+    +flex_column
 
   .location,
   .organization

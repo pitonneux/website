@@ -1,14 +1,20 @@
+---
 en:
   locations:
-    index:
-      title: Locations
-      new: Add a new location
-      create: Create location
     create:
-      success: Location was successfully created
       failure: Location could not be created
-    update:
-      success: Location was successfully updated
-      failure: Location could not be updated
+      success: Location was successfully created
     destroy:
       success: Location was successfully deleted
+    index:
+      create: Create location
+      locations: Locations
+      new: Add a new location
+      title: Locations
+    location:
+      destroy: Delete
+      directions: Directions
+      edit: Edit
+    update:
+      failure: Location could not be updated
+      success: Location was successfully updated
