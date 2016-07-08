@@ -9,8 +9,9 @@ if ENV['CIRCLE_ARTIFACTS']
   dir = File.join(ENV['CIRCLE_ARTIFACTS'], 'coverage')
   SimpleCov.coverage_dir(dir)
 end
-#
-# SimpleCov.start do
+
+# SimpleCov.formatter = Coveralls::SimpleCov::Formatter
+SimpleCov.start
 #   add_filter 'app/secrets'
 # end
 
@@ -20,4 +21,4 @@ end
 #   add_filter 'app/secrets'
 # end
 
-Coveralls.wear_merged!('rails')
+Coveralls.wear!('rails')
