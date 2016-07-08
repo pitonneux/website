@@ -35,6 +35,8 @@ gem 'devise'
 gem 'pundit'
 
 group :development, :test do
+  gem 'brakeman'
+  gem 'bundler-audit'
   gem 'factory_girl_rails'
   gem 'pry-byebug'
   gem 'pry-rails'

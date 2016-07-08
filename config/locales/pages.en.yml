@@ -15,6 +15,7 @@ en:
       locations: Locations
       login: Login
       logout: Logout
+      messages: Messages
       organizations: Organizations
   pages:
     connect:

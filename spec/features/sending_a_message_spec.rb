@@ -4,6 +4,7 @@ require 'sidekiq/testing'
 
 RSpec.feature 'sending a message', js: true do
   scenario 'from the home page contact us form' do
+    clear_jobs_queue
     visit root_path
     fill_form :message, 'Name': 'New User',
                         'Email': 'test@email.com',
@@ -16,6 +17,7 @@ RSpec.feature 'sending a message', js: true do
   end
 
   scenario 'someone submits an invalid form' do
+    clear_jobs_queue
     visit root_path
     fill_form :message, 'Name': '',
                         'Email': '',

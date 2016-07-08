@@ -3,6 +3,11 @@ en:
   messages:
     create:
       message_error: Message could not be sent. Could you double check those errors?
+    message:
+      email: 'Email: '
+      from: 'From: '
+      message: 'Message: '
+      sent_at: 'Sent at: '
     new:
       email: Email
       message: Tell us what you're learning!

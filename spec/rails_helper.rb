@@ -17,6 +17,7 @@ module Features
   include Formulaic::Dsl
   include SelectDateHelpers
   include SessionHelpers
+  include SidekiqHelpers
 end
 
 RSpec.configure do |config|
