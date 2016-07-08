@@ -10,8 +10,9 @@ require 'capybara/rspec'
 require 'simplecov'
 require 'coveralls'
 
-Coveralls.wear!('rails')
-# SimpleCov.formatter = Coveralls::SimpleCov::Formatter
+# Coveralls.wear!('rails')
+SimpleCov.formatter = Coveralls::SimpleCov::Formatter
+SimpleCov.start
 
 # save to CircleCI's artifacts directory if we're on CircleCI
 if ENV['CIRCLE_ARTIFACTS']
@@ -21,7 +22,6 @@ end
 
 #
 # SimpleCov.formatter = Coveralls::SimpleCov::Formatter
-# SimpleCov.start do
 #   add_filter 'app/secrets'
 # end
 
