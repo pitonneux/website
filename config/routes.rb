@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 Rails.application.routes.draw do
+  # require 'sidekiq/web'
+
   devise_for :users,
              path: 'admin',
              controllers: { registrations: 'registrations' },
@@ -11,5 +13,9 @@ Rails.application.routes.draw do
   resources :locations
   resources :events
   resources :organizations
-  resource  :messages, only: :create
+  resources :messages, only: [:index, :create]
+
+  # namespace :admin do
+  #   mount Sidekiq::Web => '/sidekiq'
+  # end
 end

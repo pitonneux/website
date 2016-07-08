@@ -1,0 +1,16 @@
+.message
+  p
+    strong = t('.from')
+    = message.sender
+
+  p
+    strong = t('.sent_at')
+    = l(message.created_at, format: :full)
+
+  p
+    strong = t('.email')
+    = message.email
+
+  p
+    strong = t('.message')
+    = message.content

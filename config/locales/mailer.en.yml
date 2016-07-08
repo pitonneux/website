@@ -1,9 +1,7 @@
+---
 en:
   message_mailer:
     send_to_admin:
-      subject: Les Pitonneux got a message from %{name}
-      hi: Hi!
       contact_form: "%{name} just sent a message via the website's contact form:"
-
-
-
+      hi: Hi!
+      subject: Les Pitonneux got a message from %{name}

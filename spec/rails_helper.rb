@@ -27,6 +27,8 @@ end
 
 Dir[Rails.root.join('spec/support/**/*.rb')].sort.each { |file| require file }
 
+Dir[Rails.root.join('spec/support/**/*.rb')].sort.each { |file| require file }
+
 Capybara.javascript_driver = :webkit
 
 Capybara::Webkit.configure(&:block_unknown_urls)
@@ -35,6 +37,7 @@ module Features
   include Formulaic::Dsl
   include SelectDateHelpers
   include SessionHelpers
+  include SidekiqHelpers
 end
 
 ActiveRecord::Migration.maintain_test_schema!
