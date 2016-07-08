@@ -1,6 +1,7 @@
 [![CircleCI](https://circleci.com/gh/pitonneux/website/tree/master.svg?style=shield)](https://circleci.com/gh/pitonneux/website/tree/master)
-[![Coverage Status](https://coveralls.io/repos/github/pitonneux/website/badge.svg?branch=master)](https://coveralls.io/github/pitonneux/website?branch=master)
+[![codecov](https://codecov.io/gh/pitonneux/website/branch/master/graph/badge.svg)](https://codecov.io/gh/pitonneux/website)
 [![Code Climate](https://codeclimate.com/github/pitonneux/website/badges/gpa.svg)](https://codeclimate.com/github/pitonneux/website)
+[![Dependency Status](https://gemnasium.com/badges/github.com/pitonneux/website.svg)](https://gemnasium.com/github.com/pitonneux/website)
 
 # Read Me
 
