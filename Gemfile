@@ -40,7 +40,6 @@ end
 
 group :development do
   gem 'awesome_print'
-  # gem 'quiet_assets'
   gem 'web-console', '~> 2.0'
 end
 
