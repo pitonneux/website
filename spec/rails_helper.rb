@@ -8,11 +8,7 @@ require 'rspec/rails'
 require 'pundit/rspec'
 require 'capybara/rspec'
 require 'simplecov'
-require 'coveralls'
-
-# Coveralls.wear!('rails')
-SimpleCov.formatter = Coveralls::SimpleCov::Formatter
-SimpleCov.start
+require 'codecov'
 
 # save to CircleCI's artifacts directory if we're on CircleCI
 if ENV['CIRCLE_ARTIFACTS']
@@ -20,10 +16,8 @@ if ENV['CIRCLE_ARTIFACTS']
   SimpleCov.coverage_dir(dir)
 end
 
-#
-# SimpleCov.formatter = Coveralls::SimpleCov::Formatter
-#   add_filter 'app/secrets'
-# end
+SimpleCov.start
+SimpleCov.formatter = SimpleCov::Formatter::Codecov
 
 Dir[Rails.root.join('spec/support/**/*.rb')].sort.each { |file| require file }
 
