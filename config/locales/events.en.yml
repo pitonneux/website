@@ -1,35 +1,35 @@
+---
 en:
   events:
-    no_start_date: No start date
-    form:
-      feature_on_homepage: Feature on homepage?
-      date: Date
-      start_time: Start time
+    create:
+      failure: Event could not be created
+      success: Event was created successfully
+    destroy:
+      success: Event was successfully deleted
     edit:
       title: Update Event
       update: Update event
-    show:
-      date: Date
-      starts_at: Starts at
-      duration: Duration
-      location: Location
-      signup: Sign up here
-    index:
-      events: Events
-      new: Create a new event
-      create: Create event
-      title: Events
     event:
       description: Description
+      edit: Edit
+      destroy: Delete
       signup: Sign up
-    create:
-      success: Event was created successfully
-      failure: Event could not be created
+    form:
+      date: Date
+      feature_on_homepage: Feature on homepage?
+      starts_at: Start time
+    index:
+      create: Create event
+      events: Events
+      new: Create a new event
+      title: Events
+    no_start_date: No start date
+    show:
+      date: Date
+      duration: Duration
+      location: Location
+      sign_up: Sign up here
+      starts_at: Starts at
     update:
-      success: Event was successfully updated
       failure: Event could not be updated
-    destroy:
-      success: Event was successfully deleted
-
-
-
+      success: Event was successfully updated

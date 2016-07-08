@@ -1,69 +1,56 @@
+---
 en:
   layouts:
+    footer:
+      github: View source on Github
+      made_in_mtl_html: Made with %{heart} in Montreal
     home_nav:
-      what_we_do: What we do
+      connect: Connect
+      contact: Contact us
       events: Events
       partners: Our partners
-      contact: Contact us
-      connect: Connect
+      what_we_do: What we do
     nav:
       events: Events
       locations: Locations
-      organizations: Organizations
-      logout: Logout
       login: Login
-
-    footer:
-      made_in_mtl_html: Made with %{heart} in Montreal
-      github: View source on Github
-
+      logout: Logout
+      organizations: Organizations
   pages:
     connect:
       facebook: Les Pitonneux on Facebook
-      twitter: Roberta (@toyb0_x) on Twitter
       meetup: Les Pitonneux on Meetup.com
+      twitter: Roberta (@toyb0_x) on Twitter
+    featured_event:
+      description: Read the full description
+      signup: Sign me up!
     home:
+      connect:
+        header: Connect With Us
+      contact:
+        details: If you're interested in joining us or just want some more info, please drop us a note here!
+        header: Contact Us
+      events:
+        header: Upcoming Events
+      journey:
+        description: We have introductory workshops for beginners as well as professional tracks for people who are a bit further ahead. These are a peer-to-peer workshops with access to mentors and instructors to help you advance every single day of your journey. Show your work by sharing what you've learned. We also have talks and interviews with developers, entrepreneurs, recruiting companies and startups.
+        header: We will help you on your journey
+      learning:
+        description: Have you wondered what it would take to develop your own mobile app or website? Have you been learning how to code using online courses but are looking to meet other learners? Are you working on your first game but you need help to get unstuck? Join one of our workshop series or Coffee & Code sessions and we will help you on your way to a first job as a professional developer.
+        header: Learning programming online?
+      meetups:
+        price: Free
+        title: Coffee & Code
+      partners:
+        header: Our Partners
       pitonneux: les_pitonneux█
+      projects:
+        subheading: Assigned individually
+        title: Projects
       tagline: A skills incubator in Montréal for people learning to code online
       what_we_do:
         header: What We Do
         tagline: We help online learners on their coding journey towards a first job as a professional developer
-      learning:
-        header: Learning programming online?
-        description: Have you wondered what it would take to develop your own mobile app or website? Have you been learning how to code using online courses but are looking to meet other learners? Are you working on your first game but you need help to get unstuck? Join one of our workshop series or Coffee & Code sessions and we will help you on your way to a first job as a professional developer.
-      journey:
-        header: We will help you on your journey
-        description: We have introductory workshops for beginners as well as professional tracks for people who are a bit further ahead. These are a peer-to-peer workshops with access to mentors and instructors to help you advance every single day of your journey. Show your work by sharing what you've learned. We also have talks and interviews with developers, entrepreneurs, recruiting companies and startups.
-      events:
-        header: Upcoming Events
-      meetups:
-        title: Coffee & Code
-        price: Free
       workshops:
-        title: Workshops
         price: From $50
-      projects:
-        title: Projects
-        subheading: Assigned individually
-
-
-      # events:
-      #   header: Upcoming Events
-      # meetups: Coffee and Code
-      #   price: Free
-      # workshops: Workshops
-      #   price: "From $50"
-      # projects: Projects
-      #   subheading: Assigned individually
-
-      partners:
-        header: Our Partners
-      contact:
-        header: Contact Us
-        details: If you're interested in joining us or just want some more info, please drop us a note here!
-      connect:
-        header: Connect With Us
-    featured_event:
-      description: Read the full description
-
-      signup: Sign me up!
+        title: Workshops

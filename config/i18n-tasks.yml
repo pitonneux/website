@@ -1,0 +1,35 @@
+base_locale: en
+data:
+  read:
+    - config/locales/%{locale}.yml
+    - config/locales/*.%{locale}.yml
+    ## Another gem (replace %#= with %=):
+    # - "<%#= %x[bundle show vagrant].chomp %>/templates/locales/%{locale}.yml"
+
+  write:
+    ## For example, write devise and simple form keys to their respective files:
+    # - ['{devise, simple_form}.*', 'config/locales/\1.%{locale}.yml']
+    ## Catch-all default:
+    # - config/locales/%{locale}.yml
+
+  ## Specify the router (see Readme for details). Valid values: conservative_router, pattern_router, or a custom class.
+  # router: convervative_router
+
+  yaml:
+    write:
+      # do not wrap lines at 80 characters
+      line_width: -1
+
+search:
+  exclude:
+    - app/assets/images
+    - app/assets/fonts
+
+## Consider these keys used:
+# ignore_unused:
+# - 'activerecord.attributes.*'
+# - '{devise,kaminari,will_paginate}.*'
+# - 'simple_form.{yes,no}'
+# - 'simple_form.{placeholders,hints,labels}.*'
+# - 'simple_form.{error_notification,required}.:'
+

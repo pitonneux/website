@@ -1,23 +1,22 @@
+---
 en:
   organizations:
-    form:
+    create:
+      failure: Organization could not be created
+      success: Organization was successfully created
+    destroy:
+      success: Organization was successfully deleted
     edit:
       title: Update Organization
       update: Update organization
     index:
-      organizations: Organizations
-      new: Add a new organization
       create: Create organization
+      new: Add a new organization
+      organizations: Organizations
       title: Organizations
-    create:
-      success: Organization was successfully created
-      failure: Organization could not be created
+    organization:
+      destroy: Delete
+      edit: Edit
     update:
-      success: Organization was successfully updated
       failure: Organization could not be updated
-    destroy:
-      success: Organization was successfully deleted
-
-
-
-
+      success: Organization was successfully updated

@@ -14,7 +14,7 @@ RSpec.feature 'creating an event' do
                       signup_link: 'signuphere.com',
                       duration_in_min: 90
     select_date '2016,June,3', from: 'Date'
-    select_time '18', '00', from: 'Starts At'
+    select_time '18', '00', from: 'Start time'
     check 'Feature on homepage'
     click_button 'Create event'
     expect(page).to have_content 'Event was created successfully'
