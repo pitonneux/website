@@ -20,4 +20,4 @@ end
 #   add_filter 'app/secrets'
 # end
 
-Coveralls.wear!('rails')
+Coveralls.wear_merged!('rails')
