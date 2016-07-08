@@ -50,7 +50,30 @@ The project is built with Rails, a stable and mature web framework. If you're un
 
 ## Setup the project
 
+### Setting environment variables
+
+We use cloudinary for image hosting. You can sign up for a [free cloudinary account](https://cloudinary.com/users/register/free) to get API keys for  your local development and testing environments. You will need these keys to seed the database.
+
+We use send grid for sending emails. You don't need to set this up for the tests to work, but if you want to test email delivery locally you can sign up for a [free sendgrid account](https://app.sendgrid.com/signup?id=8b9ae93b-ce8a-11e4-b4e5-5fcde71ee009). Messages from the homepage contact form are delivered to the website admin, so you need to set the `ADMIN_EMAIL` environment variable as well for the tests to pass. Set it to your own if you want to receive test emails from the contact form.
+
+Your environment variables should be the following:
+
+```bash
+ADMIN_EMAIL=any_email_address@email.com
+
+CLOUDINARY_API_KEY=
+CLOUDINARY_API_SECRET=
+
+# optional
+
+SENDGRID_USERNAME=
+SENDGRID_PASSWORD=
+```
+
+### Setting up the project
+
 Once you have the above dependencies installed, setup the project with
+
 ```bash
 bin/setup
 ```
@@ -60,10 +83,6 @@ This script runs the following commands to set up your local development environ
 - install all required gems
 - create and setup your databse
 - cleanup logs and temporary files
-
-### Setting environment variables
-
-We use cloudinary for image hosting. You can sign up for a [free cloudinary account](https://cloudinary.com/users/register/free) to get API keys for local development and testing. You'll need to set the environment variables `CLOUDINARY_API_KEY` and `CLOUDINARY_API_SECRET` to use image uploading.
 
 ### Starting your server
 

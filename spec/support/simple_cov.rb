@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-# require 'simplecov'
+require 'simplecov'
 require 'coveralls'
 
 # SimpleCov.formatter = Coveralls::SimpleCov::Formatter
@@ -10,6 +10,12 @@ if ENV['CIRCLE_ARTIFACTS']
   SimpleCov.coverage_dir(dir)
 end
 #
+# SimpleCov.start do
+#   add_filter 'app/secrets'
+# end
+
+#
+# SimpleCov.formatter = Coveralls::SimpleCov::Formatter
 # SimpleCov.start do
 #   add_filter 'app/secrets'
 # end
