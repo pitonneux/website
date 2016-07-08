@@ -2,7 +2,7 @@ en:
   messages:
     create:
       message_error: Message could not be sent. Could you double check those errors?
-    created:
+    success:
       thanks: Your message has been sent! Thanks for getting in touch :)
 
     new:

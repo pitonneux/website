@@ -1,6 +1,7 @@
-require 'rails_helper'
-
 # frozen_string_literal: true
+require 'rails_helper'
+require 'sidekiq/testing'
+
 RSpec.feature 'sending a message', js: true do
   scenario 'from the home page contact us form' do
     visit root_path
@@ -11,7 +12,7 @@ RSpec.feature 'sending a message', js: true do
     click_button 'Send message'
 
     expect(page).to have_content t('messages.created.thanks')
-    expect(ActionMailer::Base.deliveries.count).to eq 1
+    expect(Sidekiq::Worker.jobs.size).to eq 1
   end
 
   scenario 'someone submits an invalid form' do
@@ -25,5 +26,7 @@ RSpec.feature 'sending a message', js: true do
     expect(page).to have_content 'Email is invalid'
     expect(page).to have_content "Sender can't be blank"
     expect(page).to have_content "Content can't be blank"
+
+    expect(Sidekiq::Worker.jobs.size).to eq 0
   end
 end

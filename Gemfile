@@ -44,6 +44,7 @@ end
 
 group :development do
   gem 'awesome_print'
+  gem 'i18n-health'
   gem 'web-console', '~> 2.0'
 end
 

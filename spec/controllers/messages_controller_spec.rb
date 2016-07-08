@@ -10,7 +10,7 @@ RSpec.describe MessagesController, type: :controller, js: true do
                      content: 'A nice message' } }
       end
 
-      let(:mailer) { double 'mailer', deliver: true }
+      let(:mailer) { double 'mailer', deliver_later: true }
 
       before do
         allow(MessageMailer).to receive(:send_to_admin).and_return mailer
@@ -22,7 +22,7 @@ RSpec.describe MessagesController, type: :controller, js: true do
 
       it 'tells the mailer to deliver' do
         post :create, params: message_params, format: :js
-        expect(mailer).to have_received :deliver
+        expect(mailer).to have_received :deliver_later
       end
     end
 
