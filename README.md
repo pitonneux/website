@@ -33,6 +33,11 @@ This project uses Postgresql, a free and open-source database. Google the instru
 brew install postgresql
 ```
 
+Jobs are queued with Sidekiq, which uses redis to keep track of jobs. You'll need to install redis. On a mac you can run
+```bash
+brew install redis
+```
+
 ## Ruby version
 
 The project currently uses ruby `2.3.1`. You can install many versions of Ruby on your machine with a ruby environment manager. Two common ones are [rbenv](https://github.com/rbenv/rbenv) and [rvm](https://rvm.io/).
@@ -70,9 +75,19 @@ SENDGRID_USERNAME=
 SENDGRID_PASSWORD=
 ```
 
+### Launch your database server
+
+You need to start your postgres server, redis server, and Sidekiq worker. You can do this all in one go by using `foreman` with the `Procfile.dev`. Make sure you have `foreman` installed (`gem install foreman`) and run
+
+```bash
+foreman start -f Procfile.dev
+```
+
+You need to specify the right procfile with the `-f` flag because there is a different Procfile for production. You can also launch these things separately if you want to.
+
 ### Setting up the project
 
-Once you have the above dependencies installed, setup the project with
+Once you have the above dependencies installed and your database server is running, setup the project with
 
 ```bash
 bin/setup
@@ -84,19 +99,15 @@ This script runs the following commands to set up your local development environ
 - create and setup your databse
 - cleanup logs and temporary files
 
+You can also run those steps manually.
+
 ### Starting your server
 
-You can run a local server with
+Start your local server. You can run a local server with
 ```
 rails server
 ```
 Unless you configure a different local host the app will be available at [http://localhost:3000](http://localhost:3000).
-
-You'll also need to have a postgres server running. You can use an autolauncher or start the server manually. Run
-```bash
-brew info postgres
-```
-for the instructions on how to start postgresql.
 
 ## Testing
 

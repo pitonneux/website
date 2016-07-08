@@ -27,8 +27,6 @@ end
 
 Dir[Rails.root.join('spec/support/**/*.rb')].sort.each { |file| require file }
 
-Dir[Rails.root.join('spec/support/**/*.rb')].sort.each { |file| require file }
-
 Capybara.javascript_driver = :webkit
 
 Capybara::Webkit.configure(&:block_unknown_urls)
@@ -41,3 +39,15 @@ module Features
 end
 
 ActiveRecord::Migration.maintain_test_schema!
+
+RSpec.configure do |config|
+  config.infer_base_class_for_anonymous_controllers = false
+  config.infer_spec_type_from_file_location!
+  config.use_transactional_fixtures = false
+
+  config.include Features, type: :feature
+  config.include Devise::Test::ControllerHelpers, type: :controller
+  config.include Warden::Test::Helpers
+  config.before(:suite) { Warden.test_mode!  }
+  config.after(:each)   { Warden.test_reset! }
+end
