@@ -3,9 +3,9 @@ class EventsController < ApplicationController
   before_action :authenticate_user!, except: :index
 
   def index
+    authorize Event
     @events = Event.all
     @event = Event.new
-    authorize Event
   end
 
   def show
