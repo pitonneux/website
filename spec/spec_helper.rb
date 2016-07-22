@@ -10,18 +10,12 @@ RSpec.configure do |config|
     mocks.verify_partial_doubles = true
   end
 
+  config.disable_monkey_patching!
   config.example_status_persistence_file_path = 'tmp/rspec_examples.txt'
   config.order = :random
-
-  config.disable_monkey_patching!
-
   config.profile_examples = 10
-
-  config.order = :random
 
   Kernel.srand config.seed
 
-  config.before(:each) do
-    ActionMailer::Base.deliveries.clear
-  end
+  config.before(:each) { ActionMailer::Base.deliveries.clear }
 end

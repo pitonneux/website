@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 RSpec.shared_examples 'action not allowed for guests' do
   context 'guest tries to access' do
-
     it 'redirects an unauthenticated visitor' do
       allow(request.env['warden']).to receive(:authenticate!).and_throw(:warden, scope: :user)
       subject

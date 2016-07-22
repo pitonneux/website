@@ -1,6 +1,7 @@
 [![CircleCI](https://circleci.com/gh/pitonneux/website/tree/master.svg?style=shield)](https://circleci.com/gh/pitonneux/website/tree/master)
-[![Coverage Status](https://coveralls.io/repos/github/pitonneux/website/badge.svg?branch=master)](https://coveralls.io/github/pitonneux/website?branch=master)
+[![codecov](https://codecov.io/gh/pitonneux/website/branch/master/graph/badge.svg)](https://codecov.io/gh/pitonneux/website)
 [![Code Climate](https://codeclimate.com/github/pitonneux/website/badges/gpa.svg)](https://codeclimate.com/github/pitonneux/website)
+[![Dependency Status](https://gemnasium.com/badges/github.com/pitonneux/website.svg)](https://gemnasium.com/github.com/pitonneux/website)
 
 # Read Me
 
@@ -10,7 +11,7 @@ This is the website for Les Pitonneux. It's still in development and everyone is
 
 We love contributions! The first thing to check are the Issues with the [priority](https://github.com/pitonneux/website/labels/priority) label. You can also optionally use [Zenhub](https://www.zenhub.com/) to see the development pipeline and issue boards and pick any issue from the "Next Up" column. When you start working on an issue, let everyone else know somehow (move the issue to the "In Progress" column, add the "in progress" label, or even just leave a comment saying "Got this one!"), so that we don't end up with two people developing the same feature at the same time.
 
-Anybody is welcome to submit a pull request. See below on how to set up your machine for development. Once you have the app up and running, run the tests (`rspec`) and make sure they pass. Then write some specs and add your changes. Make the tests pass again. Then push to your fork and [submit a pull request](https://github.com/pitonneux/website/compare/). Then, you'll be waiting on us. We try to at least comment on all pull requests within a couple of days. We might suggest some changes or improvements or alternatives. Some things you can do to increase the chances of your pull request being accepted are:
+Anybody is welcome to submit a pull request. See below on how to set up your machine for development and how our development process works. Once you have the app up and running, run the tests (`rspec`) and make sure they pass. Then write some specs and add your changes. Make the tests pass again. Then push to your fork and [submit a pull request](https://github.com/pitonneux/website/compare/). Then, you'll be waiting on us. We try to at least comment on all pull requests within a couple of days. We might suggest some changes or improvements or alternatives. Some things you can do to increase the chances of your pull request being accepted are:
 - Make sure everything is tested
 - Follow the style and standards of the project
 - Write a [good commit message](http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
@@ -33,6 +34,11 @@ This project uses Postgresql, a free and open-source database. Google the instru
 brew install postgresql
 ```
 
+Jobs are queued with Sidekiq, which uses redis to keep track of jobs. You'll need to install redis. On a mac you can run
+```bash
+brew install redis
+```
+
 ## Ruby version
 
 The project currently uses ruby `2.3.1`. You can install many versions of Ruby on your machine with a ruby environment manager. Two common ones are [rbenv](https://github.com/rbenv/rbenv) and [rvm](https://rvm.io/).
@@ -50,7 +56,39 @@ The project is built with Rails, a stable and mature web framework. If you're un
 
 ## Setup the project
 
-Once you have the above dependencies installed, setup the project with
+### Setting environment variables
+
+We use cloudinary for image hosting. You can sign up for a [free cloudinary account](https://cloudinary.com/users/register/free) to get API keys for  your local development and testing environments. You will need these keys to seed the database.
+
+We use send grid for sending emails. You don't need to set this up for the tests to work, but if you want to test email delivery locally you can sign up for a [free sendgrid account](https://app.sendgrid.com/signup?id=8b9ae93b-ce8a-11e4-b4e5-5fcde71ee009). Messages from the homepage contact form are delivered to the website admin, so you need to set the `ADMIN_EMAIL` environment variable as well for the tests to pass. Set it to your own if you want the form to send to your email address in development.
+
+Your environment variables should be the following:
+
+```bash
+ADMIN_EMAIL=any_email_address@email.com
+
+CLOUDINARY_API_KEY=
+CLOUDINARY_API_SECRET=
+
+# optional
+SENDGRID_USERNAME=
+SENDGRID_PASSWORD=
+```
+
+### Launch your database server
+
+You need to start your postgres server, redis server, and Sidekiq worker. We use `foreman` with the `Procfile.dev` to automate this. Make sure you have `foreman` installed (`gem install foreman`) and run
+
+```bash
+foreman start -f Procfile.dev
+```
+
+You need to specify the right procfile with the `-f` flag because there is a different Procfile for production. You can also launch these things separately if you want to.
+
+### Setting up the project
+
+Once you have the above dependencies installed and your database server is running, setup the project with
+
 ```bash
 bin/setup
 ```
@@ -61,23 +99,19 @@ This script runs the following commands to set up your local development environ
 - create and setup your databse
 - cleanup logs and temporary files
 
-### Setting environment variables
-
-We use cloudinary for image hosting. You can sign up for a [free cloudinary account](https://cloudinary.com/users/register/free) to get API keys for local development and testing. You'll need to set the environment variables `CLOUDINARY_API_KEY` and `CLOUDINARY_API_SECRET` to use image uploading.
+You can also run those steps manually.
 
 ### Starting your server
 
-You can run a local server with
+Start your local server. You can run a local server with
 ```
 rails server
 ```
 Unless you configure a different local host the app will be available at [http://localhost:3000](http://localhost:3000).
 
-You'll also need to have a postgres server running. You can use an autolauncher or start the server manually. Run
-```bash
-brew info postgres
-```
-for the instructions on how to start postgresql.
+## Developing a feature and submitting a pull request
+
+In your pull request and in your branch name, specify the number of the issue you're working on. This way github will [automatically close the issue(s)](https://github.com/blog/1506-closing-issues-via-pull-requests) once the pull request has been merged.
 
 ## Testing
 

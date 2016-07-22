@@ -8,9 +8,12 @@
   @media screen and (max-width: $size)
     @content
 
-=flex_column_then_row
+=flex_column
   display: flex
   flex-direction: column
+
+=flex_column_then_row
+  +flex_column
   +above($small-screen)
     flex-direction: row
 
@@ -21,11 +24,9 @@
     flex-direction: column
 
 =flex_column_centered
-  display: flex
-  flex-direction: column
+  +flex_column
   align-items: center
   justify-content: center
-
 
 // Style
 

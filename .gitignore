@@ -34,3 +34,6 @@ Session.vim
 
 # ctags
 tags
+
+# gem auto-updates
+.gemnasium.yml

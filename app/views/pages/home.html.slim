@@ -43,9 +43,10 @@ section#partners
 
 section#contact
   h1 = t '.contact.header'
-  h2 = t '.contact.details'
 
-  #contact-form = render 'messages/new'
+  #contact-form
+    h2 = t '.contact.details'
+    = render 'messages/new'
 
 section#connect
   h1 = t '.connect.header'

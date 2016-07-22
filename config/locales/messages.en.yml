@@ -1,12 +1,17 @@
+---
 en:
   messages:
     create:
       message_error: Message could not be sent. Could you double check those errors?
-    created:
-      thanks: Your message has been sent! Thanks for getting in touch :)
-
+    message:
+      email: 'Email: '
+      from: 'From: '
+      message: 'Message: '
+      sent_at: 'Sent at: '
     new:
-      name: Name
       email: Email
       message: Tell us what you're learning!
+      name: Name
       send: Send message
+    success:
+      thanks: Your message has been sent! Thanks for getting in touch :)

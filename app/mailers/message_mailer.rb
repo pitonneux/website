@@ -11,6 +11,7 @@ class MessageMailer < ApplicationMailer
 
   def send_to_admin_attributes
     {
+      from: 'Contact Form <contact@pitonneux.com>',
       to: ENV['ADMIN_EMAIL'],
       subject: t('.subject', name: @sender)
     }

@@ -26,11 +26,17 @@ gem 'cloudinary'
 # Server
 gem 'puma'
 
+# Jobs
+gem 'sidekiq'
+gem 'redis'
+
 # Authentication
 gem 'devise'
 gem 'pundit'
 
 group :development, :test do
+  gem 'brakeman'
+  gem 'bundler-audit'
   gem 'factory_girl_rails'
   gem 'pry-byebug'
   gem 'pry-rails'
@@ -40,7 +46,7 @@ end
 
 group :development do
   gem 'awesome_print'
-  # gem 'quiet_assets'
+  gem 'i18n-tasks'
   gem 'web-console', '~> 2.0'
 end
 
@@ -53,7 +59,7 @@ group :test do
   gem 'shoulda-matchers'
 
   # test coverage
-  gem 'coveralls', require: false
+  gem 'codecov', require: false
 end
 
 group :production do
