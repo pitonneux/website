@@ -1,0 +1,6 @@
+en:
+  projects:
+    index:
+      title: Projects
+      create: Create project
+      new: Add a new project

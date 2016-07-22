@@ -6,4 +6,8 @@ class ProjectsController < ApplicationController
     @project = Project.new
     authorize Project
   end
+
+  def create
+
+  end
 end

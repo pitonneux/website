@@ -59,8 +59,8 @@ RSpec.describe EventsController do
     it_behaves_like 'action not allowed for guests'
 
     include_context 'user is logged in' do
-      include_examples 'calls authorize with', Event
-      include_examples 'redirects unauthorized user'
+      it_behaves_like 'action to be authorized with', Event
+      it_behaves_like 'action that redirects unauthorized user'
 
       include_context 'user is authorized' do
         context 'with valid params' do

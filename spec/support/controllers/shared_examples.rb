@@ -34,7 +34,7 @@ RSpec.shared_examples 'action to be authorized with logged in user' do |model|
   end
 end
 
-RSpec.shared_examples 'redirects unauthorized user' do
+RSpec.shared_examples 'action that redirects unauthorized user' do
   it 'redirects and says why' do
     allow(controller).to receive(:authorize).and_raise Pundit::NotAuthorizedError
     subject

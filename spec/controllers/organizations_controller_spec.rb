@@ -41,7 +41,7 @@ RSpec.describe OrganizationsController do
     it_behaves_like 'action not allowed for guests'
 
     include_context 'user is logged in' do
-      include_examples 'calls authorize with', Organization
+      it_behaves_like 'action to be authorized with', Organization
       include_examples 'redirects unauthorized user'
 
       include_context 'user is authorized' do

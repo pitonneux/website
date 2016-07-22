@@ -9,7 +9,52 @@ RSpec.describe ProjectsController do
     subject { get :index }
 
     it_behaves_like 'action not allowed for guests'
-    include_examples 'calls authorize with logged in user', Project
+    it_behaves_like 'action to be authorized with logged in user', Project
+  end
+
+  describe 'POST #create' do
+    let(:project_params) { attributes_for :project }
+
+    subject { post :create, params: { project: project_params } }
+
+    it_behaves_like 'action not allowed for guests'
+
+    include_context 'user is logged in' do
+      it_behaves_like 'action to be authorized with', Project
+      it_behaves_like 'action that redirects unauthorized user'
+
+      # include_context 'user is authorized' do
+      #   context 'with valid params' do
+      #     it 'creates a new Event' do
+      #       expect do
+      #         post :create, params: { project: project_params }
+      #       end.to change(Event, :count).by(1)
+      #     end
+      #
+      #     it 'sets the right flash' do
+      #       post :create, params: { project: project_params }
+      #       expect(response).to redirect_to events_path
+      #       expect(controller).to set_flash[:notice].to 'Event was created successfully'
+      #     end
+      #   end
+      #
+      #   context 'with invalid params' do
+      #     let(:invalid_params) { { name: nil, description: nil } }
+      #
+      #     it 'creates a new Event' do
+      #       expect do
+      #         post :create, params: { project: invalid_params }
+      #       end.not_to change(Event, :count)
+      #     end
+      #
+      #     it 'sets the right flash' do
+      #       post :create, params: { event: invalid_params }
+      #       expect(response).to redirect_to events_path
+      #       expect(controller).to set_flash[:alert].to 'Event could not be created'
+      #     end
+      #   end
+      # end
+    end
   end
 
   # describe 'GET #show' do
@@ -54,50 +99,6 @@ RSpec.describe ProjectsController do
   #   end
   # end
   #
-  # describe 'POST #create' do
-  #   let(:event_params) { attributes_for :event }
-  #
-  #   subject { post :create, params: { event: event_params } }
-  #
-  #   it_behaves_like 'action not allowed for guests'
-  #
-  #   include_context 'user is logged in' do
-  #     include_examples 'calls authorize with', Event
-  #     include_examples 'redirects unauthorized user'
-  #
-  #     include_context 'user is authorized' do
-  #       context 'with valid params' do
-  #         it 'creates a new Event' do
-  #           expect do
-  #             post :create, params: { event: event_params }
-  #           end.to change(Event, :count).by(1)
-  #         end
-  #
-  #         it 'sets the right flash' do
-  #           post :create, params: { event: event_params }
-  #           expect(response).to redirect_to events_path
-  #           expect(controller).to set_flash[:notice].to 'Event was created successfully'
-  #         end
-  #       end
-  #
-  #       context 'with invalid params' do
-  #         let(:invalid_params) { { name: nil, description: nil } }
-  #
-  #         it 'creates a new Event' do
-  #           expect do
-  #             post :create, params: { event: invalid_params }
-  #           end.not_to change(Event, :count)
-  #         end
-  #
-  #         it 'sets the right flash' do
-  #           post :create, params: { event: invalid_params }
-  #           expect(response).to redirect_to events_path
-  #           expect(controller).to set_flash[:alert].to 'Event could not be created'
-  #         end
-  #       end
-  #     end
-  #   end
-  # end
   #
   # describe 'PUT #update' do
   #   let(:event) { create :event }
