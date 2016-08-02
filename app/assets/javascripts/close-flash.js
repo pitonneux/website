@@ -2,6 +2,6 @@
 
 $(document).ready(function() {
     $(".close-flash").click(function() {
-        $(this).parent().css("display","none");
+        $(this).parent().fadeOut();
     });
 });
