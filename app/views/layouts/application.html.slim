@@ -20,7 +20,9 @@ html
 
       - if flash.any?
         - flash.each do |type, message|
-          = content_tag :div, message, class: "flash-#{type}"
+          div class="flash-#{type}"
+            = message
+            span class="close-flash" 
 
       = yield
 
