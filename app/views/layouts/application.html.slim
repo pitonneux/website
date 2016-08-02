@@ -20,10 +20,9 @@ html
 
       - if flash.any?
         - flash.each do |type, message|
-         div class="flash-#{type}"
-             = message
-             span class="close-flash" 
-                 i class="fa fa-times-circle" aria-hidden="true"
+          div class="flash-#{type}"
+            = message
+            span class="close-flash" 
 
       = yield
 
