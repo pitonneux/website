@@ -1,13 +1,14 @@
-$base-spacing: 1.5em;
+$base-spacing: 1.5rem;
 $base-border-radius: 1px;
-$base-line-height: 1.5em;
+$base-line-height: 1.5rem;
 $base-border-radius: 5px;
-$base-font-size: 1.1em;
-$small: 0.85em;
-$padding: 1.5em;
-$large-space: 1.5em;
-$med-space: 1em;
-$little-space: 0.5em;
+$base-font-size: 1.1rem;
+$small: 0.85rem;
+$padding: 1.5rem;
+$xl-space: 2rem;
+$large-space: 1.5rem;
+$med-space: 1rem;
+$little-space: 0.5rem;
 
 //COLORS
 $gray: #333333;
@@ -41,13 +42,13 @@ $headers: 'Muli', Helvetica Neue, Helvetica, sans-serif;
 $serif: 'Merriweather', cursive;
 $logo: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
 $text: 'Karla', Helvetica Neue, Helvetica, sans-serif;
-$base-font-size: 1.1em;
+$base-font-size: 1.1rem;
 
 // MEDIA QUERIES
-$small-screen: 42em;
-$medium-screen: 68em;
+$small-screen: 42rem;
+$medium-screen: 68rem;
 
 // TRANSITIONS
 $base-duration: 75ms;
 $long-duration: 3 * $base-duration;
-$base-timing: ease;
+$base-timing: ease-in-out;
