@@ -7,10 +7,6 @@ RSpec.describe OrganizationsController, type: :routing do
       expect(get: '/organizations').to route_to('organizations#index')
     end
 
-    it 'routes to #new' do
-      expect(get: '/organizations/new').to route_to('organizations#new')
-    end
-
     it 'routes to #show' do
       expect(get: '/organizations/1').to route_to('organizations#show', id: '1')
     end

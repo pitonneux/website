@@ -25,7 +25,7 @@ RSpec.feature 'sending a message', js: true do
 
     click_button 'Send message'
 
-    expect(page).to have_content 'Email is invalid'
+    expect(page).to have_content "Looks like that's not a valid email address. Could you double check it?"
     expect(page).to have_content "Sender can't be blank"
     expect(page).to have_content "Content can't be blank"
 

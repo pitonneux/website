@@ -1,0 +1,19 @@
+---
+en:
+  activerecord:
+    attributes:
+      message:
+        email: ''
+      visitor:
+        email: ''
+    errors:
+      models:
+        message:
+          attributes:
+            email:
+              invalid: Looks like that's not a valid email address. Could you double check it?
+        visitor:
+          attributes:
+            email:
+              invalid: Looks like that's not a valid email address. Could you double check it?
+              taken: Looks like you're already signed up! We have that email already.

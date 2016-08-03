@@ -215,14 +215,19 @@
     #email_collection
       +flex_column_then_row
       background: $main-color
+      color: $background-color
       width: 100%
 
       #email_box
         +form_with_field_errors
+        align-items: center
+        display: flex
+        height: 100%
+        justify-content: center
+        width: 100%
 
-      h1,
-      h2
-        color: $background-color
+        form
+          width: 100%
 
       h2
         font-weight: normal
