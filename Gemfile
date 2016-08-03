@@ -47,7 +47,7 @@ end
 group :development do
   gem 'awesome_print'
   gem 'i18n-tasks'
-  gem 'web-console', '~> 2.0'
+  gem 'web-console'
 end
 
 group :test do
