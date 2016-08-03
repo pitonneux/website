@@ -13,7 +13,7 @@
       position: fixed
       left: 0
       width: 100%
-      background-color: rgba($gray, 0.3)
+      background-color: rgba($action-color, 0.65)
       z-index: 1
 
       a
@@ -48,7 +48,7 @@
         text-align: center
       h1
         +round_corners
-        background-color: rgba($background-color, 0.95)
+        background-color: rgba($background-color, 0.90)
         color: $main-color
         font-family: $logo
         font-weight: 300
@@ -67,9 +67,10 @@
 
     #events
       .events_banner
-        height: 40vh
         +flex_column_then_row
-
+        height: 100vh
+        +above($small-screen)
+          height: 40vh
 
       .meetups, .workshops, .projects
         +round_corners
@@ -82,7 +83,7 @@
         &:before
           font-size: 6.5rem
           color: $light-gray
-          padding-bottom: $little-space
+          padding-bottom: $xl-space
 
         h2
           font-family: $headers
