@@ -4,4 +4,3 @@ class VisitorPolicy < ApplicationPolicy
     admin?
   end
 end
-

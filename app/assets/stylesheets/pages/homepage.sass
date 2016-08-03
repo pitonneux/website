@@ -4,6 +4,10 @@
   &:before, &:after
     content: none
 
+.logo:before
+  +coffee
+  font-size: 2rem
+
 [data-controller=pages]
   &[data-action=home]
     background-color: $background-color
