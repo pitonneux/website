@@ -1,6 +1,6 @@
 =header_reset
   color: lighten($gray, 20%)
-  font-size: 1.5em
+  font-size: 1.5rem
   text-align: left
   &:before, &:after
     content: none
@@ -13,7 +13,7 @@
       position: fixed
       left: 0
       width: 100%
-      background-color: rgba($gray, 0.3)
+      background-color: rgba($action-color, 0.65)
       z-index: 1
 
       a
@@ -25,9 +25,9 @@
     section
       width: 95%
       margin: 0 auto
-      padding-top: 5em
+      padding-top: 5rem
       +above($small-screen)
-        padding-top: 7em
+        padding-top: 7rem
       h1
         +surrounding-lines($base-font-color)
 
@@ -40,7 +40,7 @@
 
     #home
       +flex_column_centered
-      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('//res.cloudinary.com/pitonneux-com/image/upload/v1466437150/homepage_mjs1wf.jpg')
+      background: linear-gradient(rgba($main-color, 0.65), rgba($main-color, 0.85) ), image-url('homepage.jpg')
       background-size: cover
       height: 100vh
       h1, h2
@@ -48,30 +48,29 @@
         text-align: center
       h1
         +round_corners
-        background-color: rgba($background-color, 0.85)
+        background-color: rgba($background-color, 0.90)
         color: $main-color
         font-family: $logo
         font-weight: 300
         letter-spacing: 3px
-        line-height: 1.5em
+        line-height: $base-line-height
         margin: $med-space
-        padding: $little-space $med-space
+        padding: $xl-space
         +above($small-screen)
-          font-size: 3em
+          font-size: 2rem
       h2
         color: $background-color
-        font-family: $serif
-        font-style: italic
-        font-size: 1.1em
-        padding: 0 $large-space $med-space
+        width: 80%
+        line-height: $base-line-height * 2
         +above($small-screen)
-          +surrounding-lines($background-color)
-          font-size: 1.3em
+          font-size: 3.3rem
 
     #events
       .events_banner
-        height: 40vh
         +flex_column_then_row
+        height: 100vh
+        +above($small-screen)
+          height: 40vh
 
       .meetups, .workshops, .projects
         +round_corners
@@ -81,6 +80,11 @@
         padding: $med-space
         flex: 1
 
+        &:before
+          font-size: 6.5rem
+          color: $light-gray
+          padding-bottom: $xl-space
+
         h2
           font-family: $headers
           font-style: normal
@@ -89,10 +93,14 @@
         p
           color: $light-gray
 
-        img
-          max-width: 60%
-          max-height: 20vh
+      .meetups:before
+        +laptop
 
+      .workshops:before
+        +learning
+
+      .projects:before
+        +sitemap
 
       .event
         +flex_column_then_row
@@ -138,7 +146,7 @@
             +above($small-screen)
 
         .closed
-          max-height: 30em
+          max-height: 30rem
           overflow: hidden
 
         a.expander-toggle
@@ -189,9 +197,9 @@
         color: $base-font-color
         width: 25%
         i
-          font-size: 2em
+          font-size: 2rem
           +above($small-screen)
-            font-size: 4em
+            font-size: 4rem
 
     #contact
       background-color: $lightest-gray
