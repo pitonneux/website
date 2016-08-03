@@ -2,6 +2,13 @@
 require 'rails_helper'
 
 RSpec.describe VisitorsController, type: :controller do
+  describe 'GET :index' do
+    subject { get :index }
+
+    it_behaves_like 'action not allowed for guests'
+    it_behaves_like 'action to be authorized with logged in user', Visitor
+  end
+
   describe 'POST #create' do
     let(:visitor_params) { attributes_for :visitor }
 

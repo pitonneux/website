@@ -1,0 +1,8 @@
+.visitor
+  p
+    strong = t('.email')
+    = visitor.email
+
+  p
+    strong = t('.signed_up')
+    = l(visitor.created_at, format: :full)

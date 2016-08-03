@@ -17,6 +17,7 @@ en:
       logout: Logout
       messages: Messages
       organizations: Organizations
+      visitors: Email list
   pages:
     connect:
       facebook: Les Pitonneux on Facebook

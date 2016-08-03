@@ -1,5 +1,11 @@
 # frozen_string_literal: true
 class VisitorsController < ApplicationController
+  def index
+    authenticate_user!
+    authorize Visitor
+    @visitors = Visitor.all
+  end
+
   def create
     @visitor = Visitor.create(visitor_params)
     respond_to :js

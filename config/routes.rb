@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   resources :events, only: [:index, :show, :create, :edit, :update, :destroy]
   resources :organizations, only: [:index, :show, :create, :edit, :update, :destroy]
   resources :messages, only: [:index, :create]
-  resources :visitors, only: [:create]
+  resources :visitors, only: [:index, :create]
 
   # namespace :admin do
   #   mount Sidekiq::Web => '/sidekiq'

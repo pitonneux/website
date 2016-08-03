@@ -6,3 +6,6 @@ en:
       button: Keep me posted
     success:
       thanks: Thanks for signing up!
+    visitor:
+      email: 'Email address: '
+      signed_up: 'Signed up on: '
