@@ -8,11 +8,11 @@ section#what_we_do
 
   .row
     .card
-      = cl_image_tag('computer_xnzeaz.png')
+      = image_tag('computer.png')
       h3 = t('.learning.header')
       p = t('.learning.description')
     .card
-      = cl_image_tag('world_ngdgxo.png')
+      = image_tag('world.png')
       h3 = t('.journey.header')
       p = t('.journey.description')
 
@@ -21,20 +21,16 @@ section#events
 
   .events_banner
     .meetups
-      = cl_image_tag('computer_xnzeaz.png')
       h2 = link_to t('.meetups.title'), events_path
       p = t('.meetups.price')
     .workshops
-      = cl_image_tag('computer_xnzeaz.png')
       h2 = link_to t('.workshops.title'), events_path
       p = t('.workshops.price')
     .projects
-      = cl_image_tag('computer_xnzeaz.png')
       h2 = t('.projects.title')
       p = t('.projects.subheading')
 
   = render partial: 'featured_event', collection: @featured_events, as: :event
-
 
 section#partners
   h1 = t('.partners.header')

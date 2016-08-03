@@ -40,7 +40,7 @@
 
     #home
       +flex_column_centered
-      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('//res.cloudinary.com/pitonneux-com/image/upload/v1466437150/homepage_mjs1wf.jpg')
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), image-url('homepage.jpg')
       background-size: cover
       height: 100vh
       h1, h2
@@ -81,6 +81,11 @@
         padding: $med-space
         flex: 1
 
+        &:before
+          font-size: 6.5rem
+          color: $light-gray
+          padding-bottom: $little-space
+
         h2
           font-family: $headers
           font-style: normal
@@ -89,10 +94,14 @@
         p
           color: $light-gray
 
-        img
-          max-width: 60%
-          max-height: 20vh
+      .meetups:before
+        +laptop
 
+      .workshops:before
+        +learning
+
+      .projects:before
+        +sitemap
 
       .event
         +flex_column_then_row
