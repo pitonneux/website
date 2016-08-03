@@ -16,7 +16,7 @@ class HomepageScroll
           defaults.selector = options
         options = jQuery.extend(defaults, options)
         jQuery(options.selector).click (e) ->
-          jumpobj = jQuery @
+          jumpobj = jQuery(this)
           if jumpobj.attr('href') == "/"
             target = "#"
             offset = 0
