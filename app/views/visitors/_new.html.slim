@@ -1,0 +1,5 @@
+= form_for @visitor, url: visitors_path, method: :post, remote: true do |f|
+  .field = f.text_field :email, placeholder: t('.email')
+  = show_error(f.object, :email)
+
+  = f.submit t('.button')

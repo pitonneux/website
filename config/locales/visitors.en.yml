@@ -1,0 +1,8 @@
+---
+en:
+  visitors:
+    new:
+      email: Your email address
+      button: Keep me posted
+    success:
+      thanks: Thanks for signing up!

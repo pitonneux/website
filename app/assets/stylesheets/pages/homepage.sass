@@ -1,5 +1,4 @@
 =header_reset
-  color: lighten($gray, 20%)
   font-size: 1.5em
   text-align: left
   &:before, &:after
@@ -99,6 +98,7 @@
 
         h1
           +header_reset
+          color: lighten($gray, 20%)
 
         h2
           text-align: left
@@ -206,15 +206,36 @@
         margin-top: $med-space
         width: 100%
 
-      #contact-form
-        .field
-          margin-bottom: 0
-        .field-error
-          display: block
-          color: $error-color
-          font-size: $small
-          margin-bottom: $med-space
-          padding: 0
+      #contact_form
+        +form_with_field_errors
 
+        .field-error
+          color: $error-color
+
+    #email_collection
+      +flex_column_then_row
+      background: $main-color
+      width: 100%
+
+      #email_box
+        +form_with_field_errors
+
+      h1,
+      h2
+        color: $background-color
+
+      h2
+        font-weight: normal
+        font-family: $text
+        font-size: 1.2em
+
+      input[type="submit"]
+        background: $action-color
+
+      input[type="text"]
+        padding: $little-space
+
+      .field-error
+        color: $background-color
 
 

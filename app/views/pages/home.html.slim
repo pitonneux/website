@@ -35,6 +35,13 @@ section#events
 
   = render partial: 'featured_event', collection: @featured_events, as: :event
 
+#email_collection.row
+  .card
+    h1 = t('.email.header')
+    h2 = t('.email.info')
+
+  .card
+    #email_box = render 'visitors/new'
 
 section#partners
   h1 = t('.partners.header')
@@ -44,7 +51,7 @@ section#partners
 section#contact
   h1 = t '.contact.header'
 
-  #contact-form
+  #contact_form
     h2 = t '.contact.details'
     = render 'messages/new'
 
