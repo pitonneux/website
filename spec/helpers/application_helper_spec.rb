@@ -40,7 +40,8 @@ RSpec.describe ApplicationHelper, type: :helper do
       object = build :visitor, email: 'invalid@email'
       object.valid?
 
-      expect(show_error(object, :email)).to eq '<p class="field-error">Looks like that&#39;s not a valid email address. Could you double check it?</p>'
+      expect(show_error(object, :email)).
+        to eq '<p class="field-error">Looks like that&#39;s not a valid email address. Could you double check it?</p>'
     end
 
     it 'returns nothing for an object that has no errors' do

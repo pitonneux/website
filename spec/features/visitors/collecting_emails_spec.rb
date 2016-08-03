@@ -7,7 +7,7 @@ RSpec.feature 'collecting email addresses from the home page', js: true do
     fill_form :visitor, 'Your email address': 'valid@email.com'
     click_button 'Keep me posted'
 
-    expect(page).to have_content "Thanks for signing up!"
+    expect(page).to have_content 'Thanks for signing up!'
   end
 
   scenario 'someone submits an invalid or duplicate email' do
