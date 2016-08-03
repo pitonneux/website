@@ -10,10 +10,11 @@ Rails.application.routes.draw do
   root 'pages#home'
   get '/home' => 'pages#home'
 
-  resources :locations
-  resources :events
-  resources :organizations
+  resources :locations, only: [:index, :show, :create, :edit, :update, :destroy]
+  resources :events, only: [:index, :show, :create, :edit, :update, :destroy]
+  resources :organizations, only: [:index, :show, :create, :edit, :update, :destroy]
   resources :messages, only: [:index, :create]
+  resources :visitors, only: [:create]
 
   # namespace :admin do
   #   mount Sidekiq::Web => '/sidekiq'
