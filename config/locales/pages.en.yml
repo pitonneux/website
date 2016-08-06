@@ -17,6 +17,7 @@ en:
       logout: Logout
       messages: Messages
       organizations: Organizations
+      visitors: Email list
   pages:
     connect:
       facebook: Les Pitonneux on Facebook
@@ -31,6 +32,9 @@ en:
       contact:
         details: If you're interested in joining us or just want some more info, please drop us a note here!
         header: Contact Us
+      email:
+        header: Want us to notify you?
+        info: We'll send you reminders about upcoming events and updates about the community.
       events:
         header: Upcoming Events
       journey:

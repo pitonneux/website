@@ -1,6 +1,6 @@
 header
-  = link_to root_path, class: 'logo' do
-    = fa_icon 'coffee', class: 'fa-2x'
+  a.logo href='/'
+
   a.menu-toggle href='javascript:void(0)' = fa_icon 'bars', class: 'fa-2x'
 
   - if current_page?(root_path)

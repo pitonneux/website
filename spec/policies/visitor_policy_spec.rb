@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require 'rails_helper'
 
-RSpec.describe MessagePolicy do
+RSpec.describe VisitorPolicy do
   let(:user)  { build_stubbed :user         }
   let(:admin) { build_stubbed :user, :admin }
 

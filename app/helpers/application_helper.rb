@@ -20,9 +20,8 @@ module ApplicationHelper
   end
 
   def show_error(object, field)
-    message = object.errors.messages[field]
-    unless message.blank?
-      content_tag :p, "#{field.to_s.humanize} #{message.join}", class: 'field-error'
-    end
+    messages = object.errors.full_messages_for field
+    return if messages.empty?
+    content_tag :p, messages.first.lstrip, class: 'field-error'
   end
 end

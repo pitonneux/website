@@ -7,9 +7,7 @@ if Rails.env.development? || Rails.env.test?
     task :run, :output_file do |_t, args|
       tracker = Brakeman.run app_path: '.', output_file: args[:output_file]
 
-      if args[:output_file].nil?
-        puts tracker.report
-      end
+      puts tracker.report if args[:output_file].nil?
     end
   end
 end

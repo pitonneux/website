@@ -16,7 +16,10 @@ if ENV['CIRCLE_ARTIFACTS']
   SimpleCov.coverage_dir(dir)
 end
 
-SimpleCov.start
+SimpleCov.start do
+  add_filter '/spec/'
+end
+
 SimpleCov.formatter = SimpleCov::Formatter::Codecov
 
 Dir[Rails.root.join('spec/support/**/*.rb')].sort.each { |file| require file }

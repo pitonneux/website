@@ -1,3 +1,13 @@
+=form_with_field_errors
+  .field
+    margin-bottom: 0
+  .field-error
+    display: block
+    font-size: $small
+    margin-bottom: $med-space
+    padding: 0
+    text-align: left
+
 form
   padding: $little-space
   +above($small-screen)
@@ -19,6 +29,7 @@ form
       font-size: inherit
       padding: 0 $little-space
       background-color: $background-color
+      font-family: $text
 
       &:focus
         outline: none

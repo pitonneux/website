@@ -14,8 +14,7 @@ class Event < ApplicationRecord
   private
 
   def image_size
-    if cover_image.size > 5.megabytes
-      errors.add(:cover_image, 'cannot be more than 5MB')
-    end
+    return if cover_image.size < 5.megabytes
+    errors.add(:cover_image, 'cannot be more than 5MB')
   end
 end

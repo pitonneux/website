@@ -5,6 +5,10 @@
   &:before, &:after
     content: none
 
+.logo:before
+  +coffee
+  font-size: 2rem
+
 [data-controller=pages]
   &[data-action=home]
     background-color: $background-color
@@ -107,6 +111,7 @@
 
         h1
           +header_reset
+          color: lighten($gray, 20%)
 
         h2
           text-align: left
@@ -214,15 +219,41 @@
         margin-top: $med-space
         width: 100%
 
-      #contact-form
-        .field
-          margin-bottom: 0
-        .field-error
-          display: block
-          color: $error-color
-          font-size: $small
-          margin-bottom: $med-space
-          padding: 0
+      #contact_form
+        +form_with_field_errors
 
+        .field-error
+          color: $error-color
+
+    #email_collection
+      +flex_column_then_row
+      background: $main-color
+      color: $background-color
+      width: 100%
+
+      #email_box
+        +form_with_field_errors
+        align-items: center
+        display: flex
+        height: 100%
+        justify-content: center
+        width: 100%
+
+        form
+          width: 100%
+
+      h2
+        font-weight: normal
+        font-family: $text
+        font-size: 1.2em
+
+      input[type="submit"]
+        background: $action-color
+
+      input[type="text"]
+        padding: $little-space
+
+      .field-error
+        color: $background-color
 
 
