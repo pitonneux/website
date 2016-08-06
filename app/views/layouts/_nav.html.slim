@@ -1,8 +1,11 @@
 nav
   ul
-    li = link_to t('.events'), events_path
-    li = link_to t('.locations'), locations_path
-    li = link_to t('.organizations'), organizations_path
+    - if policy(Event).index?
+      li = link_to t('.events'), events_path
+    - if policy(Location).index?
+      li = link_to t('.locations'), locations_path
+    - if policy(Organization).index?
+      li = link_to t('.organizations'), organizations_path
     - if policy(Message).index?
       li = link_to t('.messages'), messages_path
     - if policy(Visitor).index?

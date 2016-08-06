@@ -15,7 +15,5 @@
     time = date_and_time_for(event)
     p.address = event.location.try(:name)
 
-    details
-      summary = t('.description')
-      = render_markdown(event.description)
+    = link_to t('.more'), event_path(event), class: 'more'
 

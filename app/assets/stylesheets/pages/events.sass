@@ -1,12 +1,16 @@
 [data-controller=events]
   .address::before
     +map
-    +fixed-width-icon
+    +fixed_width_icon
 
   time
     display: block
     &::before
       +clock
-      +fixed-width-icon
+      +fixed_width_icon
+
+  .event
+    .more
+      +button
 
     // calendar: "\f073"

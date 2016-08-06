@@ -11,4 +11,9 @@ RSpec.describe EventPolicy do
     it { is_expected.to permit user  }
     it { is_expected.to permit admin }
   end
+
+  permissions :show? do
+    it { is_expected.to permit user  }
+    it { is_expected.to permit admin }
+  end
 end

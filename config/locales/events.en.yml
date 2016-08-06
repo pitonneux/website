@@ -14,6 +14,7 @@ en:
       edit: Edit
       destroy: Delete
       signup: Sign up
+      more: Find out more
     form:
       date: Date
       feature_on_homepage: Feature on homepage?
@@ -22,7 +23,7 @@ en:
       create: Create event
       events: Events
       new: Create a new event
-      title: Events
+      title: All Our Events
     no_start_date: No start date
     show:
       date: Date
