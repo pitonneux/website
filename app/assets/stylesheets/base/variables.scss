@@ -2,10 +2,9 @@ $base-spacing: 1.5rem;
 $base-border-radius: 1px;
 $base-line-height: 1.5rem;
 $base-border-radius: 5px;
-$base-font-size: 1.1rem;
 $small: 0.85rem;
 $padding: 1.5rem;
-$xl-space: 2rem;
+$xl-space: 2.5rem;
 $large-space: 1.5rem;
 $med-space: 1rem;
 $little-space: 0.5rem;
@@ -19,9 +18,9 @@ $background-color: #fdfdfd;
 
 $base-font-color: $gray;
 
-$main-color: #00c1b4;
+$main-color: #00aa9d;
 $buttons: $main-color;
-$action-color: #93d031;
+$action-color: #ff458c;
 $error-color: #ff6912;
 
 // FLASHES
@@ -43,6 +42,7 @@ $serif: 'Merriweather', cursive;
 $logo: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
 $text: 'Karla', Helvetica Neue, Helvetica, sans-serif;
 $base-font-size: 1.1rem;
+$med-font: 1.5rem;
 
 // MEDIA QUERIES
 $small-screen: 42rem;

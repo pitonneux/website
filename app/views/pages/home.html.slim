@@ -4,7 +4,6 @@
 
 section#what_we_do
   h1 = t('.what_we_do.header')
-  h2 = t('.what_we_do.tagline')
 
   .row
     .card
@@ -39,11 +38,6 @@ section#events
 
   .card
     #email_box = render 'visitors/new'
-
-section#partners
-  h1 = t('.partners.header')
-
-  = render partial: 'partner', collection: @partners
 
 section#contact
   h1 = t '.contact.header'

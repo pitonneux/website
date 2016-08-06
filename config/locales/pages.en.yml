@@ -19,10 +19,6 @@ en:
       organizations: Organizations
       visitors: Email list
   pages:
-    connect:
-      facebook: Les Pitonneux on Facebook
-      meetup: Les Pitonneux on Meetup.com
-      twitter: Roberta (@toyb0_x) on Twitter
     featured_event:
       description: Read the full description
       signup: Sign me up!
@@ -31,7 +27,7 @@ en:
         header: Connect With Us
       contact:
         details: If you're interested in joining us or just want some more info, please drop us a note here!
-        header: Contact Us
+        header: Write Us
       email:
         header: Want us to notify you?
         info: We'll send you reminders about upcoming events and updates about the community.
@@ -55,7 +51,6 @@ en:
       tagline: A skills incubator in Montréal for people learning to code online
       what_we_do:
         header: What We Do
-        tagline: We help online learners on their coding journey towards a first job as a professional developer
       workshops:
         price: From $50
         title: Workshops
