@@ -1,0 +1,64 @@
+[data-controller=events][data-action=index]
+  h1
+    +visually_hidden
+
+  main
+    width: 100%
+
+  section
+    width: 85%
+    margin: $xl-space auto
+
+  .coffe_and_code_background
+    +flex_centered
+    color: $background-color
+    background: linear-gradient(rgba($darken-main-color, 0.75), rgba($darken-main-color, 0.90) ), url('https://hd.unsplash.com/photo-1429051883746-afd9d56fbdaf')
+    background-size: cover
+    padding: $large-space 0
+
+    a
+      +button($color: $action-color)
+      margin-right: $med-space
+
+  .price
+    +border($color: $background-color)
+    +shadow($color: $background-color)
+    display: inline-block
+    padding: $little-space
+
+  h2
+    font-size: $large-font
+    letter-spacing: 1px
+    line-height: $base-line-height * 2
+
+  .events
+    +flex_column_then_row
+    margin: $large-space 0
+
+  .event
+    +card
+    +flex_column_centered
+    padding: $large-space
+    +above($small-screen)
+      width: 30%
+      margin: 0 $med-space
+
+    h2
+      font-size: $med-font
+
+    img
+      max-height: 15vh
+
+    .address::before
+      +map
+      +fixed_width_icon
+
+    time
+      display: block
+      &::before
+        +calendar
+        +fixed_width_icon
+
+    .more
+      +button
+

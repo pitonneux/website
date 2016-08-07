@@ -3,10 +3,22 @@
 
 h1 = t('.events')
 
+.coffe_and_code_background
+  section.coffee_and_code
+    h2 = t('.cc.title')
+    p = t('.cc.description')
+    .tags
+      = link_to t('.cc.meetup'), 'https://www.meetup.com/pitonneux/'
+      .price = t('.cc.price')
+
+section.workshops
+  h2 = t('.events.title')
+  p = t('.events.description')
+
+  .events
+    = render @events
+
 - if policy(@event).create?
   details
     summary = t('.new')
     = render 'form'
-
-= render @events
-

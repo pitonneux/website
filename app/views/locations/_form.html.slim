@@ -11,7 +11,6 @@
     = f.label :directions
     = f.text_area :directions
   .field
-  .field
     = f.label :organization
-    = f.collection_select :organization_id, Organization.all, :id, :name
+    = f.collection_select :organization_id, Organization.all, :id, :name, include_blank: true
   .actions = f.submit

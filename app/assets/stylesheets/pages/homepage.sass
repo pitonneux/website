@@ -78,12 +78,13 @@
       &::before
         font-size: 6.5rem
         color: $light-gray
-        padding-bottom: $xl-space
+        padding: $xl-space 0
 
       h2
         font-family: $headers
         font-style: normal
-        font-size: 165%
+        font-size: $med-font
+        padding-bottom: 0
 
       p
         color: $light-gray
@@ -100,19 +101,23 @@
     .event
       +flex_column_then_row
 
-      h1
-        // +header_reset
-        color: lighten($gray, 20%)
+      +above($small-screen)
+        &:nth-child(even)
+          .meta
+            order: 2
 
-      h2
-        text-align: left
+      h2.title
+        font-family: $headers
+        font-style: normal
+        color: $base-font-color
+        font-size: 1.5rem
 
       .meta, .description
-        padding: $padding
+        padding: $large-space
 
       .meta
-        +flex-row-then-column
-        align-items: flex-start
+        +flex_row_then_column
+        align-items: center
         justify-content: space-around
         flex: 1
         +above($small-screen)
@@ -133,20 +138,12 @@
       .description
         flex: 2
 
-      .expander
-        height: auto
-        overflow: auto
-        h2
-          color: $action-color
-        h1, h2
-          +above($small-screen)
+      .signup
+        +button
+        margin-right: $med-space
 
-      .closed
-        max-height: 30rem
-        overflow: hidden
-
-      a.expander-toggle
-        +button($action-color)
+      .learn_more
+        +button($color: $action-color)
 
   #email_collection
     +flex_column_then_row
@@ -208,7 +205,7 @@
     .connect
       display: flex
       justify-content: center
-      padding: $large-space * 2
+      padding: $large-space
 
     h1
       text-align: center

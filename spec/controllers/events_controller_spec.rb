@@ -14,15 +14,13 @@ RSpec.describe EventsController do
 
     subject { get :show, params: { id: event.id } }
 
-    it_behaves_like 'action not allowed for guests'
+    it_behaves_like 'action that is allowed for guests'
 
     include_context 'user is logged in' do
       it 'calls authorize' do
         expect(controller).to receive(:authorize).with(event)
         subject
       end
-
-      include_examples 'redirects unauthorized user'
 
       include_context 'user is authorized' do
         it_behaves_like 'successful request'

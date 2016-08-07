@@ -3,7 +3,9 @@ header
 
   a.menu-toggle href='javascript:void(0)' = fa_icon 'bars', class: 'fa-2x'
 
-  - if current_page?(root_path)
-    = render 'layouts/home_nav'
-  - else
-    = render 'layouts/nav'
+  nav#toggle_menu
+    - if current_page?(root_path)
+      = render 'layouts/home_nav'
+    - else
+      = render 'layouts/nav'
+

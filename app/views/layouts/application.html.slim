@@ -20,9 +20,9 @@ html
 
       - if flash.any?
         - flash.each do |type, message|
-          div class="flash-#{type}"
+          div class="flash-#{type}" id='flash'
             = message
-            span class="close-flash" 
+            span.close-flash
 
       = yield
 

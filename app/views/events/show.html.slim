@@ -1,23 +1,24 @@
-= image_tag @event.cover_image.url if @event.cover_image?
+.event
+  = image_tag @event.cover_image.url if @event.cover_image?
 
-p = @event.name
-p = render_markdown(@event.description)
-p
-  strong = t('.date')
-  = l @event.starts_at, format: :date
-p
-  strong = t('.starts_at')
-  = l @event.starts_at, format: :time
-p
-  strong = t('.duration')
-  = "#{@event.duration_in_min} #{t('time.minutes')}"
-p
-  strong = t('.location')
-  = @event.location
-p
-  strong = t('.sign_up')
-  = @event.signup_link
+  h1 = @event.name
+  p = render_markdown(@event.description)
+  p
+    strong = t('.date')
+    = l @event.starts_at, format: :date
+  p
+    strong = t('.starts_at')
+    = l @event.starts_at, format: :time
+  p
+    strong = t('.duration')
+    = "#{@event.duration_in_min} #{t('time.minutes')}"
+  p
+    strong = t('.location')
+    = @event.location
+  p
+    strong = t('.sign_up')
+    = @event.signup_link
 
-= link_to t('edit'), edit_event_path(@event)
-'|
-= link_to t('back'), events_path
+  = link_to t('edit'), edit_event_path(@event)
+  '|
+  = link_to t('back'), events_path

@@ -1,5 +1,4 @@
 [data-controller=locations],
-[data-controller=events],
 [data-controller=organizations],
 [data-controller=messages],
 [data-controller=visitors]
@@ -7,7 +6,6 @@
     +button($action-color)
 
   .location,
-  .event,
   .organization,
     +card
     +flex_column_then_row
@@ -21,10 +19,6 @@
   .organization
     .info
       flex: 2
-
-  .event
-    img
-      max-width: 15vh
 
   .organization
     img

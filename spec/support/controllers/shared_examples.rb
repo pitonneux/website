@@ -13,7 +13,7 @@ end
 RSpec.shared_examples 'action that is allowed for guests' do
   context 'guest tries to access' do
     it 'works for guests' do
-      allow(controller).to receive(:current_user).and_return nil
+      allow(request.env['warden']).to receive(:authenticate!).and_throw(:warden, scope: :user)
       subject
       expect(response).to have_http_status :success
       expect(controller).not_to set_flash

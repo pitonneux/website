@@ -13,12 +13,10 @@ article.event
         p
           = fa_icon 'map-marker', class: 'fa-fw'
           = event.location.name
-      button
-        a target='blank' href=event.signup_link
-        = t('.signup')
   .description
-    h1 = event.name
-    .expander.closed = render_markdown event.description
-    a.expander-toggle href='javascript:void(0)' = t('.description')
+    h2.title = event.name
+    p = render_markdown truncate(event.description, length: 300)
+    = link_to t('.signup'), event.signup_link, target: '_blank', class: 'signup'
+    = link_to t('.learn_more'), events_path(event), class: 'learn_more'
 
 

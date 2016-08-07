@@ -24,6 +24,14 @@ en:
       events: Events
       new: Create a new event
       title: All Our Events
+      cc:
+        title: Coffee and Code Sessions
+        price: Free
+        description: The purpose is to get out of the house and focus on work or study in a group, or get help from others if you're stuck on something. We set a timer to help our focus, and in between we chat about what we're working on. At these meetups we usually have a turnout of about 8-15 people.
+        meetup: RSVP on Meetup.com
+      events:
+        title: Workshops and Learning Circles
+        description: Level up your skills with one of our upcoming events or series
     no_start_date: No start date
     show:
       date: Date

@@ -22,6 +22,7 @@ en:
     featured_event:
       description: Read the full description
       signup: Sign me up!
+      learn_more: Learn more
     home:
       connect:
         header: Connect With Us
