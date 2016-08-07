@@ -2,8 +2,10 @@
 en:
   back: Back
   delete: Are you sure?
+  destroy: Delete
   edit: Edit
   must_be_invited: You must be invited to access behind the scenes
   save: Save
   saving: Saving
+  signup: Sign Up
   unauthorized: You are not authorized to perform this action

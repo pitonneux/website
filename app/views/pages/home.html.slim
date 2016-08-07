@@ -23,7 +23,7 @@ section#events
       h2 = link_to t('.meetups.title'), events_path
       p = t('.meetups.price')
     .workshops
-      h2 = link_to t('.workshops.title'), events_path
+      h2 = link_to t('.workshops.title'), events_path(anchor: 'workshops')
       p = t('.workshops.price')
     .projects
       h2 = t('.projects.title')
@@ -50,5 +50,3 @@ section#connect
   h1 = t '.connect.header'
 
   = render 'connect'
-
-= render 'layouts/footer'

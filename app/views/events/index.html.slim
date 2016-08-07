@@ -3,7 +3,7 @@
 
 h1 = t('.events')
 
-.coffe_and_code_background
+.coffee_and_code_background
   section.coffee_and_code
     h2 = t('.cc.title')
     p = t('.cc.description')
@@ -11,14 +11,18 @@ h1 = t('.events')
       = link_to t('.cc.meetup'), 'https://www.meetup.com/pitonneux/'
       .price = t('.cc.price')
 
-section.workshops
+section#workshops
   h2 = t('.events.title')
-  p = t('.events.description')
+  h3 = t('.events.description')
+
+  - if policy(@event).create?
+    details
+      summary = t('.new')
+      = render 'form'
 
   .events
     = render @events
 
-- if policy(@event).create?
-  details
-    summary = t('.new')
-    = render 'form'
+/TODO: Add flag to news items to feature on events page and feature those here
+
+

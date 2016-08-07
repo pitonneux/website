@@ -2,6 +2,7 @@
   = image_tag event.cover_image.url if event.cover_image?
 
   h2 = event.name
+  h3 = event.tagline
 
   .buttons
     - if policy(event).edit?
@@ -12,8 +13,11 @@
 
     = link_to t('.signup'), event.signup_link, class: 'button'
 
-  time = date_and_time_for(event)
-  .address = event.location.try(:name)
+  .info
+    time.date = date_for(event)
+    time.hours = time_for(event)
+    .address = event.location.try(:name)
+    .price = number_to_currency event.price, precision: 0
 
   = link_to t('.more'), event_path(event), class: 'more'
 

@@ -3,7 +3,7 @@ class LogoUploader < CarrierWave::Uploader::Base
   include Cloudinary::CarrierWave
 
   process convert: 'png'
-  process tags: ['organization_logo']
+  process tags: ['logo']
   process resize_to_limit: [400, 400]
 
   def store_dir

@@ -1,7 +1,7 @@
 $base-spacing: 1.5rem;
-$base-border-radius: 1px;
-$base-line-height: 1.5rem;
 $base-border-radius: 5px;
+$base-line-height: 1.5rem;
+$round-border-radius: 15px;
 $padding: 1.5rem;
 $xl-space: 2.5rem;
 $large-space: 1.5rem;
@@ -12,7 +12,7 @@ $little-space: 0.5rem;
 $gray: #333333;
 $lightest-gray: lighten($gray, 73%);
 $lighter-gray: lighten($gray, 60%);
-$light-gray: lighten($gray, 50%);
+$light-gray: lighten($gray, 40%);
 $background-color: #fdfdfd;
 
 $base-font-color: $gray;
@@ -45,6 +45,7 @@ $base-font-size: 1.1rem;
 $small: 0.85rem;
 $med-font: 1.5rem;
 $large-font: 2.5rem;
+$xl-font: 3rem;
 
 // MEDIA QUERIES
 $small-screen: 42rem;

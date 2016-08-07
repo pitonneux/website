@@ -1,0 +1,36 @@
+=big_header
+  font-size: $xl-font
+  letter-spacing: 1px
+  line-height: $base-line-height * 2
+
+=small_header($color: $base-font-color)
+  color: $color
+  font-size: $base-font-size
+  letter-spacing: 1px
+
+=italic_header($color: $light-gray)
+  color: $color
+  font-family: $serif
+  font-size: $base-font-size
+  font-style: italic
+  padding: $little-space 0
+  text-align: center
+
+=visually_hidden
+  border: 0
+  clip: rect(0 0 0 0)
+  height: 1px
+  margin: -1px
+  overflow: hidden
+  padding: 0
+  position: absolute
+  width: 1px
+
+  &:active,
+  &:focus
+    clip: auto
+    height: auto
+    margin: 0
+    overflow: visible
+    position: static
+

@@ -1,4 +1,4 @@
-[data-controller=events][data-action=index]
+[data-action=index][data-controller=events]
   h1
     +visually_hidden
 
@@ -9,54 +9,67 @@
     width: 85%
     margin: $xl-space auto
 
-  .coffe_and_code_background
-    +flex_centered
-    color: $background-color
-    background: linear-gradient(rgba($darken-main-color, 0.75), rgba($darken-main-color, 0.90) ), url('https://hd.unsplash.com/photo-1429051883746-afd9d56fbdaf')
-    background-size: cover
-    padding: $large-space 0
+  summary
+    +button
+
+  .coffee_and_code_background
+    +jumbotron_with_image($url: 'https://hd.unsplash.com/photo-1429051883746-afd9d56fbdaf')
 
     a
       +button($color: $action-color)
       margin-right: $med-space
 
-  .price
-    +border($color: $background-color)
-    +shadow($color: $background-color)
-    display: inline-block
-    padding: $little-space
+    .price
+      +info_chip
+      +before_text
 
   h2
-    font-size: $large-font
-    letter-spacing: 1px
-    line-height: $base-line-height * 2
+    +big_header
+
+  h3
+    +small_header
+
+  #workshops
+    h2, h3
+      text-align: center
 
   .events
     +flex_column_then_row
+    flex-wrap: wrap
+    justify-content: space-between
     margin: $large-space 0
 
   .event
     +card
     +flex_column_centered
     padding: $large-space
-    +above($small-screen)
-      width: 30%
-      margin: 0 $med-space
 
-    h2
-      font-size: $med-font
+    +between($small-screen, $medium-screen)
+      width: 47%
+
+    +above($medium-screen)
+      width: 30%
 
     img
       max-height: 15vh
 
-    .address::before
-      +map
-      +fixed_width_icon
+    h2
+      font-size: $large-font
+      padding-bottom: 0
 
-    time
+    h3
+      +small_header($color: $light-gray)
+      text-align: center
+
+    .info
+      padding: $med-space 0
+
+    time.hours,
+    time.date,
+    .price,
+    .address
       display: block
       &::before
-        +calendar
         +fixed_width_icon
 
     .more

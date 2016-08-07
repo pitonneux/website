@@ -1,0 +1,55 @@
+=jumbotron
+  +flex_centered
+  color: $background-color
+  padding: $large-space 0
+  width: 100%
+  background: linear-gradient($action-color, $main-color)
+
+=jumbotron_with_image($url)
+  +jumbotron
+  background: linear-gradient(rgba($darken-main-color, 0.75), rgba($darken-main-color, 0.90)), url($url)
+  background-size: cover
+
+=info_chip
+  +shadow($color: $background-color)
+  background-color: rgba($background-color, .7)
+  border-radius: $base-border-radius
+  color: $darken-main-color
+  display: inline-block
+  margin-bottom: $med-space
+  margin-right: $med-space
+  padding: $med-space
+
+=surrounding-lines($color)
+  text-align: center
+  &::before,
+  &::after
+    background-color: $color
+    content: ""
+    display: inline-block
+    height: 2px
+    position: relative
+    vertical-align: middle
+    width: 15%
+
+  &:before
+    right: $little-space
+    margin-left: -50%
+
+  &:after
+    left: $little-space
+    margin-right: -50%
+
+=partial-underline($color)
+  content: ''
+  position: absolute
+  border-bottom: 2px solid $color
+  width: 30%
+  bottom: 1px
+  left: 35%
+
+=shadow($color: $lighter-gray)
+  box-shadow: 1px 1px 1px $color
+
+=border($color: $lighter-gray)
+  border: 1px solid $color

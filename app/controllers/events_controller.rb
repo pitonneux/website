@@ -3,7 +3,7 @@ class EventsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @events = Event.all
+    @events = Event.all.order(starts_at: :desc)
     @event = Event.new
     authorize Event
   end
@@ -56,7 +56,7 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:name, :description, :starts_at, :duration_in_min, :signup_link,
-                                  :featured, :cover_image_cache, :cover_image, :location_id)
+    params.require(:event).permit(:name, :tagline, :description, :starts_at, :duration_in_min, :price,
+                                  :signup_link, :featured, :cover_image_cache, :cover_image, :location_id)
   end
 end

@@ -33,6 +33,7 @@ en:
         title: Workshops and Learning Circles
         description: Level up your skills with one of our upcoming events or series
     no_start_date: No start date
+    no_start_time: No start time
     show:
       date: Date
       duration: Duration
