@@ -1,9 +1,6 @@
 # frozen_string_literal: true
 require 'rails_helper'
 
-require_relative '../support/controllers/shared_examples.rb'
-require_relative '../support/controllers/shared_contexts.rb'
-
 RSpec.describe OrganizationsController do
   describe 'GET #index' do
     subject { get :index }
@@ -29,7 +26,7 @@ RSpec.describe OrganizationsController do
         it_behaves_like 'successful request'
       end
 
-      include_examples 'redirects unauthorized user'
+      it_behaves_like 'action that redirects unauthorized user'
     end
   end
 
@@ -41,8 +38,8 @@ RSpec.describe OrganizationsController do
     it_behaves_like 'action not allowed for guests'
 
     include_context 'user is logged in' do
-      include_examples 'calls authorize with', Organization
-      include_examples 'redirects unauthorized user'
+      it_behaves_like 'action to be authorized with', Organization
+      it_behaves_like 'action that redirects unauthorized user'
 
       include_context 'user is authorized' do
         context 'with valid params' do
@@ -87,8 +84,8 @@ RSpec.describe OrganizationsController do
     it_behaves_like 'action not allowed for guests'
 
     include_context 'user is logged in' do
-      include_examples 'calls authorize with', Organization
-      include_examples 'redirects unauthorized user'
+      it_behaves_like 'action to be authorized with', Organization
+      it_behaves_like 'action that redirects unauthorized user'
 
       include_context 'user is authorized' do
         context 'with valid params' do
@@ -134,7 +131,7 @@ RSpec.describe OrganizationsController do
     it_behaves_like 'action not allowed for guests'
 
     include_context 'user is logged in' do
-      include_examples 'redirects unauthorized user'
+      it_behaves_like 'action that redirects unauthorized user'
 
       it 'calls authorize' do
         expect(controller).to receive(:authorize).with(organization)

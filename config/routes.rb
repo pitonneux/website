@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get '/home' => 'pages#home'
 
   resources :locations, only: [:index, :show, :create, :edit, :update, :destroy]
-  resources :events, only: [:index, :show, :create, :edit, :update, :destroy]
+  resources :events
   resources :organizations, only: [:index, :show, :create, :edit, :update, :destroy]
   resources :messages, only: [:index, :create]
   resources :visitors, only: [:index, :create]

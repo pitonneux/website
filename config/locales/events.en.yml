@@ -20,10 +20,9 @@ en:
       feature_on_homepage: Feature on homepage?
       starts_at: Start time
     index:
-      create: Create event
       events: Events
-      new: Create a new event
       title: All Our Events
+      new: Add a New Event
       cc:
         title: Coffee and Code Sessions
         price: Free
@@ -32,6 +31,9 @@ en:
       events:
         title: Workshops and Learning Circles
         description: Level up your skills with one of our upcoming events or series
+    new:
+      title: Add a New Event
+      create: Create Event
     no_start_date: No start date
     no_start_time: No start time
     show:

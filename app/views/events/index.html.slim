@@ -1,5 +1,4 @@
 = provide :title, t('.title')
-= provide :button_text, t('.create')
 
 h1 = t('.events')
 
@@ -16,9 +15,7 @@ section#workshops
   h3 = t('.events.description')
 
   - if policy(@event).create?
-    details
-      summary = t('.new')
-      = render 'form'
+    = link_to t('.new'), new_event_path, class: 'button'
 
   .events
     = render @events

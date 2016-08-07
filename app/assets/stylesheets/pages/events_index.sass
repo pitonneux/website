@@ -1,3 +1,15 @@
+// Includes events on home page
+.event_details
+  padding: $med-space 0
+
+  time.hours,
+  time.date,
+  .price,
+  .address
+    display: block
+    &::before
+      +fixed_width_icon
+
 [data-action=index][data-controller=events]
   h1
     +visually_hidden
@@ -63,14 +75,6 @@
 
     .info
       padding: $med-space 0
-
-    time.hours,
-    time.date,
-    .price,
-    .address
-      display: block
-      &::before
-        +fixed_width_icon
 
     .more
       +button

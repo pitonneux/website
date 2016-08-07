@@ -28,6 +28,21 @@ RSpec.describe EventsController do
     end
   end
 
+  describe 'GET #new' do
+    subject { get :new }
+
+    it_behaves_like 'action not allowed for guests'
+
+    include_context 'user is logged in' do
+      it_behaves_like 'action to be authorized with', Event
+      it_behaves_like 'action that redirects unauthorized user'
+
+      include_context 'user is authorized' do
+        it_behaves_like 'successful request'
+      end
+    end
+  end
+
   describe 'GET #edit' do
     let(:event) { create :event }
 
@@ -41,11 +56,11 @@ RSpec.describe EventsController do
         get :edit, params: { id: event.id }
       end
 
+      it_behaves_like 'action that redirects unauthorized user'
+
       include_context 'user is authorized' do
         it_behaves_like 'successful request'
       end
-
-      include_examples 'redirects unauthorized user'
     end
   end
 
@@ -57,8 +72,8 @@ RSpec.describe EventsController do
     it_behaves_like 'action not allowed for guests'
 
     include_context 'user is logged in' do
-      include_examples 'calls authorize with', Event
-      include_examples 'redirects unauthorized user'
+      it_behaves_like 'action to be authorized with', Event
+      it_behaves_like 'action that redirects unauthorized user'
 
       include_context 'user is authorized' do
         context 'with valid params' do
@@ -86,7 +101,6 @@ RSpec.describe EventsController do
 
           it 'sets the right flash' do
             post :create, params: { event: invalid_params }
-            expect(response).to redirect_to events_path
             expect(controller).to set_flash[:alert].to 'Event could not be created'
           end
         end
@@ -103,8 +117,8 @@ RSpec.describe EventsController do
     it_behaves_like 'action not allowed for guests'
 
     include_context 'user is logged in' do
-      include_examples 'calls authorize with', Event
-      include_examples 'redirects unauthorized user'
+      it_behaves_like 'action to be authorized with', Event
+      it_behaves_like 'action that redirects unauthorized user'
 
       include_context 'user is authorized' do
         context 'with valid params' do
@@ -150,7 +164,7 @@ RSpec.describe EventsController do
     it_behaves_like 'action not allowed for guests'
 
     include_context 'user is logged in' do
-      include_examples 'redirects unauthorized user'
+      it_behaves_like 'action that redirects unauthorized user'
 
       it 'calls authorize' do
         expect(controller).to receive(:authorize).with(event)

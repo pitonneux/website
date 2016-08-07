@@ -3,9 +3,14 @@ class EventsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
+    authorize Event
     @events = Event.all.order(starts_at: :desc)
     @event = Event.new
+  end
+
+  def new
     authorize Event
+    @event = Event.new
   end
 
   def show
@@ -25,7 +30,8 @@ class EventsController < ApplicationController
     if @event.save
       redirect_to events_path, notice: t('.success')
     else
-      redirect_to events_path, alert: t('.failure')
+      flash[:alert] = t('.failure')
+      render :new
     end
   end
 

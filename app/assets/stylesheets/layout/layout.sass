@@ -1,17 +1,9 @@
 main
-  width: 100%
+  width: 85%
   flex: 1
 
-.row
-  +flex_column_then_row
-  .card
-    padding: $padding
-    text-align: center
-
 .card
-  +above($small-screen)
-    width: 50%
-    margin: 0 auto
+  text-align: center
 
 =group_horizontally
   display: flex

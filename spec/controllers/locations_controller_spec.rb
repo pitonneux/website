@@ -1,9 +1,6 @@
 # frozen_string_literal: true
 require 'rails_helper'
 
-require_relative '../support/controllers/shared_examples.rb'
-require_relative '../support/controllers/shared_contexts.rb'
-
 RSpec.describe LocationsController, type: :controller do
   describe 'GET #index' do
     subject { get :index }
@@ -25,7 +22,7 @@ RSpec.describe LocationsController, type: :controller do
         subject
       end
 
-      include_examples 'redirects unauthorized user'
+      it_behaves_like 'action that redirects unauthorized user'
 
       include_context 'user is authorized' do
         it_behaves_like 'successful request'
@@ -50,7 +47,7 @@ RSpec.describe LocationsController, type: :controller do
         it_behaves_like 'successful request'
       end
 
-      include_examples 'redirects unauthorized user'
+      it_behaves_like 'action that redirects unauthorized user'
     end
   end
 
@@ -62,8 +59,8 @@ RSpec.describe LocationsController, type: :controller do
     it_behaves_like 'action not allowed for guests'
 
     include_context 'user is logged in' do
-      include_examples 'calls authorize with', Location
-      include_examples 'redirects unauthorized user'
+      it_behaves_like 'action to be authorized with', Location
+      it_behaves_like 'action that redirects unauthorized user'
 
       include_context 'user is authorized' do
         context 'with valid params' do
@@ -108,8 +105,8 @@ RSpec.describe LocationsController, type: :controller do
     it_behaves_like 'action not allowed for guests'
 
     include_context 'user is logged in' do
-      include_examples 'calls authorize with', Location
-      include_examples 'redirects unauthorized user'
+      it_behaves_like 'action to be authorized with', Location
+      it_behaves_like 'action that redirects unauthorized user'
 
       include_context 'user is authorized' do
         context 'with valid params' do
@@ -155,7 +152,7 @@ RSpec.describe LocationsController, type: :controller do
     it_behaves_like 'action not allowed for guests'
 
     include_context 'user is logged in' do
-      include_examples 'redirects unauthorized user'
+      it_behaves_like 'action that redirects unauthorized user'
 
       it 'calls authorize' do
         expect(controller).to receive(:authorize).with(location)

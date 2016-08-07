@@ -21,7 +21,7 @@ RSpec.shared_examples 'action that is allowed for guests' do
   end
 end
 
-RSpec.shared_examples 'calls authorize with' do |model|
+RSpec.shared_examples 'action to be authorized with' do |model|
   it 'calls authorize' do
     expect(controller).to receive(:authorize).with(model)
     subject
@@ -30,11 +30,11 @@ end
 
 RSpec.shared_examples 'action to be authorized with logged in user' do |model|
   include_context 'user is logged in' do
-    include_examples 'calls authorize with', model
+    it_behaves_like 'action to be authorized with', model
   end
 end
 
-RSpec.shared_examples 'redirects unauthorized user' do
+RSpec.shared_examples 'action that redirects unauthorized user' do
   it 'redirects and says why' do
     allow(controller).to receive(:authorize).and_raise Pundit::NotAuthorizedError
     subject

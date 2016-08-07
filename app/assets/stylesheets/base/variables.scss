@@ -3,6 +3,7 @@ $base-border-radius: 5px;
 $base-line-height: 1.5rem;
 $round-border-radius: 15px;
 $padding: 1.5rem;
+$xxl-space: 5rem;
 $xl-space: 2.5rem;
 $large-space: 1.5rem;
 $med-space: 1rem;
@@ -31,11 +32,6 @@ $flashes: (
   'success': #e6efc2,
 );
 
-// // BUTTONS
-// $buttons: (
-//   'bright': green,
-// );
-
 // FONTS
 $headers: 'Muli', Helvetica Neue, Helvetica, sans-serif;
 $serif: 'Merriweather', cursive;
@@ -43,7 +39,8 @@ $logo: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstre
 $text: 'Karla', Helvetica Neue, Helvetica, sans-serif;
 $base-font-size: 1.1rem;
 $small: 0.85rem;
-$med-font: 1.5rem;
+$bigger-font: 1.2rem;
+$med-font: 1.8rem;
 $large-font: 2.5rem;
 $xl-font: 3rem;
 

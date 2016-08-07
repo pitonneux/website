@@ -1,5 +1,7 @@
-.event
-  = image_tag event.cover_image.url if event.cover_image?
+article.event
+  - if event.cover_image.present?
+    - path = cl_image_path(event.cover_image, { width: 150, height: 150, crop: :fill })
+    = image_tag(path)
 
   h2 = event.name
   h3 = event.tagline
@@ -13,7 +15,7 @@
 
     = link_to t('.signup'), event.signup_link, class: 'button'
 
-  .info
+  .event_details
     time.date = date_for(event)
     time.hours = time_for(event)
     .address = event.location.try(:name)
