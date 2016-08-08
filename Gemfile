@@ -60,6 +60,7 @@ group :test do
 
   # test coverage
   gem 'codecov', require: false
+  gem 'simplecov', require: false
 end
 
 group :production do

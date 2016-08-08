@@ -329,6 +329,7 @@ DEPENDENCIES
   sass-rails
   shoulda-matchers
   sidekiq
+  simplecov
   slim-rails
   spring
   turbolinks

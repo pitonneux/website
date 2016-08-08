@@ -1,26 +1,13 @@
 # frozen_string_literal: true
 ENV['RAILS_ENV'] = 'test'
+require 'spec_helper'
+
 require File.expand_path('../../config/environment', __FILE__)
 abort('DATABASE_URL environment variable is set') if ENV['DATABASE_URL']
 
-require 'spec_helper'
 require 'rspec/rails'
 require 'pundit/rspec'
 require 'capybara/rspec'
-require 'simplecov'
-require 'codecov'
-
-# save to CircleCI's artifacts directory if we're on CircleCI
-if ENV['CIRCLE_ARTIFACTS']
-  dir = File.join(ENV['CIRCLE_ARTIFACTS'], 'coverage')
-  SimpleCov.coverage_dir(dir)
-end
-
-SimpleCov.start do
-  add_filter '/spec/'
-end
-
-SimpleCov.formatter = SimpleCov::Formatter::Codecov
 
 Dir[Rails.root.join('spec/support/**/*.rb')].sort.each { |file| require file }
 
