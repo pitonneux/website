@@ -10,10 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160808035715) do
+ActiveRecord::Schema.define(version: 20160808160842) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "email_recipients", force: :cascade do |t|
+    t.string   "email",            null: false
+    t.string   "collectible_type"
+    t.integer  "collectible_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["collectible_type", "collectible_id"], name: "index_email_recipients_on_collectible_type_and_collectible_id", using: :btree
+  end
+
+  create_table "email_recipients_group_messages", id: false, force: :cascade do |t|
+    t.integer "email_recipient_id"
+    t.integer "group_message_id"
+    t.index ["email_recipient_id"], name: "index_email_recipients_group_messages_on_email_recipient_id", using: :btree
+    t.index ["group_message_id"], name: "index_email_recipients_group_messages_on_group_message_id", using: :btree
+  end
 
   create_table "events", force: :cascade do |t|
     t.string   "name",            null: false
@@ -29,6 +45,12 @@ ActiveRecord::Schema.define(version: 20160808035715) do
     t.string   "tagline"
     t.integer  "price"
     t.index ["location_id"], name: "index_events_on_location_id", using: :btree
+  end
+
+  create_table "group_messages", force: :cascade do |t|
+    t.text     "message",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "locations", force: :cascade do |t|
