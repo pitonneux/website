@@ -16,11 +16,11 @@ section#what_we_do
 
 section#events
   .events_banner
-    .meetups
-      h2 = link_to t('.meetups.title'), events_path
+    a href="#{events_path}" class='meetups'
+      h2 = t('.meetups.title')
       p = t('.meetups.price')
-    .workshops
-      h2 = link_to t('.workshops.title'), events_path(anchor: 'workshops')
+    a href="#{events_path(anchor: 'workshops')}" class='workshops'
+      h2 = t('.workshops.title')
       p = t('.workshops.price')
     .projects
       h2 = t('.projects.title')
