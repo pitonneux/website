@@ -3,7 +3,7 @@ class EventPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       return scope.all if user.try(:admin?)
-      return scope.upcoming
+      scope.upcoming
     end
   end
 

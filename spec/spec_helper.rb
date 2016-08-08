@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 # save to CircleCI's artifacts directory if we're on CircleCI
 require 'simplecov'
-SimpleCov.start
+SimpleCov.start 'rails' do
+  add_filter '/spec/'
+end
 
 require 'codecov'
 SimpleCov.formatter = SimpleCov::Formatter::Codecov

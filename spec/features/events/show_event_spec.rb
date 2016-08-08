@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'rails_helper'
 
 RSpec.feature 'showing events' do
@@ -18,4 +19,3 @@ RSpec.feature 'showing events' do
     expect(page).to have_link 'Delete'
   end
 end
-

@@ -9,7 +9,7 @@ RSpec.describe EventPolicy do
 
   permissions '.scope' do
     let!(:finished_event) { create :event, starts_at: 2.months.ago }
-    let!(:future_event)   { create :event                         }
+    let!(:future_event)   { create :event }
 
     it 'returns all events for admins' do
       expect(subject::Scope.new(admin, Event).resolve.count).to eq 2
