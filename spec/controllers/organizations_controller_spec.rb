@@ -124,7 +124,7 @@ RSpec.describe OrganizationsController do
   end
 
   describe 'DELETE #destroy' do
-    let(:organization) { create :organization }
+    let!(:organization) { create :organization }
 
     subject { delete :destroy, params: { id: organization.id } }
 
@@ -139,7 +139,11 @@ RSpec.describe OrganizationsController do
       end
 
       include_context 'user is authorized' do
-        it 'works' do
+        it 'deletes the resource' do
+          expect { subject }.to change(Organization, :count).by -1
+        end
+
+        it 'redirects and sets the flash' do
           subject
           expect(response).to redirect_to organizations_path
           expect(controller).to set_flash[:notice].to t('organizations.destroy.success')

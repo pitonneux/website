@@ -16,6 +16,7 @@ en:
       login: Login
       logout: Logout
       messages: Messages
+      news_items: News Items
       organizations: Organizations
       visitors: Email list
   pages:

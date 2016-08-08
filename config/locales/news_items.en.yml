@@ -1,0 +1,23 @@
+---
+en:
+  news_items:
+    create:
+      failure: News item could not be created
+      success: News item was successfully created
+    destroy:
+      success: News item was successfully deleted
+    index:
+      news_items: News Items
+      new: Add a News Item
+      title: News Items
+    location:
+      destroy: Delete
+      directions: Directions
+      edit: Edit
+    new:
+      title: Add a News Item
+      create: Create News Item
+    update:
+      failure: News item could not be updated
+      success: News item was successfully updated
+

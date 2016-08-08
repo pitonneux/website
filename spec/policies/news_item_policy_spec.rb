@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require 'rails_helper'
 
-RSpec.describe LocationPolicy do
+RSpec.describe NewsItemPolicy do
   let(:user)  { build_stubbed :user         }
   let(:admin) { build_stubbed :user, :admin }
 
@@ -12,3 +12,4 @@ RSpec.describe LocationPolicy do
     it { is_expected.to permit admin    }
   end
 end
+

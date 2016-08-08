@@ -13,4 +13,4 @@
   .field
     = f.label :organization
     = f.collection_select :organization_id, Organization.all, :id, :name, include_blank: true
-  .actions = f.submit
+  .actions = f.submit yield :button_text

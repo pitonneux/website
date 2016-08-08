@@ -7,14 +7,14 @@ class EventsController < ApplicationController
     @events = policy_scope(Event).order(starts_at: :desc)
   end
 
-  def new
-    authorize Event
-    @event = Event.new
-  end
-
   def show
     @event = find_event
     authorize @event
+  end
+
+  def new
+    authorize Event
+    @event = Event.new
   end
 
   def edit

@@ -1,7 +1,8 @@
 [data-controller=locations],
 [data-controller=organizations],
 [data-controller=messages],
-[data-controller=visitors]
+[data-controller=visitors],
+[data-controller=news_items]
   summary
     +button($action-color)
 
@@ -15,6 +16,7 @@
 
   .message,
   .visitor
+  .news_item
     +card
     +flex_column
     list-style: none

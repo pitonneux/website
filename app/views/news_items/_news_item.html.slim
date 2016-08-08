@@ -1,0 +1,9 @@
+.news_item
+  .info
+    h2 = news_item.title
+    time = l(news_item.created_at, format: :full)
+    = render_markdown news_item.description
+  .control
+    = link_to t('edit'), edit_news_item_path(news_item), class: 'button'
+    = link_to t('destroy'), news_item, data: { confirm: t('delete') }, method: :delete, class: 'button'
+

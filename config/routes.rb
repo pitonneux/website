@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   resources :locations, only: [:index, :show, :create, :edit, :update, :destroy]
   resources :events
   resources :organizations, only: [:index, :show, :create, :edit, :update, :destroy]
+  resources :news_items
+
   resources :messages, only: [:index, :create]
   resources :visitors, only: [:index, :create]
 

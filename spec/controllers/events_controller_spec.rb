@@ -163,7 +163,7 @@ RSpec.describe EventsController do
   end
 
   describe 'DELETE #destroy' do
-    let(:event) { create :event }
+    let!(:event) { create :event }
 
     subject { delete :destroy, params: { id: event.id } }
 
@@ -178,7 +178,11 @@ RSpec.describe EventsController do
       end
 
       include_context 'user is authorized' do
-        it 'works' do
+        it 'deletes the resource' do
+          expect { subject }.to change(Event, :count).by -1
+        end
+
+        it 'redirects and sets the flash' do
           subject
           expect(response).to redirect_to events_path
           expect(controller).to set_flash[:notice].to t('events.destroy.success')

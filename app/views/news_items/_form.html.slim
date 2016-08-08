@@ -1,0 +1,10 @@
+= form_for @news_item do |f|
+  = render 'shared/error_messages', object: f.object
+
+  .field
+    = f.label :title
+    = f.text_field :title
+  .field
+    = f.label :description
+    = f.text_area :description
+  .actions = f.submit yield :button_text

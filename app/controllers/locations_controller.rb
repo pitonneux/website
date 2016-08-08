@@ -4,9 +4,9 @@ class LocationsController < ApplicationController
   before_action :find_and_authorize_location, only: [:show, :edit, :update, :destroy]
 
   def index
+    authorize Location
     @locations = Location.all
     @location = Location.new
-    authorize Location
   end
 
   def show
@@ -37,7 +37,7 @@ class LocationsController < ApplicationController
 
   def destroy
     @location.destroy
-    redirect_to locations_url, notice: t('.success')
+    redirect_to locations_path, notice: t('.success')
   end
 
   private

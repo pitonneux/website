@@ -7,7 +7,7 @@ en:
     destroy:
       success: Location was successfully deleted
     index:
-      create: Create location
+      create: Create Location
       locations: Locations
       new: Add a new location
       title: Locations
