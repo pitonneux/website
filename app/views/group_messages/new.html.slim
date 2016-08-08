@@ -1,8 +1,9 @@
-= form_for @group_message do |f|
-  = render 'shared/error_messages', object: f.object
+= provide :title, t('.title')
+= provide :button_text, t('.create')
 
-  .field
-    = f.label :message
-    = f.text_area :message
-  .actions = f.submit yield :button_text
+h1 = t('.title')
+
+= render 'form'
+
+= link_to t('back'), group_messages_path
 

@@ -1,6 +1,5 @@
 FactoryGirl.define do
   factory :group_message do
-    message "MyText"
-    email_recipient nil
+    message { Faker::Hacker.say_something_smart }
   end
 end

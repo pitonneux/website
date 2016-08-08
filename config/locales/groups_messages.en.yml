@@ -1,0 +1,26 @@
+---
+en:
+  group_messages:
+    # edit:
+    #   update: Update News Item
+    create:
+      failure: Message could not be created
+      success: Message was successfully sent
+    # destroy:
+    #   success: News item was successfully deleted
+    # index:
+    #   news_items: News Items
+    #   new: Add a News Item
+    #   title: News Items
+    # location:
+    #   destroy: Delete
+    #   directions: Directions
+    #   edit: Edit
+    new:
+      title: Write a New Group Message
+      create: Send Group Message
+    # update:
+    #   failure: News item could not be updated
+    #   success: News item was successfully updated
+    #
+    #

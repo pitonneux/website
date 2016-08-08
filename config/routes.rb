@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   resources :organizations, only: [:index, :show, :create, :edit, :update, :destroy]
   resources :news_items
 
-  resources :group_messages, only: [:new]
+  resources :group_messages, only: [:new, :create]
   resources :messages, only: [:index, :create]
   resources :visitors, only: [:index, :create]
 

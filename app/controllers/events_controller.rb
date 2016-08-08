@@ -17,14 +17,9 @@ class EventsController < ApplicationController
     @event = Event.new
   end
 
-  def edit
-    @event = find_event
-    authorize @event
-  end
-
   def create
+    authorize Event
     @event = Event.new(event_params)
-    authorize @event
 
     if @event.save
       redirect_to events_path, notice: t('.success')
@@ -32,6 +27,11 @@ class EventsController < ApplicationController
       flash[:alert] = t('.failure')
       render :new
     end
+  end
+
+  def edit
+    @event = find_event
+    authorize @event
   end
 
   def update

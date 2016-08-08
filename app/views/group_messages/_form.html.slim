@@ -1,0 +1,8 @@
+= form_for @group_message do |f|
+  = render 'shared/error_messages', object: f.object
+
+  .field
+    = f.label :message
+    = f.text_area :message
+  .actions = f.submit yield :button_text
+
