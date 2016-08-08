@@ -12,4 +12,3 @@ RSpec.describe NewsItemPolicy do
     it { is_expected.to permit admin    }
   end
 end
-

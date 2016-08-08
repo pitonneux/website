@@ -15,4 +15,3 @@ RSpec.feature 'listing all news items' do
     expect(page).to have_content news_items.second.description
   end
 end
-

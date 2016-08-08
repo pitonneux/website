@@ -179,7 +179,7 @@ RSpec.describe EventsController do
 
       include_context 'user is authorized' do
         it 'deletes the resource' do
-          expect { subject }.to change(Event, :count).by -1
+          expect { subject }.to change(Event, :count).by(-1)
         end
 
         it 'redirects and sets the flash' do

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require 'rails_helper'
 
-RSpec.describe NewsItemsController , type: :controller do
+RSpec.describe NewsItemsController, type: :controller do
   describe 'GET #index' do
     subject { get :index }
 
@@ -177,7 +177,7 @@ RSpec.describe NewsItemsController , type: :controller do
 
       include_context 'user is authorized' do
         it 'deletes the resource' do
-          expect { subject }.to change(NewsItem, :count).by -1
+          expect { subject }.to change(NewsItem, :count).by(-1)
         end
 
         it 'redirects and sets the flash' do

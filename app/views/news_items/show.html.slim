@@ -1,18 +1,6 @@
-p#notice = notice
+p = @news_item.title
+p = render_markdown @news_item.description
 
-p
-  strong Name:
-  = @location.name
-p
-  strong Address:
-  = @location.address
-p
-  strong Directions:
-  = @location.directions
-p
-  strong Organization:
-  = @location.organization
-
-= link_to 'Edit', edit_location_path(@location)
+= link_to 'Edit', edit_news_item_path(@news_item)
 '|
-= link_to 'Back', locations_path
+= link_to 'Back', news_items_path

@@ -1,6 +1,8 @@
 ---
 en:
   news_items:
+    edit:
+      update: Update News Item
     create:
       failure: News item could not be created
       success: News item was successfully created

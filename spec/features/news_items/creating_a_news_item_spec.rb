@@ -28,4 +28,3 @@ RSpec.feature 'creating a news item' do
     expect(page).to have_content "Description can't be blank"
   end
 end
-

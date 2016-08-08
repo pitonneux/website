@@ -4,4 +4,3 @@ class NewsItemPolicy < ApplicationPolicy
     true
   end
 end
-
