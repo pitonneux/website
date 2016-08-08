@@ -6,6 +6,6 @@
     = render_markdown(location.directions)
 
   .control
-    button = link_to t('.edit'), edit_location_path(location)
-    button = link_to t('.destroy'), location, data: { confirm: t('delete') }, method: :delete
+    = link_to t('.edit'), edit_location_path(location), class: 'button'
+    = link_to t('.destroy'), location, data: { confirm: t('delete') }, method: :delete, class: 'button'
 

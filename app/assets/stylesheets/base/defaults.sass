@@ -17,12 +17,19 @@ body
 
 h1, h2, h3, h4, h5, h6
   font-family: $headers
-  padding: $padding/2 0
+  padding: $large-space 0
 
 h1
-  overflow: hidden
   letter-spacing: 1px
-  font-size: 2rem
+  line-height: $base-line-height * 2
+  font-size: $large-font
+
+h2
+  letter-spacing: 1px
+  line-height: $base-line-height * 1.5
+
+p
+  padding: $med-space 0
 
 a
   color: rgba($main-color, 1)
@@ -34,7 +41,3 @@ a
 
 a:focus, a:active
   color: rgba($main-color, 0.6)
-
-p + ul
-  margin-left: $large-space
-

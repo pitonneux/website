@@ -1,12 +1,25 @@
 = provide :title, t('.title')
-= provide :button_text, t('.create')
 
 h1 = t('.events')
 
-- if policy(@event).create?
-  details
-    summary = t('.new')
-    = render 'form'
+.coffee_and_code_background
+  section.coffee_and_code
+    h2 = t('.cc.title')
+    p = t('.cc.description')
+    .tags
+      = link_to t('.cc.meetup'), 'https://www.meetup.com/pitonneux/'
+      .price = t('.cc.price')
 
-= render @events
+section#workshops
+  h2 = t('.events.title')
+  h3 = t('.events.description')
+
+  - if policy(Event).create?
+    = link_to t('.new'), new_event_path, class: 'button'
+
+  .events
+    = render @events
+
+/TODO: Add flag to news items to feature on events page and feature those here
+
 

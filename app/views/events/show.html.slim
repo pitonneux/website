@@ -1,23 +1,28 @@
-= image_tag @event.cover_image.url if @event.cover_image?
+= provide :title, @event.name
 
-p = @event.name
-p = render_markdown(@event.description)
-p
-  strong = t('.date')
-  = l @event.starts_at, format: :date
-p
-  strong = t('.starts_at')
-  = l @event.starts_at, format: :time
-p
-  strong = t('.duration')
-  = "#{@event.duration_in_min} #{t('time.minutes')}"
-p
-  strong = t('.location')
-  = @event.location
-p
-  strong = t('.sign_up')
-  = @event.signup_link
+.hero
+  section
+    .photo
+      - if @event.cover_image.present?
+        - path = cl_image_path(@event.cover_image, { width: 250, height: 250, crop: :fill })
+        = image_tag(path)
+    .info
+      h1 = @event.name
+      time.date = date_for(@event)
+      time.hours = time_for(@event)
+      .address = @event.location.try(:name)
+      .price = number_to_currency @event.price, precision: 0
+      h2 = @event.tagline
+      = link_to t('signup'), @event.signup_link, target: '_blank'
 
-= link_to t('edit'), edit_event_path(@event)
-'|
-= link_to t('back'), events_path
+section
+  = render_markdown @event.description
+
+
+section
+  - if policy(@event).edit?
+    = link_to t('edit'), edit_event_path(@event), class: 'button'
+
+  - if policy(@event).destroy?
+    = link_to t('destroy'), @event, data: {confirm: t('delete') }, method: :delete, class: 'button'
+

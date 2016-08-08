@@ -1,9 +1,9 @@
 $base-spacing: 1.5rem;
-$base-border-radius: 1px;
-$base-line-height: 1.5rem;
 $base-border-radius: 5px;
-$small: 0.85rem;
+$base-line-height: 1.5rem;
+$round-border-radius: 15px;
 $padding: 1.5rem;
+$xxl-space: 5rem;
 $xl-space: 2.5rem;
 $large-space: 1.5rem;
 $med-space: 1rem;
@@ -13,14 +13,15 @@ $little-space: 0.5rem;
 $gray: #333333;
 $lightest-gray: lighten($gray, 73%);
 $lighter-gray: lighten($gray, 60%);
-$light-gray: lighten($gray, 50%);
+$light-gray: lighten($gray, 40%);
 $background-color: #fdfdfd;
 
 $base-font-color: $gray;
 
-$main-color: #00aa9d;
+$main-color: #00c1b4;
+$darken-main-color: #038277;
 $buttons: $main-color;
-$action-color: #ff458c;
+$action-color: #8ae833;
 $error-color: #ff6912;
 
 // FLASHES
@@ -31,18 +32,17 @@ $flashes: (
   'success': #e6efc2,
 );
 
-// // BUTTONS
-// $buttons: (
-//   'bright': green,
-// );
-
 // FONTS
 $headers: 'Muli', Helvetica Neue, Helvetica, sans-serif;
 $serif: 'Merriweather', cursive;
 $logo: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
 $text: 'Karla', Helvetica Neue, Helvetica, sans-serif;
 $base-font-size: 1.1rem;
-$med-font: 1.5rem;
+$small: 0.85rem;
+$bigger-font: 1.2rem;
+$med-font: 1.8rem;
+$large-font: 2.5rem;
+$xl-font: 3rem;
 
 // MEDIA QUERIES
 $small-screen: 42rem;

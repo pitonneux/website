@@ -1,0 +1,81 @@
+// Includes events on home page
+.event_details
+  padding: $med-space 0
+
+  time.hours,
+  time.date,
+  .price,
+  .address
+    display: block
+    &::before
+      +fixed_width_icon
+
+[data-action=index][data-controller=events]
+  h1
+    +visually_hidden
+
+  main
+    width: 100%
+
+  section
+    width: 85%
+    margin: $xl-space auto
+
+  summary
+    +button
+
+  .coffee_and_code_background
+    +jumbotron_with_image($url: 'https://hd.unsplash.com/photo-1429051883746-afd9d56fbdaf')
+
+    a
+      +button($color: $action-color)
+      margin-right: $med-space
+
+    .price
+      +info_chip
+      +before_text
+
+  h2
+    +big_header
+
+  h3
+    +small_header
+
+  #workshops
+    h2, h3
+      text-align: center
+
+  .events
+    +flex_column_then_row
+    flex-wrap: wrap
+    justify-content: space-around
+    margin: $large-space 0
+
+  .event
+    +card
+    +flex_column_centered
+    padding: $large-space
+
+    +between($small-screen, $medium-screen)
+      width: 47%
+
+    +above($medium-screen)
+      width: 30%
+
+    img
+      max-height: 15vh
+
+    h2
+      font-size: $large-font
+      padding-bottom: 0
+
+    h3
+      +small_header($color: $light-gray)
+      text-align: center
+
+    .info
+      padding: $med-space 0
+
+    .more
+      +button
+

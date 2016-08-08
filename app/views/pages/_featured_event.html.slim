@@ -1,24 +1,18 @@
 article.event
   .meta
-    = image_tag event.cover_image.url
-    .details
-      - if event.starts_at.present?
-        time
-          = fa_icon 'clock-o', class: 'fa-fw'
-          = l event.starts_at, format: :long
-        time
-          = fa_icon 'calendar', class: 'fa-fw'
-          = l event.starts_at, format: :time
-      - if event.location.present?
-        p
-          = fa_icon 'map-marker', class: 'fa-fw'
-          = event.location.name
-      button
-        a target='blank' href=event.signup_link
-        = t('.signup')
+    - if event.cover_image.present?
+      - path = cl_image_path(event.cover_image, { width: 150, height: 150, crop: :fill })
+      = image_tag(path)
+    .event_details
+      time.date = date_for(event)
+      time.hours = time_for(event)
+      .address = event.location.try(:name)
+      .price = number_to_currency event.price, precision: 0
   .description
-    h1 = event.name
-    .expander.closed = render_markdown event.description
-    a.expander-toggle href='javascript:void(0)' = t('.description')
+    h2.title = event.name
+    p = event.tagline
+    .buttons
+      = link_to t('.signup'), event.signup_link, target: '_blank', class: 'signup'
+      = link_to t('.learn_more'), event_path(event), class: 'learn_more'
 
 

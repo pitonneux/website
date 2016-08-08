@@ -1,0 +1,45 @@
+[data-action=show][data-controller=events]
+  main
+    width: 100%
+
+  .hero
+    +jumbotron
+
+    section
+      +flex_column_then_row
+
+    .photo
+      align-items: flex-start
+      display: flex
+      justify-content: center
+      margin-top: $med-space
+      padding: $xl-space $xl-space 0 0
+
+    img
+      border-radius: $round-border-radius
+
+    h1
+      +big_header
+
+    .info
+      padding: $large-space
+      +on($small-screen)
+        text-align: center
+
+    a
+      +large_button($color: $action-color)
+
+
+    time,
+    .address,
+    .price
+      +info_chip
+      +before_text
+
+  section
+    width: 85%
+    margin: $xl-space auto
+
+  .event
+    +flex_column
+

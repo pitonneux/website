@@ -14,16 +14,28 @@ en:
       edit: Edit
       destroy: Delete
       signup: Sign up
+      more: Find out more
     form:
       date: Date
       feature_on_homepage: Feature on homepage?
       starts_at: Start time
     index:
-      create: Create event
       events: Events
-      new: Create a new event
-      title: Events
+      title: All Our Events
+      new: Add a New Event
+      cc:
+        title: Coffee and Code Sessions
+        price: Free
+        description: The purpose is to get out of the house and focus on work or study in a group, or get help from others if you're stuck on something. We set a timer to help our focus, and in between we chat about what we're working on. At these meetups we usually have a turnout of about 8-15 people.
+        meetup: RSVP on Meetup.com
+      events:
+        title: Workshops and Learning Circles
+        description: Level up your skills with one of our upcoming events or series
+    new:
+      title: Add a New Event
+      create: Create Event
     no_start_date: No start date
+    no_start_time: No start time
     show:
       date: Date
       duration: Duration

@@ -1,0 +1,12 @@
+=above($size)
+  @media screen and (min-width: $size)
+    @content
+
+=on($size)
+  @media screen and (max-width: $size)
+    @content
+
+=between($smaller_size, $larger_size)
+  @media screen and (min-width: $smaller_size) and (max-width: $larger_size)
+    @content
+

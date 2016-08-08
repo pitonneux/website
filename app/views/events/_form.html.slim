@@ -5,6 +5,9 @@
     = f.label :name
     = f.text_field :name
   .field
+    = f.label :tagline
+    = f.text_field :tagline
+  .field
     = f.label :description
     = f.text_area :description
   .field
@@ -19,6 +22,9 @@
   .field
     = f.label :location
     = f.collection_select :location_id, Location.all, :id, :name
+  .field
+    = f.label :price
+    = f.number_field :price
   .field
     = f.label :signup_link
     = f.text_field :signup_link

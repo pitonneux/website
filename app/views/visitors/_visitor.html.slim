@@ -1,8 +1,8 @@
-.visitor
-  p
+ul.visitor
+  li
     strong = t('.email')
     = visitor.email
 
-  p
+  li
     strong = t('.signed_up')
     = l(visitor.created_at, format: :full)

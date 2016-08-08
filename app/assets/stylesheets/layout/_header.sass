@@ -1,10 +1,17 @@
 header
-  padding: $padding/2
   color: $gray
   font-family: $headers
   font-size: 1rem
+  padding: $med-space
+  width: 100%
   +above($small-screen)
-    text-align: center
+    display: flex
+    justify-content: space-between
+    align-items: center
+
+  .logo::before
+    +coffee
+    font-size: 2rem
 
   // MOBILE FIRST
   .menu-toggle
@@ -12,23 +19,25 @@ header
     +above($small-screen)
       display: none
 
-  nav
+  nav#toggle_menu
     padding-top: $padding/3
-
-    // NAV MENU
-    ul
+    clear: both
+    +on($small-screen)
       display: none
-      @include above($small-screen)
-        display: block
 
-    // NAV ITEMS
-    li
-      text-align: right
-      list-style: none
-      text-transform: uppercase
-      padding: $padding/4 0
-      @include above($small-screen)
-        display: inline
-        padding: 0 $padding/2
-      a
-        color: $gray
+  // ul
+    // display: none
+    // +above($small-screen)
+    //   display: block
+
+  // NAV ITEMS
+  li
+    text-align: right
+    list-style: none
+    text-transform: uppercase
+    padding: $padding/4 0
+    +above($small-screen)
+      display: inline
+      padding: 0 $padding/2
+    a
+      color: $gray

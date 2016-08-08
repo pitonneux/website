@@ -1,7 +1,3 @@
-.logo::before
-  +coffee
-  font-size: 2rem
-
 [data-controller=pages][data-action=home]
   header
     position: fixed
@@ -17,18 +13,11 @@
     width: 100%
 
   section
-    width: 95%
+    width: 85%
     margin: 0 auto
     padding-top: 5rem
     +above($small-screen)
       padding-top: 7rem
-
-    h2
-      font-family: $serif
-      font-size: $base-font-size
-      font-style: italic
-      color: lighten($gray, 40%)
-      text-align: center
 
   #home
     +flex_column_centered
@@ -39,9 +28,9 @@
       z-index: 2
       text-align: center
     h1
-      +round_corners
-      background-color: rgba($background-color, 0.90)
-      color: $main-color
+      background-color: rgba($gray, 0.90)
+      border-radius: $base-border-radius
+      color: $action-color
       font-family: $logo
       font-weight: 300
       letter-spacing: 3px
@@ -53,111 +42,142 @@
     h2
       color: $background-color
       width: 80%
-      line-height: $base-line-height * 2
-      +above($small-screen)
-        font-size: 3.3rem
+      +big_header
 
   #what_we_do
+    +flex_column_then_row
+    justify-content: space-around
+
+    .card
+      padding: $xl-space
+      +above($small-screen)
+        width: 45%
+        padding: 0 $xl-space
+
     h1
       +visually_hidden
 
   #events
     h1
-      +visually_hidden
+      +large_header
+      margin: 0 auto $xxl-space auto
+      padding: $xl-space
+      text-align: center
+      +above($small-screen)
+        width: 75%
+
+    h2
+      color: $light-gray
 
     .events_banner
       +flex_column_then_row
       height: 100vh
+      margin-bottom: $xl-space
+      text-align: center
+
       +above($small-screen)
         height: 40vh
 
     .meetups, .workshops, .projects
-      +round_corners
       +flex_column_centered
       border: 2px solid $main-color
+      border-radius: $base-border-radius
       margin: $med-space
-      padding: $med-space
+      padding: $large-space
       flex: 1
 
       &::before
         font-size: 6.5rem
-        color: $light-gray
-        padding-bottom: $xl-space
+        color: $action-color
+        padding: $xl-space 0
 
       h2
-        font-family: $headers
-        font-style: normal
-        font-size: 165%
+        padding-bottom: 0
 
       p
         color: $light-gray
 
-    .meetups::before
-      +laptop
+    .meetups
+      opacity: 0.6
 
-    .workshops::before
-      +learning
+      h2
+        color: $main-color
 
-    .projects::before
-      +sitemap
+      &:hover
+        background-color: $lightest-gray
+        opacity: 1
+
+      &::before
+        +laptop
+
+    .workshops
+      h2
+        color: $main-color
+
+      &:hover
+        background-color: $lightest-gray
+
+      &::before
+        +learning
+
+    .projects
+      opacity: 0.6
+
+      &::before
+        +sitemap
 
     .event
       +flex_column_then_row
+      +card
+      padding: $large-space
+      justify-content: center
+      align-items: center
 
-      h1
-        // +header_reset
-        color: lighten($gray, 20%)
+      +above($small-screen)
+        &:nth-child(even)
+          .meta
+            order: 2
 
       h2
-        text-align: left
+        padding-bottom: 0
 
       .meta, .description
-        padding: $padding
+        padding: 0 $xl-space
+
+      .signup
+        +button($color: $action-color)
+        margin-right: $med-space
+
+      .learn_more
+        +button
 
       .meta
-        +flex-row-then-column
-        align-items: flex-start
-        justify-content: space-around
-        flex: 1
-        +above($small-screen)
-          align-items: center
-          justify-content: flex-start
-        padding: $med-space
-        time
-          display: block
-        img
-          +on($small-screen)
-            padding-right: $med-space
-            max-width: 40%
-          +above($small-screen)
-            padding: $med-space
-        i
-          padding-right: $little-space
+        +flex_row_then_column
+        align-items: center
+
+      img
+        object-fit: contain
+        padding: $large-space
+
+      .event_details
+        padding: $large-space
 
       .description
-        flex: 2
+        +on($small-screen)
+          +flex_column_centered
 
-      .expander
-        height: auto
-        overflow: auto
-        h2
-          color: $action-color
-        h1, h2
-          +above($small-screen)
-
-      .closed
-        max-height: 30rem
-        overflow: hidden
-
-      a.expander-toggle
-        +button($action-color)
 
   #email_collection
     +flex_column_then_row
     background: $main-color
     color: $background-color
-    margin-top: $large-space
+    margin-top: $xxl-space
+    padding: $xl-space 0
     width: 100%
+
+    .card
+      flex: 1
+      padding: $med-space $xl-space
 
     #email_box
       +form_with_field_errors
@@ -171,15 +191,31 @@
         width: 100%
 
     h2
-      font-weight: normal
-      font-family: $text
-      font-size: 1.2em
+      +bigger_header
+      color: $background-color
 
     input[type="submit"]
       background: $action-color
+      margin-top: $large-space
 
     input[type="text"]
+      background: transparent
+      border-bottom: 2px solid $background-color
+      color: $background-color
       padding: $little-space
+
+    ::-webkit-input-placeholder
+      color: $background-color
+      opacity: 1
+    ::-moz-placeholder
+      color: $background-color
+      opacity: 1
+    :-ms-input-placeholder
+      color: $background-color
+      opacity: 1
+    ::placeholder
+      color: $background-color
+      opacity: 1
 
     .field-error
       color: $background-color
@@ -187,12 +223,16 @@
   #contact
     background-color: $lightest-gray
     width: 100%
-    padding-left: $large-space
-    padding-right: $large-space
-    padding-bottom: $large-space
+    padding-left: $xl-space
+    padding-right: $xl-space
+    padding-bottom: $xl-space
 
-    h1
+    h1, h2
       text-align: center
+
+    h2
+      +bigger_header
+      color: $light-gray
 
     textarea
       height: 15vh
@@ -206,13 +246,18 @@
       .field-error
         color: $error-color
 
+    form
+      +above($small-screen)
+        margin: 0 auto
+        width: 50%
+
   #connect
     padding: $large-space
 
     .connect
       display: flex
       justify-content: center
-      padding: $large-space * 2
+      padding: $large-space
 
     h1
       text-align: center

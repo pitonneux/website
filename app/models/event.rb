@@ -7,6 +7,8 @@ class Event < ApplicationRecord
 
   validates_presence_of :name
   validates_presence_of :description
+  validates_presence_of :price
+  validates_presence_of :starts_at
 
   scope :featured, -> { where featured: true }
   scope :upcoming, -> { where 'starts_at >= ?', Time.now }

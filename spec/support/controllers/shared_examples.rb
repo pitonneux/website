@@ -13,7 +13,7 @@ end
 RSpec.shared_examples 'action that is allowed for guests' do
   context 'guest tries to access' do
     it 'works for guests' do
-      allow(controller).to receive(:current_user).and_return nil
+      allow(request.env['warden']).to receive(:authenticate!).and_throw(:warden, scope: :user)
       subject
       expect(response).to have_http_status :success
       expect(controller).not_to set_flash
@@ -21,7 +21,7 @@ RSpec.shared_examples 'action that is allowed for guests' do
   end
 end
 
-RSpec.shared_examples 'calls authorize with' do |model|
+RSpec.shared_examples 'action to be authorized with' do |model|
   it 'calls authorize' do
     expect(controller).to receive(:authorize).with(model)
     subject
@@ -30,11 +30,11 @@ end
 
 RSpec.shared_examples 'action to be authorized with logged in user' do |model|
   include_context 'user is logged in' do
-    include_examples 'calls authorize with', model
+    it_behaves_like 'action to be authorized with', model
   end
 end
 
-RSpec.shared_examples 'redirects unauthorized user' do
+RSpec.shared_examples 'action that redirects unauthorized user' do
   it 'redirects and says why' do
     allow(controller).to receive(:authorize).and_raise Pundit::NotAuthorizedError
     subject

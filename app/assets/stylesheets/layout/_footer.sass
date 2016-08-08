@@ -1,16 +1,20 @@
 footer
-  background-color: $light-gray
-  color: $background-color
+  background-color: $lighter-gray
+  color: $darken-main-color
   display: flex
   justify-content: space-around
   padding: $little-space
+  width: 100%
+
+  p
+    padding: 0
 
   a
-    color: $background-color
+    color: $darken-main-color
     border-bottom: 3px solid $main-color
+    +before_text
     &::before
       +github
-      padding-right: $little-space
 
   +on($small-screen)
     flex-direction: column

@@ -42,10 +42,38 @@
   content: '\f041'
   font-family: 'FontAwesome'
 
+=calendar
+  content: '\f073'
+  font-family: 'FontAwesome'
+
+=credit_card
+  content: '\f09d'
+  font-family: 'FontAwesome'
+
 =large-icon
   font-size: 1.3rem
 
-=fixed-width-icon
-  width: 1.3rem
-  text-align: center
+=before_text
+  &::before
+    padding-right: $little-space
+
+=fixed_width_icon
+  display: inline-block
   padding-right: $little-space
+  text-align: center
+  width: 1.3rem
+
+// Applying icon styles everywhere
+
+time.date::before
+  +calendar
+
+time.hours::before
+  +clock
+
+.price::before
+  +credit_card
+
+.address::before
+  +map
+

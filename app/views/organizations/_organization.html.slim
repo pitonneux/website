@@ -5,6 +5,6 @@
     = render_markdown(organization.description)
 
   .control
-    button = link_to t('.edit'), edit_organization_path(organization)
-    button = link_to t('.destroy'), organization, data: {confirm: t('delete') }, method: :delete
+    = link_to t('.edit'), edit_organization_path(organization), class: 'button'
+    = link_to t('.destroy'), organization, data: {confirm: t('delete') }, method: :delete, class: 'button'
 

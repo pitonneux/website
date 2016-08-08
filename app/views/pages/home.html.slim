@@ -5,33 +5,32 @@
 section#what_we_do
   h1 = t('.what_we_do.header')
 
-  .row
-    .card
-      = image_tag('computer.png')
-      h3 = t('.learning.header')
-      p = t('.learning.description')
-    .card
-      = image_tag('world.png')
-      h3 = t('.journey.header')
-      p = t('.journey.description')
+  .card
+    = image_tag('computer.png')
+    h3 = t('.learning.header')
+    p = t('.learning.description')
+  .card
+    = image_tag('world.png')
+    h3 = t('.journey.header')
+    p = t('.journey.description')
 
 section#events
-  h1 = t('.events.header')
-
   .events_banner
-    .meetups
-      h2 = link_to t('.meetups.title'), events_path
+    a href="#{events_path}" class='meetups'
+      h2 = t('.meetups.title')
       p = t('.meetups.price')
-    .workshops
-      h2 = link_to t('.workshops.title'), events_path
+    a href="#{events_path(anchor: 'workshops')}" class='workshops'
+      h2 = t('.workshops.title')
       p = t('.workshops.price')
     .projects
       h2 = t('.projects.title')
       p = t('.projects.subheading')
 
+  h1 = t('.events.header')
+
   = render partial: 'featured_event', collection: @featured_events, as: :event
 
-#email_collection.row
+section#email_collection
   .card
     h1 = t('.email.header')
     h2 = t('.email.info')
@@ -50,5 +49,3 @@ section#connect
   h1 = t '.connect.header'
 
   = render 'connect'
-
-= render 'layouts/footer'

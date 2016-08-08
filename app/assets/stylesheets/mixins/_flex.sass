@@ -1,0 +1,23 @@
+=flex_column
+  display: flex
+  flex-direction: column
+
+=flex_column_then_row
+  +flex_column
+  +above($small-screen)
+    flex-direction: row
+
+=flex_row_then_column
+  display: flex
+  flex-direction: row
+  +above($small-screen)
+    flex-direction: column
+
+=flex_column_centered
+  +flex_column
+  align-items: center
+  justify-content: center
+
+= flex_centered
+  display: flex
+  justify-content: center

@@ -1,11 +1,15 @@
 # frozen_string_literal: true
 class EventsController < ApplicationController
-  before_action :authenticate_user!, except: :index
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @events = Event.all
-    @event = Event.new
     authorize Event
+    @events = policy_scope(Event).order(starts_at: :desc)
+  end
+
+  def new
+    authorize Event
+    @event = Event.new
   end
 
   def show
@@ -25,7 +29,8 @@ class EventsController < ApplicationController
     if @event.save
       redirect_to events_path, notice: t('.success')
     else
-      redirect_to events_path, alert: t('.failure')
+      flash[:alert] = t('.failure')
+      render :new
     end
   end
 
@@ -56,7 +61,7 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:name, :description, :starts_at, :duration_in_min, :signup_link,
-                                  :featured, :cover_image_cache, :cover_image, :location_id)
+    params.require(:event).permit(:name, :tagline, :description, :starts_at, :duration_in_min, :price,
+                                  :signup_link, :featured, :cover_image_cache, :cover_image, :location_id)
   end
 end

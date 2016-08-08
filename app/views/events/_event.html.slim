@@ -1,21 +1,25 @@
-.event
-  = image_tag event.cover_image.url if event.cover_image?
+article.event
+  - if event.cover_image.present?
+    - path = cl_image_path(event.cover_image, { width: 150, height: 150, crop: :fill })
+    = image_tag(path)
 
-  .info
-    h2 = event.name
+  h2 = event.name
+  h3 = event.tagline
 
+  .buttons
     - if policy(event).edit?
-      button = link_to t('.edit'), edit_event_path(event)
+      = link_to t('.edit'), edit_event_path(event), class: 'button'
 
     - if policy(event).destroy?
-      button = link_to t('.destroy'), event, data: {confirm: t('delete') }, method: :delete
+      = link_to t('.destroy'), event, data: {confirm: t('delete') }, method: :delete, class: 'button'
 
-    button = link_to t('.signup'), event.signup_link
+    = link_to t('.signup'), event.signup_link, class: 'button'
 
-    time = date_and_time_for(event)
-    p.address = event.location.try(:name)
+  .event_details
+    time.date = date_for(event)
+    time.hours = time_for(event)
+    .address = event.location.try(:name)
+    .price = number_to_currency event.price, precision: 0
 
-    details
-      summary = t('.description')
-      = render_markdown(event.description)
+  = link_to t('.more'), event_path(event), class: 'more'
 

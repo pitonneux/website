@@ -1,0 +1,8 @@
+=each($num)
+  &:nth-child(#{$num}n)
+    @content
+
+=first-last()
+  &:first-child,
+  &:last-child
+    @content
