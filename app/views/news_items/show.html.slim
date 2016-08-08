@@ -1,0 +1,6 @@
+p = @news_item.title
+p = render_markdown @news_item.description
+
+= link_to 'Edit', edit_news_item_path(@news_item)
+'|
+= link_to 'Back', news_items_path

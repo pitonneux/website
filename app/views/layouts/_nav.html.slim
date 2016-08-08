@@ -9,7 +9,7 @@ ul
     li = link_to t('.messages'), messages_path
   - if policy(Visitor).index?
     li = link_to t('.visitors'), visitors_path
+  - if policy(NewsItem).index?
+    li = link_to t('.news_items'), news_items_path
   - if current_user.present?
     li = link_to t('.logout'), destroy_user_session_path, method: :delete
-
-

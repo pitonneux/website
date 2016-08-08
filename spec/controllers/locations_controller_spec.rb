@@ -30,27 +30,6 @@ RSpec.describe LocationsController, type: :controller do
     end
   end
 
-  describe 'GET #edit' do
-    let(:location) { create :location }
-
-    subject { get :edit, params: { id: location.id } }
-
-    it_behaves_like 'action not allowed for guests'
-
-    include_context 'user is logged in' do
-      it 'calls authorize' do
-        expect(controller).to receive(:authorize).with(location)
-        get :edit, params: { id: location.id }
-      end
-
-      include_context 'user is authorized' do
-        it_behaves_like 'successful request'
-      end
-
-      it_behaves_like 'action that redirects unauthorized user'
-    end
-  end
-
   describe 'POST #create' do
     let(:location_params) { attributes_for :location }
 
@@ -70,7 +49,7 @@ RSpec.describe LocationsController, type: :controller do
             end.to change(Location, :count).by(1)
           end
 
-          it 'sets the right flash' do
+          it 'redirects and sets the right flash' do
             post :create, params: { location: location_params }
             expect(response).to redirect_to locations_path
             expect(controller).to set_flash[:notice].to t('locations.create.success')
@@ -80,7 +59,7 @@ RSpec.describe LocationsController, type: :controller do
         context 'with invalid params' do
           let(:invalid_params) { { name: nil } }
 
-          it 'creates a new Location' do
+          it 'does not create a new Location' do
             expect do
               post :create, params: { location: invalid_params }
             end.not_to change(Location, :count)
@@ -93,6 +72,27 @@ RSpec.describe LocationsController, type: :controller do
           end
         end
       end
+    end
+  end
+
+  describe 'GET #edit' do
+    let(:location) { create :location }
+
+    subject { get :edit, params: { id: location.id } }
+
+    it_behaves_like 'action not allowed for guests'
+
+    include_context 'user is logged in' do
+      it 'calls authorize' do
+        expect(controller).to receive(:authorize).with(location)
+        get :edit, params: { id: location.id }
+      end
+
+      include_context 'user is authorized' do
+        it_behaves_like 'successful request'
+      end
+
+      it_behaves_like 'action that redirects unauthorized user'
     end
   end
 
@@ -145,7 +145,7 @@ RSpec.describe LocationsController, type: :controller do
   end
 
   describe 'DELETE #destroy' do
-    let(:location) { create :location }
+    let!(:location) { create :location }
 
     subject { delete :destroy, params: { id: location.id } }
 
@@ -160,7 +160,11 @@ RSpec.describe LocationsController, type: :controller do
       end
 
       include_context 'user is authorized' do
-        it 'works' do
+        it 'deletes the resource' do
+          expect { subject }.to change(Location, :count).by(-1)
+        end
+
+        it 'redirects and sets the flash' do
           subject
           expect(response).to redirect_to locations_path
           expect(controller).to set_flash[:notice].to t('locations.destroy.success')
