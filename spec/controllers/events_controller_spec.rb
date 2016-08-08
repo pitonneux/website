@@ -6,7 +6,13 @@ RSpec.describe EventsController do
     subject { get :index }
 
     it_behaves_like 'action that is allowed for guests'
-    it_behaves_like 'action to be authorized with logged in user', Event
+    it_behaves_like 'action to be authorized with', Event
+
+    it 'calls the policy scope' do
+      allow(controller).to receive(:policy_scope).with(Event).and_return Event.all
+      subject
+      expect(controller).to have_received(:policy_scope).with(Event)
+    end
   end
 
   describe 'GET #show' do

@@ -4,8 +4,7 @@ class EventsController < ApplicationController
 
   def index
     authorize Event
-    @events = Event.all.order(starts_at: :desc)
-    @event = Event.new
+    @events = policy_scope(Event).order(starts_at: :desc)
   end
 
   def new

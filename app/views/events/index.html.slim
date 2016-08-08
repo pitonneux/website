@@ -14,7 +14,7 @@ section#workshops
   h2 = t('.events.title')
   h3 = t('.events.description')
 
-  - if policy(@event).create?
+  - if policy(Event).create?
     = link_to t('.new'), new_event_path, class: 'button'
 
   .events

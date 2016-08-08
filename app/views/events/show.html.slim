@@ -3,8 +3,9 @@
 .hero
   section
     .photo
-      - path = cl_image_path(@event.cover_image, { width: 250, height: 250, crop: :fill })
-      = image_tag(path)
+      - if @event.cover_image.present?
+        - path = cl_image_path(@event.cover_image, { width: 250, height: 250, crop: :fill })
+        = image_tag(path)
     .info
       h1 = @event.name
       time.date = date_for(@event)
