@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-class EmailRecipient < ApplicationRecord
+class Contact < ApplicationRecord
   after_commit :send_to_external_list
 
   belongs_to :collectible, polymorphic: true

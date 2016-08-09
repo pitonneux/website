@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 FactoryGirl.define do
-  factory :email_recipient do
+  factory :contact do
     sequence :email do |n|
       "user_#{n}@example.com"
     end
