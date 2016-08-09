@@ -4,4 +4,3 @@ class GroupMessagePolicy < ApplicationPolicy
     admin?
   end
 end
-

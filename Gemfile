@@ -30,6 +30,9 @@ gem 'puma'
 gem 'sidekiq'
 gem 'redis'
 
+# Managing contacts
+gem 'sendgrid-ruby'
+
 # Authentication
 gem 'devise'
 gem 'pundit'

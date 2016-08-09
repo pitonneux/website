@@ -4,6 +4,7 @@ require 'rails_helper'
 RSpec.feature 'collecting email addresses from the home page', js: true do
   scenario 'someone submits a valid email' do
     visit root_path
+
     fill_form :visitor, 'Your email address': 'valid@email.com'
     click_button 'Keep me posted'
 

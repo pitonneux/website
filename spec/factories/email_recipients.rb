@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 FactoryGirl.define do
   factory :email_recipient do
     sequence :email do |n|
@@ -5,11 +6,11 @@ FactoryGirl.define do
     end
 
     trait :message do
-      collectible { create :message }
+      collectible_type 'Message'
     end
 
     trait :visitor do
-      collectible { create :visitor }
+      collectible_type 'Visitor'
     end
   end
 end

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 require 'rails_helper'
 
 RSpec.describe EmailRecipient, type: :model do
@@ -8,4 +9,11 @@ RSpec.describe EmailRecipient, type: :model do
 
   it { is_expected.to belong_to :collectible }
   it { is_expected.to have_and_belong_to_many :group_messages }
+
+  describe 'callbacks' do
+    it 'sends the new email address to send grid' do
+      expect_any_instance_of(ExternalContactService).to receive(:call).with(email: 'new@contact.com')
+      create :email_recipient, email: 'new@contact.com'
+    end
+  end
 end
