@@ -8,7 +8,6 @@ RSpec.describe EmailRecipient, :vcr, type: :model do
   it { is_expected.to validate_uniqueness_of :email }
 
   it { is_expected.to belong_to :collectible }
-  it { is_expected.to have_and_belong_to_many :group_messages }
 
   describe 'callbacks' do
     it 'sends the new email address to send grid' do
