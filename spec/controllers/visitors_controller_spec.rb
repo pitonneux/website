@@ -9,7 +9,7 @@ RSpec.describe VisitorsController, type: :controller do
     it_behaves_like 'action to be authorized with logged in user', Visitor
   end
 
-  describe 'POST #create' do
+  describe 'POST #create', :vcr do
     let(:visitor_params) { attributes_for :visitor }
 
     subject { post :create, params: { visitor: visitor_params }, format: :js }

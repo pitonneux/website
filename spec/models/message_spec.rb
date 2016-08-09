@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 # frozen_string_literal: true
 require 'rails_helper'
 
@@ -17,7 +15,7 @@ RSpec.describe Message, type: :model do
 
   it { is_expected.to have_one(:email_recipient).dependent(:destroy) }
 
-  describe 'callbacks' do
+  describe 'callbacks', :vcr do
     it 'creates and email recipient after saving' do
       message = build :message
       expect(message.email_recipient).to be_nil

@@ -13,7 +13,7 @@ RSpec.describe SendGrid::Contact do
     end
 
     it 'calls sendgrid recipient creation' do
-      expect(fake_sendgrid).to receive(:post).with(request_body: Array)
+      expect(sendgrid).to receive(:post).with(request_body: Array)
       described_class.create(email: email)
     end
   end

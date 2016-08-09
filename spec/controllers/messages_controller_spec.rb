@@ -9,7 +9,7 @@ RSpec.describe MessagesController, type: :controller, js: true do
     it_behaves_like 'action to be authorized with logged in user', Message
   end
 
-  describe 'POST #create' do
+  describe 'POST #create', :vcr do
     let(:message_params) do
       { message: { sender: 'sender',
                    email: 'valid@email.com',

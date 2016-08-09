@@ -58,14 +58,14 @@ end
 group :test do
   gem 'capybara'
   gem 'capybara-webkit'
+  gem 'codecov', require: false
   gem 'database_cleaner'
   gem 'formulaic'
   gem 'launchy'
   gem 'shoulda-matchers'
-
-  # test coverage
-  gem 'codecov', require: false
   gem 'simplecov', require: false
+  gem 'vcr'
+  gem 'webmock'
 end
 
 group :production do

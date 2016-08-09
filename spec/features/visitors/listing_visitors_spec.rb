@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require 'rails_helper'
 
-RSpec.feature 'listing all visitor emails' do
+RSpec.feature 'listing all visitor emails', :vcr do
   scenario 'as an admin' do
     admin = create :user, :admin
     login_as admin

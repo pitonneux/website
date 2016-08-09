@@ -1,0 +1,156 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://127.0.0.1:52460/__identify__
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: 'OK '
+    headers:
+      Server:
+      - WEBrick/1.3.1 (Ruby/2.3.1/2016-04-26)
+      Date:
+      - Tue, 09 Aug 2016 20:39:37 GMT
+      Content-Length:
+      - '14'
+      Connection:
+      - Keep-Alive
+    body:
+      encoding: UTF-8
+      string: '70265737635640'
+    http_version: 
+  recorded_at: Tue, 09 Aug 2016 20:39:37 GMT
+- request:
+    method: post
+    uri: https://api.sendgrid.com/v3/contactdb/recipients
+    body:
+      encoding: UTF-8
+      string: '[{"email":"test@email.com"}]'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - application/json
+      User-Agent:
+      - Ruby
+      Authorization:
+      - Bearer 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
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 201
+      message: CREATED
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Tue, 09 Aug 2016 20:39:40 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '140'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Methods:
+      - HEAD, GET, PUT, POST, DELETE, OPTIONS, PATCH
+      Access-Control-Max-Age:
+      - '21600'
+      Access-Control-Expose-Headers:
+      - Link
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Headers:
+      - AUTHORIZATION, Content-Type, On-behalf-of, x-sg-elas-acl
+      Content-Security-Policy:
+      - default-src https://api.sendgrid.com; frame-src 'none'; object-src 'none'
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Ratelimit-Remaining:
+      - '2'
+      X-Ratelimit-Limit:
+      - '3'
+      X-Ratelimit-Reset:
+      - '1470775182'
+      Powered-By:
+      - Mako
+    body:
+      encoding: UTF-8
+      string: '{"error_count":0,"error_indices":[],"new_count":1,"persisted_recipients":["dGVzdEBlbWFpbC5jb20="],"unmodified_indices":[],"updated_count":0}'
+    http_version: 
+  recorded_at: Tue, 09 Aug 2016 20:39:40 GMT
+- request:
+    method: post
+    uri: https://api.sendgrid.com/v3/contactdb/recipients
+    body:
+      encoding: UTF-8
+      string: '[{"email":"test@email.com"}]'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - application/json
+      User-Agent:
+      - Ruby
+      Authorization:
+      - Bearer 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
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 201
+      message: CREATED
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Tue, 09 Aug 2016 20:39:41 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '141'
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Methods:
+      - HEAD, GET, PUT, POST, DELETE, OPTIONS, PATCH
+      Access-Control-Max-Age:
+      - '21600'
+      Access-Control-Expose-Headers:
+      - Link
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Headers:
+      - AUTHORIZATION, Content-Type, On-behalf-of, x-sg-elas-acl
+      Content-Security-Policy:
+      - default-src https://api.sendgrid.com; frame-src 'none'; object-src 'none'
+      X-Content-Type-Options:
+      - nosniff
+      Strict-Transport-Security:
+      - max-age=31536000
+      X-Ratelimit-Remaining:
+      - '1'
+      X-Ratelimit-Limit:
+      - '3'
+      X-Ratelimit-Reset:
+      - '1470775182'
+      Powered-By:
+      - Mako
+    body:
+      encoding: UTF-8
+      string: '{"error_count":0,"error_indices":[],"new_count":0,"persisted_recipients":["dGVzdEBlbWFpbC5jb20="],"unmodified_indices":[0],"updated_count":0}'
+    http_version: 
+  recorded_at: Tue, 09 Aug 2016 20:39:41 GMT
+recorded_with: VCR 3.0.3

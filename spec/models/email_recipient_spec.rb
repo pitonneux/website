@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require 'rails_helper'
 
-RSpec.describe EmailRecipient, type: :model do
+RSpec.describe EmailRecipient, :vcr, type: :model do
   subject { build :email_recipient }
 
   it { is_expected.to validate_presence_of :email }
