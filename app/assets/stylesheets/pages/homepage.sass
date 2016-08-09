@@ -32,8 +32,10 @@
     min-height: 100vh
     h1, h2
       text-align: center
-    h1
       font-size: 1.75rem
+      +above($small-screen)
+        font-size: 2.5rem
+    h1
       background-color: rgba($gray, 0.90)
       border-radius: $base-border-radius
       color: $action-color
@@ -69,8 +71,10 @@
       margin: 0 auto
       padding: $xl-space
       text-align: center
+      font-size: 1.75rem
       +above($small-screen)
         width: 75%
+        font-size: 2rem
 
     .find_an_event
       +large_button
