@@ -34,20 +34,23 @@ gem 'redis'
 gem 'devise'
 gem 'pundit'
 
+# For awesome debugging
+gem 'awesome_print', require: false
+gem 'pry-rails'
+
+
 group :development, :test do
   gem 'brakeman'
   gem 'bundler-audit'
   gem 'factory_girl_rails'
   gem 'faker'
   gem 'pry-byebug'
-  gem 'pry-rails'
   gem 'psych' # so I can use zeus
   gem 'rspec-rails'
   gem 'spring'
 end
 
 group :development do
-  gem 'awesome_print'
   gem 'i18n-tasks'
   gem 'web-console'
 end
