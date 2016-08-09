@@ -1,13 +1,18 @@
 [data-controller=pages][data-action=home]
+
   header
     position: fixed
     left: 0
     width: 100%
     background-color: rgba($action-color, 0.65)
     z-index: 1
+    transition: background-color 0.5s
 
     a
       color: $background-color
+
+  .menu-open
+    background-color: $action-color
 
   main
     width: 100%
