@@ -21,13 +21,15 @@
 
   #home
     +flex_column_centered
+    padding-top: 6rem
     background: linear-gradient(rgba($main-color, 0.65), rgba($main-color, 0.85) ), image-url('homepage.jpg')
     background-size: cover
-    height: 100vh
+    min-height: 100vh
     h1, h2
       z-index: 2
       text-align: center
     h1
+      font-size: 1.75rem
       background-color: rgba($gray, 0.90)
       border-radius: $base-border-radius
       color: $action-color
@@ -37,12 +39,12 @@
       line-height: $base-line-height
       margin: $med-space
       padding: $xl-space
+      //font-size: 1.75rem
       +above($small-screen)
-        font-size: 2rem
+        //font-size: 2rem
     h2
       color: $background-color
       width: 80%
-      +big_header
 
   #what_we_do
     +flex_column_then_row
