@@ -23,10 +23,11 @@ class HomepageScroll
           else
             target = jumpobj.attr('href')
             offset = jQuery(target).offset().top
-          $('#toggle_menu').slideToggle ->
-            $('body > header').toggleClass('menu-open')
-            if $('#toggle_menu').is(':hidden')
-              $('#toggle_menu').removeAttr 'style'
+          if $('.menu-toggle').is(':visible')
+            $('#toggle_menu').slideToggle ->
+              $('body > header').toggleClass('menu-open')
+              if $('#toggle_menu').is(':hidden')
+                $('#toggle_menu').removeAttr 'style'
           thespeed = 1000
           jQuery('html,body').animate { scrollTop: offset }, thespeed, 'swing'
           e.preventDefault()
