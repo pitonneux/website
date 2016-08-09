@@ -152,22 +152,31 @@
         padding-bottom: 0
 
       .meta, .description
-        padding: 0 $xl-space
+        padding: 0 $little-space
+        +above($small-screen)
+          padding: 0 $xl-space
+
 
       .signup
         +button($color: $action-color)
-        margin-right: $med-space
+        margin-left: auto
+        margin-right: auto
+        +above($small-screen)
+          margin-right: $med-space
 
       .learn_more
         +button
 
       .meta
-        +flex_row_then_column
+        +flex_column_then_row
         align-items: center
 
       img
         object-fit: contain
-        padding: $large-space
+        padding: $little-space
+        +above($small-screen)
+          padding: $large-space
+          
 
       .event_details
         padding: $large-space
@@ -175,6 +184,9 @@
       .description
         +on($small-screen)
           +flex_column_centered
+
+      .buttons
+        text-align: center
 
 
   #email_collection
