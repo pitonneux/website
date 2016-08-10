@@ -146,6 +146,8 @@ GEM
       activesupport
       capybara
       i18n
+    friendly_id (5.2.0.beta.1)
+      activerecord (>= 4.0.0)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
     hashdiff (0.3.0)
@@ -355,6 +357,7 @@ DEPENDENCIES
   faker
   font-awesome-rails
   formulaic
+  friendly_id
   i18n-tasks
   jquery-rails
   launchy

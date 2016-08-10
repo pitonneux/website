@@ -18,7 +18,7 @@ RSpec.describe EventsController do
   describe 'GET #show' do
     let(:event) { create :event }
 
-    subject { get :show, params: { id: event.id } }
+    subject { get :show, params: { id: event.slug } }
 
     it_behaves_like 'action that is allowed for guests'
 
@@ -96,14 +96,14 @@ RSpec.describe EventsController do
   describe 'GET #edit' do
     let(:event) { create :event }
 
-    subject { get :edit, params: { id: event.id } }
+    subject { get :edit, params: { id: event.slug } }
 
     it_behaves_like 'action not allowed for guests'
 
     include_context 'user is logged in' do
       it 'calls authorize' do
         expect(controller).to receive(:authorize).with(event)
-        get :edit, params: { id: event.id }
+        get :edit, params: { id: event.slug }
       end
 
       it_behaves_like 'action that redirects unauthorized user'
@@ -118,7 +118,7 @@ RSpec.describe EventsController do
     let(:event) { create :event }
     let(:event_params) { { name: 'New Event Name' } }
 
-    subject { put :update, params: { id: event.id, event: event_params } }
+    subject { put :update, params: { id: event.slug, event: event_params } }
 
     it_behaves_like 'action not allowed for guests'
 
@@ -130,13 +130,13 @@ RSpec.describe EventsController do
         context 'with valid params' do
           it 'updates the event' do
             expect do
-              put :update, params: { id: event.id, event: event_params }
+              put :update, params: { id: event.slug, event: event_params }
               event.reload
             end.to change(event, :name)
           end
 
           it 'sets the right flash' do
-            put :update, params: { id: event.id, event: event_params }
+            put :update, params: { id: event.slug, event: event_params }
             expect(response).to redirect_to events_path
             expect(controller).to set_flash[:notice].to 'Event was successfully updated'
           end
@@ -147,13 +147,13 @@ RSpec.describe EventsController do
 
           it 'does not update the event' do
             expect do
-              put :update, params: { id: event.id, event: invalid_params }
+              put :update, params: { id: event.slug, event: invalid_params }
               event.reload
             end.not_to change(event, :name)
           end
 
           it 'sets the right flash' do
-            put :update, params: { id: event.id, event: invalid_params }
+            put :update, params: { id: event.slug, event: invalid_params }
             expect(response).to have_http_status :ok
             expect(flash[:alert]).to eq 'Event could not be updated'
           end
@@ -165,7 +165,7 @@ RSpec.describe EventsController do
   describe 'DELETE #destroy' do
     let!(:event) { create :event }
 
-    subject { delete :destroy, params: { id: event.id } }
+    subject { delete :destroy, params: { id: event.slug } }
 
     it_behaves_like 'action not allowed for guests'
 
