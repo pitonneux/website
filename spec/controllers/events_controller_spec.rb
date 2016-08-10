@@ -49,27 +49,6 @@ RSpec.describe EventsController do
     end
   end
 
-  describe 'GET #edit' do
-    let(:event) { create :event }
-
-    subject { get :edit, params: { id: event.id } }
-
-    it_behaves_like 'action not allowed for guests'
-
-    include_context 'user is logged in' do
-      it 'calls authorize' do
-        expect(controller).to receive(:authorize).with(event)
-        get :edit, params: { id: event.id }
-      end
-
-      it_behaves_like 'action that redirects unauthorized user'
-
-      include_context 'user is authorized' do
-        it_behaves_like 'successful request'
-      end
-    end
-  end
-
   describe 'POST #create' do
     let(:event_params) { attributes_for :event }
 
@@ -89,7 +68,7 @@ RSpec.describe EventsController do
             end.to change(Event, :count).by(1)
           end
 
-          it 'sets the right flash' do
+          it 'redirects and sets the right flash' do
             post :create, params: { event: event_params }
             expect(response).to redirect_to events_path
             expect(controller).to set_flash[:notice].to 'Event was created successfully'
@@ -99,7 +78,7 @@ RSpec.describe EventsController do
         context 'with invalid params' do
           let(:invalid_params) { { name: nil, description: nil } }
 
-          it 'creates a new Event' do
+          it 'does not create a new Event' do
             expect do
               post :create, params: { event: invalid_params }
             end.not_to change(Event, :count)
@@ -110,6 +89,27 @@ RSpec.describe EventsController do
             expect(controller).to set_flash[:alert].to 'Event could not be created'
           end
         end
+      end
+    end
+  end
+
+  describe 'GET #edit' do
+    let(:event) { create :event }
+
+    subject { get :edit, params: { id: event.id } }
+
+    it_behaves_like 'action not allowed for guests'
+
+    include_context 'user is logged in' do
+      it 'calls authorize' do
+        expect(controller).to receive(:authorize).with(event)
+        get :edit, params: { id: event.id }
+      end
+
+      it_behaves_like 'action that redirects unauthorized user'
+
+      include_context 'user is authorized' do
+        it_behaves_like 'successful request'
       end
     end
   end

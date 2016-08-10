@@ -13,7 +13,7 @@ RSpec.feature 'sending a message', js: true do
     click_button 'Send message'
 
     expect(page).to have_content t('messages.success.thanks')
-    expect(Sidekiq::Worker.jobs.size).to eq 1
+    expect(Sidekiq::Worker.jobs.size).to eq 2
   end
 
   scenario 'someone submits an invalid form' do

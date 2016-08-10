@@ -37,7 +37,7 @@ RSpec.describe ApplicationHelper, type: :helper do
 
   describe '#show_error' do
     it 'returns the content tag for an object that has errors' do
-      object = build :visitor, email: 'invalid@email'
+      object = build :contact, email: 'invalid@email'
       object.valid?
 
       expect(show_error(object, :email)).
@@ -45,7 +45,7 @@ RSpec.describe ApplicationHelper, type: :helper do
     end
 
     it 'returns nothing for an object that has no errors' do
-      object = build :visitor, email: 'valid@email.com'
+      object = build :contact, email: 'valid@email.com'
       object.valid?
 
       expect(show_error(object, :name)).to eq nil

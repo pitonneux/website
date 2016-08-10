@@ -3,6 +3,6 @@ class PagesController < ApplicationController
   def home
     @featured_events = Event.featured
     @message = Message.new
-    @visitor = Visitor.new
+    @contact = Contact.new
   end
 end
