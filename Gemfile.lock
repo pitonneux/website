@@ -318,7 +318,6 @@ GEM
       unf_ext
     unf_ext (0.0.7.2)
     url (0.3.2)
-    vcr (3.0.3)
     warden (1.2.6)
       rack (>= 1.0)
     web-console (3.3.1)
@@ -382,7 +381,6 @@ DEPENDENCIES
   spring
   turbolinks
   uglifier
-  vcr
   web-console
   webmock
 

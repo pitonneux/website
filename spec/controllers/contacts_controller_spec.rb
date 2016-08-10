@@ -9,7 +9,7 @@ RSpec.describe ContactsController, type: :controller do
     it_behaves_like 'action to be authorized with logged in user', Contact
   end
 
-  describe 'POST #create', :vcr do
+  describe 'POST #create' do
     let(:contact_params) { attributes_for :contact }
 
     subject { post :create, params: { contact: contact_params }, format: :js }

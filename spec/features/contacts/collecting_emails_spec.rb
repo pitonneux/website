@@ -2,7 +2,7 @@
 require 'rails_helper'
 require 'sidekiq/testing'
 
-RSpec.feature 'collecting email addresses from the home page', :vcr, js: true do
+RSpec.feature 'collecting email addresses from the home page', js: true do
   scenario 'someone submits a valid email' do
     clear_jobs_queue
     visit root_path
@@ -16,6 +16,7 @@ RSpec.feature 'collecting email addresses from the home page', :vcr, js: true do
 
   scenario 'someone submits an invalid or duplicate email' do
     create :contact, email: 'an_email_we_already_have@gmail.com'
+    clear_jobs_queue
 
     visit root_path
     fill_form :contact, 'Your email address': 'invalid@email'

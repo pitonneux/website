@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 # frozen_string_literal: true
-RSpec.describe MessageMailer, :vcr, type: :mailer do
+RSpec.describe MessageMailer, type: :mailer do
   describe 'send_to_admin' do
     let(:message) { create :message }
     let(:mail) { MessageMailer.send_to_admin(message) }

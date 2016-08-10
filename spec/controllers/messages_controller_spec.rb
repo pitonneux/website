@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 # frozen_string_literal: true
-RSpec.describe MessagesController, :vcr, type: :controller, js: true do
+RSpec.describe MessagesController, type: :controller, js: true do
   describe 'GET #index' do
     subject { get :index }
 

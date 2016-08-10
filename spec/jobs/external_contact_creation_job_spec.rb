@@ -10,5 +10,9 @@ RSpec.describe ExternalContactCreationJob, type: :job do
       expect(EXTERNAL_CONTACT).to receive(:create).with(email: email)
       described_class.new.perform(email: email)
     end
+
+    it 'enqueues a new job' do
+      expect { described_class.perform_later(email: email) }.to change(enqueued_jobs, :size).by 1
+    end
   end
 end

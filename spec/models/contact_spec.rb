@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require 'rails_helper'
 
-RSpec.describe Contact, :vcr, type: :model do
+RSpec.describe Contact, type: :model do
   subject { build :contact }
 
   it { is_expected.to validate_uniqueness_of(:email).case_insensitive }
@@ -24,6 +24,17 @@ RSpec.describe Contact, :vcr, type: :model do
         expect(ExternalContactCreationJob).to have_received(:perform_later).with(email: 'new@contact.com')
       end
     end
+
+    context 'updating an existing contact' do
+      it 'does not call the external contact job' do
+        contact = create :contact
+
+        expect(contact).not_to receive(:send_to_external_list)
+        contact.collectible = create :message
+        contact.save
+      end
+    end
+
 
     context 'with invalid params' do
       it 'does not queue the job' do

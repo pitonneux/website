@@ -14,13 +14,14 @@ if ENV['CIRCLE_ARTIFACTS']
 end
 
 require 'webmock/rspec'
-require 'vcr'
-
-VCR.configure do |c|
-  c.cassette_library_dir = 'spec/cassettes'
-  c.hook_into :webmock
-  c.configure_rspec_metadata!
-end
+# require 'vcr'
+#
+# VCR.configure do |c|
+#   c.cassette_library_dir = 'spec/cassettes'
+#   c.hook_into :webmock
+#   c.ignore_localhost = true
+#   c.configure_rspec_metadata!
+# end
 
 WebMock.disable_net_connect!(allow_localhost: true)
 
