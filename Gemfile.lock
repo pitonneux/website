@@ -1,3 +1,31 @@
+GIT
+  remote: git://github.com/mperham/sidekiq.git
+  revision: 871626c9b37a7a51213216379fd3eebfb4f305a3
+  branch: rails5
+  specs:
+    sidekiq (4.2.0)
+      concurrent-ruby (~> 1.0)
+      connection_pool (~> 2.2, >= 2.2.0)
+      redis (~> 3.2, >= 3.2.1)
+      sinatra (>= 1.4.7)
+
+GIT
+  remote: git://github.com/sinatra/rack-protection.git
+  revision: 7e723a74763bb83989d1249cdceb9cceb2ee6f01
+  specs:
+    rack-protection (2.0.0)
+      rack
+
+GIT
+  remote: git://github.com/sinatra/sinatra.git
+  revision: a7483f48b0a18ba792e642a356e3b25cf30a354b
+  specs:
+    sinatra (2.0.0.pre.alpha)
+      mustermann (~> 0.4)
+      rack (~> 2.0)
+      rack-protection (~> 2.0)
+      tilt (~> 2.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -153,6 +181,8 @@ GEM
     mimemagic (0.3.2)
     mini_portile2 (2.1.0)
     minitest (5.9.0)
+    mustermann (0.4.0)
+      tool (~> 0.2)
     netrc (0.11.0)
     nio4r (1.2.1)
     nokogiri (1.6.8)
@@ -246,10 +276,6 @@ GEM
       ruby_http_client (~> 3.0.0)
     shoulda-matchers (3.1.1)
       activesupport (>= 4.0.0)
-    sidekiq (4.1.2)
-      concurrent-ruby (~> 1.0)
-      connection_pool (~> 2.2, >= 2.2.0)
-      redis (~> 3.2, >= 3.2.1)
     simplecov (0.12.0)
       docile (~> 1.1.0)
       json (>= 1.8, < 3)
@@ -280,6 +306,7 @@ GEM
     thread_safe (0.3.5)
     tilt (2.0.5)
     tins (1.12.0)
+    tool (0.2.3)
     turbolinks (5.0.1)
       turbolinks-source (~> 5)
     turbolinks-source (5.0.0)
@@ -338,6 +365,8 @@ DEPENDENCIES
   psych
   puma
   pundit
+  rack (~> 2.0.0)
+  rack-protection!
   rails (~> 5.0.0)
   rails_12factor
   redcarpet
@@ -346,8 +375,9 @@ DEPENDENCIES
   sass-rails
   sendgrid-ruby
   shoulda-matchers
-  sidekiq
+  sidekiq!
   simplecov
+  sinatra!
   slim-rails
   spring
   turbolinks

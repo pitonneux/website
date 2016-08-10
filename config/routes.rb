@@ -1,6 +1,6 @@
+require 'sidekiq/web'
 # frozen_string_literal: true
 Rails.application.routes.draw do
-  # require 'sidekiq/web'
 
   devise_for :users,
              path: 'admin',
@@ -18,7 +18,9 @@ Rails.application.routes.draw do
   resources :messages, only: [:index, :create]
   resources :contacts, only: [:index, :create]
 
-  # namespace :admin do
-  #   mount Sidekiq::Web => '/sidekiq'
-  # end
+  authenticate :user, lambda { |u| u.admin? } do
+    namespace :admin do
+      mount Sidekiq::Web => '/sidekiq'
+    end
+  end
 end
