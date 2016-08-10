@@ -5,6 +5,8 @@ ruby '2.3.1'
 
 gem 'rails', '~>5.0.0'
 gem 'pg'
+gem 'friendly_id'
+gem 'puma'
 
 # Views
 gem 'autoprefixer-rails'
@@ -22,9 +24,6 @@ gem 'uglifier'
 # Image uploading
 gem 'carrierwave'
 gem 'cloudinary'
-
-# Server
-gem 'puma'
 
 # Jobs
 gem 'redis'
@@ -44,7 +43,6 @@ gem 'pundit'
 # For awesome debugging
 gem 'awesome_print', require: false
 gem 'pry-rails'
-
 
 group :development, :test do
   gem 'brakeman'

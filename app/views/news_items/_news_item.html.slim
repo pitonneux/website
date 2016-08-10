@@ -1,6 +1,6 @@
 .news_item
   .info
-    h2 = news_item.title
+    h2 = link_to news_item.title, news_item_path(news_item)
     time = l(news_item.created_at, format: :full)
     = render_markdown news_item.description
   .control
