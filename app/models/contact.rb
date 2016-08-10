@@ -8,6 +8,6 @@ class Contact < ApplicationRecord
   validates_uniqueness_of :email, case_sensitive: false
 
   def send_to_external_list
-    ExternalContactCreationJob.new.perform(email: email)
+    ExternalContactCreationJob.perform_later(email: email)
   end
 end

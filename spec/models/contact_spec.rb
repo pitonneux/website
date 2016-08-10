@@ -17,9 +17,20 @@ RSpec.describe Contact, :vcr, type: :model do
   it { is_expected.to belong_to :collectible }
 
   describe 'callbacks' do
-    it 'sends the new email address to the external service' do
-      expect_any_instance_of(ExternalContactCreationJob).to receive(:perform).with(email: 'new@contact.com')
-      create :contact, email: 'new@contact.com'
+    context 'with valid params' do
+      it 'sends the new email address to the external service' do
+        allow(ExternalContactCreationJob).to receive(:perform_later)
+        create :contact, email: 'new@contact.com'
+        expect(ExternalContactCreationJob).to have_received(:perform_later).with(email: 'new@contact.com')
+      end
+    end
+
+    context 'with invalid params' do
+      it 'does not queue the job' do
+        contact = build :contact, email: 'invalid@email'
+        expect(ExternalContactCreationJob).not_to receive :perform_later
+        contact.save
+      end
     end
   end
 end

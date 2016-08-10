@@ -7,7 +7,7 @@ class ContactsController < ApplicationController
   end
 
   def create
-    @contact = Contact.create(contact_params)
+    @contact = Contact.new(contact_params)
     respond_to :js
 
     if @contact.save
