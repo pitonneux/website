@@ -8,9 +8,5 @@ FactoryGirl.define do
     trait :message do
       collectible_type 'Message'
     end
-
-    trait :visitor do
-      collectible_type 'Visitor'
-    end
   end
 end

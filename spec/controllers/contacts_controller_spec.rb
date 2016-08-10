@@ -1,18 +1,18 @@
 # frozen_string_literal: true
 require 'rails_helper'
 
-RSpec.describe VisitorsController, type: :controller do
+RSpec.describe ContactsController, type: :controller do
   describe 'GET :index' do
     subject { get :index }
 
     it_behaves_like 'action not allowed for guests'
-    it_behaves_like 'action to be authorized with logged in user', Visitor
+    it_behaves_like 'action to be authorized with logged in user', Contact
   end
 
   describe 'POST #create', :vcr do
-    let(:visitor_params) { attributes_for :visitor }
+    let(:contact_params) { attributes_for :contact }
 
-    subject { post :create, params: { visitor: visitor_params }, format: :js }
+    subject { post :create, params: { contact: contact_params }, format: :js }
 
     it_behaves_like 'action that is allowed for guests'
     it_behaves_like 'successful request'

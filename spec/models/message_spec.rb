@@ -14,29 +14,4 @@ RSpec.describe Message, type: :model do
   end
 
   it { is_expected.to have_one(:contact).dependent(:destroy) }
-
-  describe 'callbacks', :vcr do
-    it 'creates and email recipient after saving' do
-      message = build :message
-      expect(message.contact).to be_nil
-
-      message.save
-
-      expect(message.contact.email).to eq message.email
-    end
-
-    context 'already have a recipient with that email address' do
-      it 'assigns the existing recipient to this message' do
-        create :contact, email: 'already@have.this'
-        message = build :message, email: 'already@have.this'
-        expect(message.contact).to be_nil
-        expect(Contact.count).to eq 1
-
-        message.save
-
-        expect(message.contact.email).to eq 'already@have.this'
-        expect(Contact.count).to eq 1
-      end
-    end
-  end
 end

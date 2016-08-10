@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 # frozen_string_literal: true
-RSpec.describe MessagesController, type: :controller, js: true do
+RSpec.describe MessagesController, :vcr, type: :controller, js: true do
   describe 'GET #index' do
     subject { get :index }
 
@@ -9,7 +9,7 @@ RSpec.describe MessagesController, type: :controller, js: true do
     it_behaves_like 'action to be authorized with logged in user', Message
   end
 
-  describe 'POST #create', :vcr do
+  describe 'POST #create' do
     let(:message_params) do
       { message: { sender: 'sender',
                    email: 'valid@email.com',
@@ -32,6 +32,32 @@ RSpec.describe MessagesController, type: :controller, js: true do
       it 'tells the mailer to deliver' do
         post :create, params: message_params, format: :js
         expect(mailer).to have_received :deliver_later
+      end
+
+      context 'setting contact' do
+        it 'creates a contact for a new message' do
+          expect(Contact.count).to eq 0
+          subject
+          expect(Contact.count).to eq 1
+          expect(Message.last.contact).to eq Contact.last
+        end
+
+        context 'already have a contact with that email address' do
+          let(:message_params) do
+            { message: { sender: 'sender',
+                         email: 'already@have.this',
+                         content: 'A nice message' } }
+          end
+
+          it 'assigns the existing contact to this message' do
+            create :contact, email: 'already@have.this'
+            expect(Contact.count).to eq 1
+            subject
+
+            expect(Message.last.email).to eq 'already@have.this'
+            expect(Contact.count).to eq 1
+          end
+        end
       end
     end
 

@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-class VisitorPolicy < ApplicationPolicy
+class ContactPolicy < ApplicationPolicy
   def index?
     admin?
   end

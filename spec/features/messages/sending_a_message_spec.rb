@@ -2,7 +2,12 @@
 require 'rails_helper'
 require 'sidekiq/testing'
 
-RSpec.feature 'sending a message', :vcr, new_episodes: :record, js: true do
+RSpec.feature 'sending a message', js: true do
+  before do
+    allow(SendGrid::API).to receive(:new).and_return true
+    allow(SendGrid::Contact).to receive(:create).and_return true
+  end
+
   scenario 'from the home page contact us form' do
     clear_jobs_queue
     visit root_path

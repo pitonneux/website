@@ -1,10 +1,11 @@
-# frozen_string_literal: true
 require 'sendgrid/contact'
 
-class ExternalContactService
+class ExternalContactCreationJob < ApplicationJob
+  queue_as :default
+
   EXTERNAL_CONTACT = SendGrid::Contact
 
-  def call(email:)
+  def perform(email:)
     EXTERNAL_CONTACT.create(email: email)
   end
 end
