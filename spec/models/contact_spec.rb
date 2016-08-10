@@ -35,7 +35,6 @@ RSpec.describe Contact, type: :model do
       end
     end
 
-
     context 'with invalid params' do
       it 'does not queue the job' do
         contact = build :contact, email: 'invalid@email'
