@@ -4,7 +4,7 @@ en:
     attributes:
       message:
         email: ''
-      visitor:
+      contact:
         email: ''
     errors:
       models:
@@ -12,7 +12,7 @@ en:
           attributes:
             email:
               invalid: Looks like that's not a valid email address. Could you double check it?
-        visitor:
+        contact:
           attributes:
             email:
               invalid: Looks like that's not a valid email address. Could you double check it?

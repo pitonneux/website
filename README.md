@@ -24,7 +24,7 @@ This codebase is monitored by [hound CI](https://houndci.com/), which automatica
 
 Fork the repository and clone it to your machine then change directory into `website`. Rename it if you want to.
 ```bash
-git clone git@github.com:***your-github-username***/Montreal.rb.git && cd website
+git clone git@github.com:***your-github-username***/website.git && cd website
 ```
 
 ## Database
@@ -60,7 +60,7 @@ The project is built with Rails, a stable and mature web framework. If you're un
 
 We use cloudinary for image hosting. You can sign up for a [free cloudinary account](https://cloudinary.com/users/register/free) to get API keys for  your local development and testing environments. You will need these keys to seed the database.
 
-We use send grid for sending emails. You don't need to set this up for the tests to work, but if you want to test email delivery locally you can sign up for a [free sendgrid account](https://app.sendgrid.com/signup?id=8b9ae93b-ce8a-11e4-b4e5-5fcde71ee009). Messages from the homepage contact form are delivered to the website admin, so you need to set the `ADMIN_EMAIL` environment variable as well for the tests to pass. Set it to your own if you want the form to send to your email address in development.
+We use send grid for sending emails. Our contact list is also synced with send grid. You can sign up for a [free sendgrid account](https://app.sendgrid.com/signup) to get your username, password, and make an API key. Messages from the homepage contact form are delivered to the website admin, so you need to set the `ADMIN_EMAIL` environment variable as well for the tests to pass. Set it to your own if you want the form to send to your email address in development.
 
 Your environment variables should be the following:
 
@@ -70,9 +70,9 @@ ADMIN_EMAIL=any_email_address@email.com
 CLOUDINARY_API_KEY=
 CLOUDINARY_API_SECRET=
 
-# optional
 SENDGRID_USERNAME=
 SENDGRID_PASSWORD=
+SENDGRID_API_KEY=
 ```
 
 ### Launch your database server

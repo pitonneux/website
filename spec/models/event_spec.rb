@@ -27,4 +27,28 @@ RSpec.describe Event, type: :model do
     it { is_expected.to     include upcoming     }
     it { is_expected.not_to include not_upcoming }
   end
+
+  describe 'slugging' do
+    it 'handles slugging events when slugs are taken' do
+      event = create :event, name: 'Learn Ruby on Rails'
+      expect(event.slug).to eq 'learn-ruby-on-rails'
+
+      next_event = create :event, name: 'Learn Ruby on Rails', starts_at: Time.zone.parse('2017-01-25 18:00:00')
+      expect(next_event.slug).to eq 'learn-ruby-on-rails-2017-01-25'
+
+      location = create :location, name: 'A nice location'
+      another_event = create :event, name: 'Learn Ruby on Rails',
+                                     starts_at: Time.zone.parse('2017-01-25 18:00:00'),
+                                     location: location
+      expect(another_event.slug).to eq 'learn-ruby-on-rails-2017-01-25-a-nice-location'
+    end
+
+    context 'object is invalid' do
+      it 'does not set a slug' do
+        event = build :event, name: nil
+        expect(event).to be_invalid
+        expect(event.slug).to be_nil
+      end
+    end
+  end
 end

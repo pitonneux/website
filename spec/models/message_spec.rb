@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 # frozen_string_literal: true
 require 'rails_helper'
 
@@ -14,4 +12,6 @@ RSpec.describe Message, type: :model do
     it { is_expected.to allow_value('looks-like@a-valid.email')  .for :email }
     it { is_expected.to allow_value('email_can@have.underscores').for :email }
   end
+
+  it { is_expected.to have_one(:contact).dependent(:destroy) }
 end

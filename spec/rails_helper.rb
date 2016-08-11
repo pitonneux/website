@@ -31,6 +31,7 @@ RSpec.configure do |config|
   config.use_transactional_fixtures = false
 
   config.include Features, type: :feature
+  config.include ActiveJob::TestHelper, type: :job
   config.include Devise::Test::ControllerHelpers, type: :controller
   config.include Warden::Test::Helpers
   config.before(:suite) { Warden.test_mode!  }

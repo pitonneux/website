@@ -1,5 +1,9 @@
 # frozen_string_literal: true
 class Event < ApplicationRecord
+  extend FriendlyId
+
+  friendly_id :slug_candidates, use: :slugged
+
   belongs_to :location
   mount_uploader :cover_image, CoverImageUploader
 
@@ -18,5 +22,21 @@ class Event < ApplicationRecord
   def image_size
     return if cover_image.size < 5.megabytes
     errors.add(:cover_image, 'cannot be more than 5MB')
+  end
+
+  def slug_candidates
+    [
+      :name,
+      [:name, start_date],
+      [:name, start_date, location_name]
+    ]
+  end
+
+  def start_date
+    starts_at.try(:to_date)
+  end
+
+  def location_name
+    location.try(:name)
   end
 end

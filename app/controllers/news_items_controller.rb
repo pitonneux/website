@@ -56,7 +56,7 @@ class NewsItemsController < ApplicationController
   private
 
   def find_news_item
-    NewsItem.find(params[:id])
+    NewsItem.friendly.find(params[:id])
   end
 
   def news_item_params

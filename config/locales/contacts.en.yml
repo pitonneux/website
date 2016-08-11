@@ -1,11 +1,11 @@
 ---
 en:
-  visitors:
+  contacts:
     new:
       email: Your email address
       button: Keep me posted
     success:
       thanks: Thanks for signing up!
-    visitor:
+    contact:
       email: 'Email address: '
       signed_up: 'Signed up on: '

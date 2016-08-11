@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160808035715) do
+ActiveRecord::Schema.define(version: 20160810202921) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "contacts", force: :cascade do |t|
+    t.string   "email",            null: false
+    t.string   "collectible_type"
+    t.integer  "collectible_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["collectible_type", "collectible_id"], name: "index_contacts_on_collectible_type_and_collectible_id", using: :btree
+  end
 
   create_table "events", force: :cascade do |t|
     t.string   "name",            null: false
@@ -28,7 +37,21 @@ ActiveRecord::Schema.define(version: 20160808035715) do
     t.string   "signup_link"
     t.string   "tagline"
     t.integer  "price"
+    t.string   "slug"
     t.index ["location_id"], name: "index_events_on_location_id", using: :btree
+    t.index ["slug"], name: "index_events_on_slug", unique: true, using: :btree
+  end
+
+  create_table "friendly_id_slugs", force: :cascade do |t|
+    t.string   "slug",                      null: false
+    t.integer  "sluggable_id",              null: false
+    t.string   "sluggable_type", limit: 50
+    t.string   "scope"
+    t.datetime "created_at"
+    t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true, using: :btree
+    t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
+    t.index ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
+    t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
   end
 
   create_table "locations", force: :cascade do |t|
@@ -54,6 +77,8 @@ ActiveRecord::Schema.define(version: 20160808035715) do
     t.text     "description", null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.string   "slug"
+    t.index ["slug"], name: "index_news_items_on_slug", unique: true, using: :btree
   end
 
   create_table "organizations", force: :cascade do |t|
