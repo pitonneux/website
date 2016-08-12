@@ -1,5 +1,5 @@
-p = @news_item.title
-p = render_markdown @news_item.description
+h1.news-heading = @news_item.title
+= render_markdown @news_item.description
 
 = link_to 'Edit', edit_news_item_path(@news_item)
 '|
