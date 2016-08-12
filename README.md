@@ -77,7 +77,7 @@ SENDGRID_API_KEY=
 
 ### Launch your database server
 
-**Ubuntu users:** before proceeding, remove the line for postgresql. 
+**Ubuntu users:** before proceeding, remove the line for postgresql from Procfile.dev. 
 
 You need to start your postgres server, redis server, and Sidekiq worker. We use `foreman` with the `Procfile.dev` to automate this. Make sure you have `foreman` installed (`gem install foreman`) and run
 
