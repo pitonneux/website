@@ -77,6 +77,8 @@ SENDGRID_API_KEY=
 
 ### Launch your database server
 
+**Ubuntu users: before proceeding, remove the line for postgresql.** 
+
 You need to start your postgres server, redis server, and Sidekiq worker. We use `foreman` with the `Procfile.dev` to automate this. Make sure you have `foreman` installed (`gem install foreman`) and run
 
 ```bash
@@ -84,6 +86,7 @@ foreman start -f Procfile.dev
 ```
 
 You need to specify the right procfile with the `-f` flag because there is a different Procfile for production. You can also launch these things separately if you want to.
+
 
 ### Setting up the project
 
