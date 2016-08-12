@@ -21,6 +21,21 @@
     +flex_column
     list-style: none
 
+  .news_item
+    min-width: 30%
+    +above($medium-screen)
+      max-width: 48%
+    margin: 0 0.5em 0.5em
+    float: left
+
+  .button
+    margin-bottom: 1.5em
+    display: block
+    float: left
+
+  .news_item:first-of-type
+    clear: both
+
   .location,
   .organization
     .info
