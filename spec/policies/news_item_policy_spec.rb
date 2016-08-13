@@ -7,7 +7,7 @@ RSpec.describe NewsItemPolicy do
 
   subject { described_class }
 
-  permissions :index? do
+  permissions :index?, :show? do
     it { is_expected.to permit user  }
     it { is_expected.to permit admin }
   end
