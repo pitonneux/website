@@ -16,13 +16,5 @@ RSpec.describe NewsItem, type: :model do
       another_item = create :news_item, title: 'A news item', created_at: Time.zone.parse('2016-01-25 18:00:00')
       expect(another_item.slug).to eq 'a-news-item-2016-01-25-18-00-00-utc'
     end
-
-    context 'object is invalid' do
-      it 'does not set a slug' do
-        news_item = build :news_item, title: nil
-        expect(news_item).to be_invalid
-        expect(news_item.slug).to be_nil
-      end
-    end
   end
 end
