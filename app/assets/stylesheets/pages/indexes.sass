@@ -22,19 +22,17 @@
     list-style: none
 
   .news_item
+    margin: 0 0.5em 1em
+
+  .mosaic .news_item
     min-width: 30%
     +above($medium-screen)
       max-width: 48%
-    margin: 0 0.5em 0.5em
     float: left
 
   .button
     margin-bottom: 1.5em
-    display: block
-    float: left
-
-  .news_item:first-of-type
-    clear: both
+    display: inline-block
 
   .location,
   .organization
@@ -44,6 +42,9 @@
   .organization
     img
       max-width: 25vh
+
+  h1.news-heading
+    line-height: 1
 
 
 

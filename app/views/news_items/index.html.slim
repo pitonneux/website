@@ -5,4 +5,7 @@ h1 = t('.news_items')
 - if policy(NewsItem).create?
   = link_to t('.new'), new_news_item_path, class: 'button'
 
-= render @news_items
+- if current_user.present?
+  section = render @news_items
+- else
+  section.mosaic = render @news_items
