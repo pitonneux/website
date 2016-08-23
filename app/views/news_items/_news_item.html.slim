@@ -1,9 +1,11 @@
-.news_item
+article.news_item
   .info
     h2 = link_to news_item.title, news_item_path(news_item)
     time = l(news_item.created_at, format: :full)
     = render_markdown news_item.description
   .control
-    = link_to t('edit'), edit_news_item_path(news_item), class: 'button'
-    = link_to t('destroy'), news_item, data: { confirm: t('delete') }, method: :delete, class: 'button'
+    - if policy(news_item).edit?
+      = link_to t('edit'), edit_news_item_path(news_item), class: 'button'
+    - if policy(news_item).destroy?
+      = link_to t('destroy'), news_item, data: { confirm: t('delete') }, method: :delete, class: 'button'
 

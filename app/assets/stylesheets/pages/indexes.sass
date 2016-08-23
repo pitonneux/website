@@ -21,6 +21,19 @@
     +flex_column
     list-style: none
 
+  .news_item
+    margin: 0 0.5em 1em
+
+  .mosaic .news_item
+    min-width: 30%
+    +above($medium-screen)
+      max-width: 48%
+    float: left
+
+  .button
+    margin-bottom: 1.5em
+    display: inline-block
+
   .location,
   .organization
     .info
@@ -29,6 +42,9 @@
   .organization
     img
       max-width: 25vh
+
+  h1.news-heading
+    line-height: 1
 
 
 

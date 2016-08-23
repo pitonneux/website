@@ -42,13 +42,5 @@ RSpec.describe Event, type: :model do
                                      location: location
       expect(another_event.slug).to eq 'learn-ruby-on-rails-2017-01-25-a-nice-location'
     end
-
-    context 'object is invalid' do
-      it 'does not set a slug' do
-        event = build :event, name: nil
-        expect(event).to be_invalid
-        expect(event.slug).to be_nil
-      end
-    end
   end
 end
