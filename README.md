@@ -39,6 +39,8 @@ Jobs are queued with Sidekiq, which uses redis to keep track of jobs. You'll nee
 brew install redis
 ```
 
+When installing redis on Ubuntu, make sure the config file is installed in /usr/local/etc/redis.conf instead of the default location. Creating a symlink seems to work as well.
+
 ## Ruby version
 
 The project currently uses ruby `2.3.1`. You can install many versions of Ruby on your machine with a ruby environment manager. Two common ones are [rbenv](https://github.com/rbenv/rbenv) and [rvm](https://rvm.io/).
