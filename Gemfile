@@ -27,11 +27,10 @@ gem 'cloudinary'
 
 # Jobs
 gem 'redis'
-# All this mess here to get sidekiq web UI working until sinatra supports rack 2.0
-gem 'sidekiq', github: 'mperham/sidekiq', branch: 'rails5'
+gem 'sidekiq'
+# For now until sinatra supports rack 2.0, required for sidekiq web to work
 gem 'sinatra', github: 'sinatra/sinatra', require: false
 gem 'rack', '~>2.0.0'
-gem 'rack-protection', github: 'sinatra/rack-protection'
 
 # Managing contacts
 gem 'sendgrid-ruby'
